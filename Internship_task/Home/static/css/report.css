@@ -35,6 +35,6 @@ span[contenteditable]{
   border-bottom: 1px solid #111;
   padding: 0 2px;
 }
-form.hidden{
-  display: none;
-}
+form.hidden{ display: none;}
+.jc-initial>label{justify-content: initial;}
+.test.hidden{display: none;}
