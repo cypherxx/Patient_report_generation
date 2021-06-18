@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+  <title>Dashboard Sign In, Free Admin Template</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<link rel="stylesheet" href="{% static 'css/templatemo_main.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  
+  <!-- 
+Dashboard Template 
+http://www.templatemo.com/preview/templatemo_415_dashboard
+-->
+</head>
+
+<body>
+  <div id="main-wrapper">
+    <div class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <div class="logo">
+          <h1>Dashboard - Admin Template</h1>
+        </div>
+      </div>
+    </div>
+    <div class="template-page-wrapper">
+      <form class="form-horizontal templatemo-signin-form" role="form" action="{% url 'sign_in' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <div class="col-md-12">
+            <label for="username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="username" name='username' placeholder="Username">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <label for="password" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="password" name='password' placeholder="Password">
+            </div>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <div class="col-md-12">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Sign in" class="btn btn-dark" style="margin-bottom: 20px;">
+              
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <div class="col-sm-offset-1 col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <a href="{% url 'reset_password' %}">Forgot password?</a>
+                </label>
+                <label>
+                  <a href="{% url 'register' %}">Register Here</a>
+                </label>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </form>
+      
+
+  
+    
+    </div>
+  </div>
+
+</body>
+
+</html>

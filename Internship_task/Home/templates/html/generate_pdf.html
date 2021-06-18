@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load tags %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report</title>
+    <style>
+        /* *{
+            margin-top: 30px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 30px;
+        } */
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 15%;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <p
+            style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 16px; text-align: center;">
+            <u><b>Intelligence and Education Assessment Report</b></u>
+        </p>
+    </header>
+    <div class="row" style="display: flex;">
+        <div class="column"
+            style="flex: 50%; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 16px">
+            <p><b>Name: {{name}}</b></p>
+            <p><b>Date of Testing: {{dot}}</b></p>
+            <p><b>Date of Birth: {{dob}}</b></p>
+
+
+        </div>
+
+        <div class="column"
+            style="flex: 50%; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 16px">
+            <p><b>Gender: {{gender}}</b></p>
+            <p><b>Age: {{age}}</b></p>
+            <p><b>Informant: {{informant}}</b></p>
+
+
+        </div>
+    </div>
+    <hr>
+    <div class="content"
+        style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 16px; ">
+        <p>{{name}}, {{year}} years {{month}} months old person was brought to the center for intellectual
+            and educational assessment by his {{informant}} with referral from {{2_referral}}. He is a student of class
+            {{class}} at {{school}}. He was referred with
+            complaints of {{complaints}}</p>
+        <p><u><b>Observations</b></u></p>
+        <p>{{name}} was cooperative for assessment. His physical built was observed as
+            age {{2_age_observation}}. Assessment was done in a comfortable environment a fter
+            establishing rapport. He was able to comprehend the instruction in
+            English, {{languages}} language, though with repetitions. {{name}} was {{2_qualities}} for the assessment.
+            His attention {{2_attention}}
+            aroused however sustaining the same for the required period of time
+            required prompts in between. His rate of responses was {{2_response}} to perform a task given. Assessment
+            was completed with
+            appropriate breaks in between sessions.</p>
+        <p><b><u>Tests Administered</u></b></p>
+        <p>In order to assess his Intellectual performance following test was administered;</p>
+        <ul>
+            <li>Malin’ s Intelligence Scale for Indian Children ( MISIC)</li>
+            <li>Raven’ s {{ravens_test}} Progressive Matrices ( R-{{ravens_test.0 | upper}}PM)</li>
+        </ul>
+        <p><b><u>Educational Assessment</u></b></p>
+        <ol>
+            <li>Sattler’s Informal Writing Assessment</li>
+            <li>Schonell’s Reading test</li>
+            <li>Schonell's Spelling Test</li>
+            <li>Roswell- Chall Diagnostic Reading Test of word analysis</li>
+            <li>Auditory Sequential Memory Test</li>
+            <li>Nimhans SLD index- Arithmetic test</li>
+
+        </ol>
+        <p style="text-align: center;"><u><b>Test Findings</b></u></p>
+        <p><b><u>I. Intellectual Assessment</u></b></p>
+        <p>On MISIC, his verbal quotient is
+            {{verbal_tests | Average}}
+            which suggests average
+            functioning on verbal scale (Average range is 90 -110; borderline range of intelligence is 71 -89). His
+            profile on the verbal scale is as follows;
+        </p>
+        <table class="center">
+            <tr>
+                <th bgcolor="#dddddd">Verbal Tests</th>
+                <th bgcolor="#dddddd">Verbal Quotient</th>
+            </tr>
+
+            <tr>
+                <td>Information</td>
+                <td>{{verbal_tests.0}}</td>
+            </tr>
+            <tr>
+                <td>Comprehention</td>
+                <td>{{verbal_tests.1}}</td>
+            </tr>
+            <tr>
+                <td>Arithmetic</td>
+                <td>{{verbal_tests.2}}</td>
+            </tr>
+            <tr>
+                <td>Similarities</td>
+                <td>{{verbal_tests.3}}</td>
+            </tr>
+            <tr>
+                <td>Digit Span</td>
+                <td>{{verbal_tests.4}}</td>
+            </tr>
+        </table>
+
+        <p>( The average range for reference of above table is 90 - 110; Borderline Range of intelligence is 71 - 89,
+            50- 70 mild intellectual impairment)</p>
+
+        <p><b>Information - fund of general knowledge; long-term memory; recall</b></p>
+        <p>The Information subtest reflects two factors in the child's development of language and knowledge: 1) The
+            richness of the child's verbal
+            environment during His development is reflected in the fund of knowledge. 2) The ability to store that
+            knowledge in long -term memory, recall it, and
+            verbally express it is an individual ability that is measured by the
+            Information subtest.<u>On this subtest {{name}} has scored at
+                {{verbal_tests.0 | Convert}} level.</u>
+        </p>
+        <p><b>Comprehension - Understanding social rules and ethics; common sense and judgment</b></p>
+        <p>The Comprehension subtest is based on social comprehension, a skill that is deficient in many LD and ADHD
+            children. The social understanding that underlies the Comprehension subtest is greatly influenced by
+            environment. Ethical judgment may be lacking for a variety of reasons -
+            intellectual, environmental, and emotional. For children with significantly
+            weak comprehension subtest scores, direct instruction in social skills may be required.<u>He has scored at
+                {{verbal_tests.1 | Convert}} level .</u>
+        </p>
+        <p><b>Arithmetic - Numerical reasoning; attention and concentration</b></p>
+        <p>The numerical tasks of the Arithmetic subtest are worked out "in the
+            child's head". He must have the ability to attend to the verbally presented problem and concentrate on
+            working out the answer in His short-term
+            memory. Performance on Arithmetic also requires a mastery of the
+            mathematical operations required by each item, and therefore rev eals information on the child's achievement
+            in arithmetic learning.
+            <u>On this subtest, his score is at {{verbal_tests.2 | Convert}}
+                    level.</u>
+        </p>
+        <p><b>Similarities - Verbal categories and concepts; abstract verbal reasoning</b></p>
+        <p>In order to store language and information in long -term memory, humans use a process of categorization and
+            conceptualization that develops from the concrete to the abstract. The Similarities subtest captures the
+            child's ability to mentally process verbal information, categorizing and
+            conceptualizing information in the long-term memory store. Over the
+            course of the child' s development, their conceptual skills progress from concrete to abstract reasoning, a
+            process that is reflected in the
+            Similarities subtest.
+            <u>{{name}} has scored {{verbal_tests.3 | Convert}} level on this subtest
+                    . </u>
+        </p>
+        <p><b>Digit Span - Short-term auditory memory; concentration and attention
+
+            </b></p>
+        <p>It is included in an assessment of the factor known as Freedom from Distractibility. High Digit Span scores
+            suggest a superior ability to
+            concentrate and memorize orally presented information.<u>Here he has scored at {{verbal_tests.4 | Convert}} level.</u>
+        </p>
+
+        <p>His performance quotient on the same test is {{performance_tests | Average}} which fall in
+            {{performance_tests_verbose}}
+            level of functioning (Average range is 90 -110; borderline range of intelligence is 71 -89). His
+            profile on the performance scale is as
+            mentioned below.
+        </p>
+        <table class="center">
+            <tr>
+                <th bgcolor="#dddddd">Performance Tests</th>
+                <th bgcolor="#dddddd">Performance Quotient</th>
+            </tr>
+            <tr>
+                <td>Picture Completion</td>
+                <td>{{performance_tests.0}}</td>
+            </tr>
+            <tr>
+                <td>Block Design</td>
+                <td>{{performance_tests.1}}</td>
+            </tr>
+            <tr>
+                <td>Object Assembly</td>
+                <td>{{performance_tests.2}}</td>
+            </tr>
+            <tr>
+                <td>Coding</td>
+                <td>{{performance_tests.3}}</td>
+            </tr>
+            <tr>
+                <td>Maze</td>
+                <td>{{performance_tests.4}}</td>
+            </tr>
+        </table>
+        <p>( The average range for reference of above table is 90 - 110, borderline range of intelligence is 71 - 89 )
+        </p>
+
+        <p><b>Picture Completion - Visual discrimination; attention to visual detail
+
+            </b></p>
+        <p>The skill reflected by the Picture Completion subtest is not visual acuity; it is visual discrimination. The
+            child must look at the visual whole presented and analyze its parts to identify what is missing. A
+            relatively simp le task, poor performance in a child with Learning Difficulty/Disability may be
+            related to visual-perceptual difficulties or environmenta l awareness. <u>Here {{name}} has {{performance_tests.0 | Convert}} score</u>
+        </p>
+        <p><b>Block Design - Abstract visual-perceptual ability; spatial and nonverbal problem-solving</b></p>
+        <p>A pure test of perceptual intelligence, Block Design is the only perceptual subtest that factors heavily with
+            overall intelligence. Block Design will
+            give you a good clue to innate intellectual potential. However, Block Design is a visual- motor task and
+            poor performance may be
+            developmental or related to a motor deficiency<u>. Here {{name}} scored below {{performance_tests.1 | Convert}} score.</u>
+        </p>
+        <p><b>Object Assembly - Visual analysis and construction of a whole from its parts</b></p>
+        <p>The Object Assembly subtest score reflects the visual -motor skills of
+            puzzle construction. The child must analyze the object and construct the
+            whole visual object from its parts within time constraints. <u>His score on this subtest is at below {{performance_tests.2 | Convert}} level.</u>
+        </p>
+        <p><b>Coding - Visual motor coordination; speed; concentration</b></p>
+        <p>An interesting performance subtests that measures visual motor skill.
+            Coding gives clues to basic deficiencies in visual motor performance
+            needed for writing. Good short-term memory improves performance on coding. It also factors with freedom from
+            distractibility and the ability to
+            concentrate to accomplish a visual motor task within time constraints. <u>On this subtest, his score is at
+                {{performance_tests.3 | Convert}} range.</u>
+
+        </p>
+        <p><b>Mazes- Mental Planning Skills</b></p>
+        <p>Mazes show the ability of mental planning, insight and attention to
+            instructions of the child. It is a good measure of visuo - motor coordination with accuracy and speed.
+            <u>Here also he has scored at {{performance_tests.4 | Convert}} level.
+                    </u>
+        </p>
+        <p>Overall, {{name}}’s <u>Full-Scale Intelligence Quotient is {{full_score}}</u>which indicate <u>average
+                intellectual
+                functioning. </u>His verbal scale scores are better than his performance scale scores. {{final_review}}
+            which could influence
+            his academic and day today functioning.
+            .
+        </p>
+        <p><b><u>Raven’s {{ravens_test}} Progressive Matrices (R-{{ravens_test.0 | upper}}PM)</u></b></p>
+        <p>On R-SPM, {{name}}`s score falls {{final_percentile}} percentile which indicates {{final_intelligence}}
+            intelligence. He struggled in items measuring visual analysis and organization, visual attention and
+            visual sequencing .
+        </p>
+        <p style="text-align: center;"><b><u>Educational Assessment Report</u></b></p>
+
+        <p><b>
+                <ul>
+                    <li>Schonell’s Spelling Test- B</li>
+                </ul>
+            </b></p>
+        <p>On Schonell’s Spelling test his spelling age is calculated as {{schonell_age}}, which is significantly below
+            his chronological age ({{year}} years {{month}} months). This score shows {{schonell_summary}} in his
+            spelling
+            skills.
+
+        </p>
+        <p><b>
+                <ul>
+                    <li>Roswell-Chall Diagnostic Reading Test of word analysis
+
+                    </li>
+                </ul>
+            </b></p>
+        <p>The qualitative analysis of Roswell-Chall shows following observations;
+
+        </p>
+        <ol>
+            <li>He has {{schonell_list_0}} knowledge of phonic sounds.</li>
+            <li>He has {{schonell_list_1}} knowledge of blends.</li>
+            <li>He has {{schonell_list_2}} understanding of vowel sounds.</li>
+            <li>He {{schonell_list_3}} syllabicate long and multisyllable words.</li>
+            <li>5. He has {{schonell_list_4}} understanding of silent ‘e’ sounds.</li>
+            <li>6. He {{schonell_list_5}} read words and short sentences, {{schonell_list_7}}.
+
+            </li>
+        </ol>
+        <p><b>
+                <ul>
+                    <li>Auditory Sequential Memory Test</li>
+                </ul>
+            </b></p>
+        <p>His auditory sequential memory is found to be at {{auditory_age}}
+            level, showing significantly inappropriate ability in sequential memory skills with his age level.
+        </p>
+        <p><b>
+                <ul>
+                    <li>NIMHANS SLD Index- Arithmetic test</li>
+                </ul>
+            </b></p>
+        <p>{{name}} has {{auditory_summary}} ability to perform basic operations of addition,
+            subtraction, multiplication and division {{auditory_report}}.
+
+        </p>
+        <p><b><u>Summary</u></b></p>
+        <p>From the test results, interview and observation it can be concluded that {{name}} is having borderline level
+            of
+            intellectual functioning with learning
+            difficulty. {{final_summary}}.
+        </p>
+        <p><b><u>Recommendations</u></b></p>
+        <p>From the assessments, it is recommended that {{name}} could benefit from
+
+        </p>
+        <ul>
+            <li>Parental counseling regarding the understanding of child’s diagnosis and results of the tests, so as to
+                accept the child and help him in a more appropriate way.</li>
+            <li>Individual counseling to learn how to cope up with academic and other stressful situations and build
+                confidence.</li>
+            <li>Cognitive Training to improve his deficient cognitive skills.</li>
+            <li>Training on study skills to improve his overall academic performance.</li>
+            <li>Remedial training to enhance his attentional skills, education skills like reading, writing, spelling,
+                arithmetic skills and facilitate rate of expression</li>
+            <li>Academic planning based on assessment results.</li>
+            <li>Demeaning comments about his performance should be altered with productive feedback.</li>
+            <li>Periodic review of intervention program with adequate modifications to be made from time to time and to
+                work on appropriate transfer of learning</li>
+            <li>An orientation to teachers about the results of assessment to provide suitable accommodations and
+                appropriate classroom modifications like,<p>
+                <ul>
+                    <li>extra t ime to complete his work</li>
+                    <li>appropriate monitoring and providing assistance for class work</li>
+                    <li>facilitate buddy system in classroom and outside activities so as to help monitor and develop
+                        his academic and adaptive
+                        functioning.
+                    </li>
+                </ul>
+                </p>
+            </li>
+            <li>He should also be provided accommodations during evaluations during the period of intervention namely
+                <p>
+                <ul>
+                    <li>extra t ime to write all his examinations</li>
+                    <li>to read out questions to him as and when required by him</li>
+                    <li>spelling errors to be overlooked for content</li>
+                    <li>provide distraction free environment to write his exams</li>
+                </ul>
+                </p>
+            </li>
+        </ul>
+
+
+
+    </div>
+
+</body>
+
+</html>

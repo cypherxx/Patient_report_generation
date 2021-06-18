@@ -1,0 +1,390 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New report</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="{% static 'css/report.css' %}">
+</head>
+
+<body>
+  <section id="top">
+    <h1>New Report</h1>
+    <div>
+      <div class="tab active">1</div>
+      <div class="tab">2</div>
+      <div class="tab">3</div>
+      <div class="tab">4</div>
+      <div class="tab">5</div>
+      <div class="tab">6</div>
+      <div class="tab">7</div>
+      <div class="tab">8</div>
+      <div class="tab">9</div>
+      <div class="tab">10</div>
+    </div>
+  </section>
+  <main>
+    <section class="open">
+      <h2>Basic Details</h2>
+      <div>
+        <label>Name <input type="text" name='name'></label>
+        <label>Gender <select name="gender" id="">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select></label>
+        <label>Date of testing <input type="date" name="dot"></label>
+        <label>Date of Birth <input type="date" name="dob"></label>
+        <label>Age <input type="number" name="age" min="2"></label>
+        <label>Informat <input type="text" name="informant"></label>
+      </div>
+    </section>
+    <section>
+      <p><span class="input__name">...</span>, <span class="input__year">...</span>years <span
+          class="input__month">...</span>months old boy was brought to the center for intellectual and educational
+        assessment by his <span class="input__informant">...</span> with referral from <span contenteditable=""
+          data-name="2_referral" class="input__2_referral">Department of
+          Special Education (DSE)of his school</span>. He is a student of class <span contenteditable
+          data-name="class">VIII</span> at <span contenteditable data-name="school">St. Andrews School, Keesara,
+          Hyderabad, Telangana</span>. He was referred with complaints of <span contenteditable
+          data-name="complaints">fear of exams, low academic performance and selective social interaction. He has been
+          availing remedial support from DSE of his school.</span></p>
+      <h3>Observations</h3>
+      <p><span class="input__name">...</span> was cooperative for assessment. His physical built was observed as age
+        <select name="2_age_observation">
+          <option value="appropriate">appropriate</option>
+          <option value="inappropriate">inappropriate</option>
+        </select>. Assessment was done in a comfortable
+        environment after establishing rapport. He was able to comprehend the instruction in English, <span
+          contenteditable data-name="languages">Telugu & Hindi</span> language, though with repetitions. <span
+          class="input__name">...</span> was <span contenteditable data-name="2_qualities">well oriented and was
+          motivated</span> for the assessment. His attention <select name="2_attention">
+          <option value="could be">could be</option>
+          <option value="could not be">could not be</option>
+        </select> aroused however sustaining the same for the required period of time required prompts in between. His
+        rate of responses was <span contenteditable data-name="2_response">slow and needed more time</span> to perform a
+        task given. Assessment was completed with appropriate breaks in between sessions.
+      </p>
+      <h2>Tests Administered</h2>
+      <p>In order to assess his Intellectual performance following test was administered;
+      <ul>
+        <li>Malin’s Intelligence Scale for Indian Children (MISIC)</li>
+        <li>Raven’s <select name="ravens_test" onchange="replace_initials(this)">
+            <!-- One more test -->
+            <option value="Standard" selected>Standard</option>
+            <option value="Advanced">Advanced</option>
+          </select> Progressive Matrices (R-<span class="input__ravens_test_initial">S</span>PM)</li>
+      </ul>
+      </p>
+    </section>
+    <section>
+      <h2>Educational Assessment</h2>
+      <ul style="list-style-type: disc;">
+        <li>Sattler’s Informal Writing Assessment </li>
+        <li>Schonell’s Reading test</li>
+        <li>Schonell’s Spelling Test</li>
+        <li>Roswell-Chall Diagnostic Reading Test of word analysis </li>
+        <li>Auditory Sequential Memory Test</li>
+        <li>Nimhans SLD index- Arithmetic test</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Writing Assessment</h2>
+      <table data-name="verbal_tests">
+        <thead>
+          <td>Verbal Tests</td>
+          <td>Verbal Quotient</td>
+        </thead>
+        <tr>
+          <td>Information</td>
+          <td><input type="number" min="0" max="100"></td>
+        </tr>
+        <tr>
+          <td>Comprehension</td>
+          <td><input type="number" min="0" max="100"></td>
+        </tr>
+        <tr>
+          <td>Arithmetic</td>
+          <td><input type="number" min="0" max="100"></td>
+        </tr>
+        <tr>
+          <td>Similarities</td>
+          <td><input type="number" min="0" max="100"></td>
+        </tr>
+        <tr>
+          <td>Digit Span</td>
+          <td><input type="number" min="0" max="100"></td>
+        </tr>
+      </table>
+      <h2>Reading Test</h2>
+      <table data-name="performance_tests">
+        <thead>
+          <td>Performance Tests</td>
+          <td>Performance Quotient</td>
+        </thead>
+        <tr>
+          <td>Picture Completion</td>
+          <td><input type="number" min="0" max="100"></td>
+        </tr>
+        <tr>
+          <td>Block Design</td>
+          <td><input type="number" min="0" max="100"></td>
+        </tr>
+        <tr>
+          <td>Object Assembly</td>
+          <td><input type="number" min="0" max="100"></td>
+        </tr>
+        <tr>
+          <td>Coding</td>
+          <td><input type="number" min="0" max="100"></td>
+        </tr>
+        <tr>
+          <td>Mazes</td>
+          <td><input type="number" min="0" max="100"></td>
+        </tr>
+      </table>
+    </section>
+    <section>
+      <h2>Test Findings</h2>
+      On MISIC, his verbal quotient is <span class="input__verbal_tests_average">...</span> which suggests <select
+        name="verbal_verbose">
+        <option value="Average">average</option>
+        <option value="Borderline">borderline</option>
+      </select> functioning on verbal scale (Average range is 90-110; borderline range of intelligence is 71-89). His
+      profile on the verbal scale is as follows;
+      <table class="verbal_tests_report">
+        <thead>
+          <td>Verbal Tests</td>
+          <td>Verbal Quotient</td>
+        </thead>
+        <tr>
+          <td>Information</td>
+          <td><span class="input_verbal">0</span></td>
+        </tr>
+        <tr>
+          <td>Comprehension</td>
+          <td><span class="input_verbal">0</span></td>
+        </tr>
+        <tr>
+          <td>Arithmetic</td>
+          <td><span class="input_verbal">0</span></td>
+        </tr>
+        <tr>
+          <td>Similarities</td>
+          <td><span class="input_verbal">0</span></td>
+        </tr>
+        <tr>
+          <td>Digit Span</td>
+          <td><span class="input_verbal">0</span></td>
+        </tr>
+      </table>
+      <strong>Information - fund of general knowledge; long-term memory; recall</strong>
+      The Information subtest reflects two factors in the child's development of language and knowledge: 1) The richness
+      of the child's verbal environment during His development is reflected in the fund of knowledge. 2) The ability to
+      store that knowledge in long-term memory, recall it, and verbally express it is an individual ability that is
+      measured by the Information subtest. On this subtest <span class="input__name">...</span> has scored at <span
+        class="input__verbal_tests_0">...</span> level.
+    </section>
+    <section>
+      <strong>Comprehension - Understanding social rules and ethics; common sense and judgment</strong>
+      The Comprehension subtest is based on social comprehension, a skill that is deficient in many LD and ADHD
+      children. The social understanding that underlies the Comprehension subtest is greatly influenced by environment.
+      Ethical judgment may be lacking for a variety of reasons - intellectual, environmental, and emotional. For
+      children with significantly
+      weak comprehension subtest scores, direct instruction in social skills may be required. He has scored at <span
+        class="input__verbal_tests_1">...</span> level.
+
+      <strong>Arithmetic - Numerical reasoning; attention and concentration</strong>
+      The numerical tasks of the Arithmetic subtest are worked out "in the child's head". He must have the ability to
+      attend to the verbally presented problem and concentrate on working out the answer in His short-term memory.
+      Performance on Arithmetic also requires a mastery of the mathematical operations required by each item, and
+      therefore reveals information on the child's achievement in arithmetic learning. On this subtest, his score is at
+      <span class="input__verbal_tests_2">...</span> level.
+
+      <strong>Similarities - Verbal categories and concepts; abstract verbal reasoning</strong>
+      In order to store language and information in long-term memory, humans use a process of categorization and
+      conceptualization that develops from the concrete to the abstract. The Similarities subtest captures the child's
+      ability to mentally process verbal information, categorizing and conceptualizing information in the long-term
+      memory store. Over the course of the child's development, their conceptual skills progress from concrete to
+      abstract reasoning, a process that is reflected in the Similarities subtest. <span class="input__name">...</span>
+      has scored <span class="input__verbal_tests_3">...</span> level on this subtest.
+
+      <strong>Digit Span - Short-term auditory memory; concentration and attention</strong>
+      It is included in an assessment of the factor known as Freedom from Distractibility. High Digit Span scores
+      suggest a superior ability to concentrate and memorize orally presented information. Here he has scored at <span
+        class="input__verbal_tests_4">...</span> level.
+    </section>
+    <section>His performance quotient on the same test is <span class="input__performance_tests_average">...</span>
+      which fall
+      <select name="performance_tests_verbose">
+        <option value="Average">average</option>
+        <option value="Borderline">borderline</option>
+      </select> level of functioning (Average range is 90-110; borderline range of intelligence is 71-89). His profile
+      on the performance
+      scale is as mentioned below.
+      <table class="performance_tests_report">
+        <thead>
+          <td>Performance Tests</td>
+          <td>Performance Quotient</td>
+        </thead>
+        <tr>
+          <td>Picture Completion</td>
+          <td><span class="input__performance">0</span></td>
+        </tr>
+        <tr>
+          <td>Block Design</td>
+          <td><span class="input__performance">0</span></td>
+        </tr>
+        <tr>
+          <td>Object Assembly</td>
+          <td><span class="input__performance">0</span></td>
+        </tr>
+        <tr>
+          <td>Coding</td>
+          <td><span class="input__performance">0</span></td>
+        </tr>
+        <tr>
+          <td>Mazes</td>
+          <td><span class="input__performance">0</span></td>
+        </tr>
+      </table>
+      <strong>Picture Completion - Visual discrimination; attention to visual detail</strong>
+      The skill reflected by the Picture Completion subtest is not visual acuity; it is visual discrimination. The child
+      must look at the visual whole presented and analyze its parts to identify what is missing. A relatively simple
+      task, poor performance in a child with Learning Difficulty/Disability may be related to visual-perceptual
+      difficulties or environmental awareness. Here <span class="input__name">...</span> has <span
+        class="input__performance_tests_0">...</span> score.
+    </section>
+    <section>
+      <strong>Block Design - Abstract visual-perceptual ability; spatial and nonverbal problem-solving</strong>
+      A pure test of perceptual intelligence, Block Design is the only perceptual subtest that factors heavily with
+      overall intelligence. Block Design will give you a good clue to innate intellectual potential. However, Block
+      Design is a visual-motor task and poor performance may be developmental or related to a motor deficiency. Here
+      <span class="input__name">...</span> scored <span class="input__performance_tests_1">...</span> score.
+
+      <strong>Object Assembly - Visual analysis and construction of a whole from its parts</strong>
+      The Object Assembly subtest score reflects the visual-motor skills of puzzle construction. The child must analyze
+      the object and construct the whole visual object from its parts within time constraints. His score on this subtest
+      is at <span class="input__performance_tests_2">...</span> level.
+
+      <strong>Coding - Visual motor coordination; speed; concentration</strong>
+      An interesting performance subtests that measures visual motor skill. Coding gives clues to basic deficiencies in
+      visual motor performance needed for writing. Good short-term memory improves performance on coding. It also
+      factors with freedom from distractibility and the ability to concentrate to accomplish a visual motor task within
+      time constraints. On this subtest, his score is at <span class="input__performance_tests_3"></span> range.
+    </section>
+    <section>
+      <strong>Mazes- Mental Planning Skills</strong>
+      Mazes show the ability of mental planning, insight and attention to instructions of the child. It is a good
+      measure of visuo-motor coordination with accuracy and speed. Here also he has scored at borderline level.
+
+      Overall,<span class="input__name">...</span>’s Full-Scale Intelligence Quotient is <span contenteditable
+        data-name="full_score">85</span> which indicate low average intellectual functioning. His
+      verbal scale scores are better than his performance scale scores. <span contenteditable
+        data-name="final_review">There is a discrepancy of above 24 points
+        between the two scale scores, suggestive of presence of learning difficulty. He might exhibit difficulties in
+        the
+        areas of, visual discrimination, attention to visual detail, abstract visual-perceptual ability, spatial and
+        nonverbal problem-solving, visual analysis and construction of a whole from its parts and mental planning
+        skills</span>;
+      which could influence his academic and day today functioning.
+      .
+      Raven’s <span class="input__ravens_test">...</span> Progressive Matrices (<R-span
+        class="input__ravens_test_initial">...</R-span>PM)
+
+      On R<span class="input__ravens_test_initial">...</span>PM, <span class="i"></span>`s score falls <span
+        contenteditable data-name="final_percentile">below 25th</span> percentile which indicates <span contenteditable
+        data-name="final_intelligence">low average</span> intelligence. He struggled in items
+      measuring visual analysis and organization, visual attention and visual sequencing.
+
+    </section>
+    <section>
+      <strong>Schonell’s Spelling Test-B</strong>
+      On Schonell’s Spelling test his spelling age is calculated as <span contenteditable data-name="schonell_age">7
+        years 5 months</span>, which is significantly below his chronological age (<span class="input__year">...</span>
+      years <span class="input__month">...</span> months). This score shows
+      <span contenteditable data-name="schonell_summary">severe level of inadequacy</span> in his spelling skills.
+
+      <strong>Roswell-Chall Diagnostic Reading Test of word analysis</strong>
+      The qualitative analysis of Roswell-Chall shows following observations;
+
+      <ul>
+        <li>He has <select name="schonell_list_0" id="">
+            <option value="adequate">adequate</option>
+            <option value="inadequate">inadequate</option>
+          </select> knowledge of phonic sounds.</li>
+        <li>He has <select name="schonell_list_1" id="">
+            <option value="adequate">adequate</option>
+            <option value="inadequate">inadequate</option>
+          </select> knowledge of blends.</li>
+        <li>He has <select name="schonell_list_2" id="">
+            <option value="adequate">adequate</option>
+            <option value="inadequate">inadequate</option>
+          </select> understanding of vowel sounds.
+        </li>
+        <li>He <select name="schonell_list_3" id="">
+            <option value="could be"> could be</option>
+            <option value="could not be">could not be</option>
+          </select> syllabicate long and multisyllable words.
+        </li>
+        <li>He has <select name="schonell_list_4" id="">
+            <option value="appropriate">appropriate</option>
+            <option value="inappropriate">inappropriate</option>
+          </select> understanding of silent ‘e’
+          sounds.</li>
+        <li>He <select name="schonell_list_5" id="">
+            <option value="could">could</option>
+            <option value="could not">could not</option>
+          </select> read words and short sentences, <span contenteditable data-name="schonell_list_7">however tries to
+            read letter by letter, hence takes more time
+            for reading</span>.</li>
+      </ul>
+
+      <strong>Auditory Sequential Memory Test</strong>
+      His auditory sequential memory is found to be at <span contenteditable data-name="auditory_age">8 years 6
+        months</span> level, showing significantly <select name="auditory_res" id="">
+        <option value="inappropriate">inappropriate</option>
+        <option value="appropriate">appropriate</option>
+      </select> ability in sequential memory skills with his age level.
+
+      <strong>SLD Index- Arithmetic test</strong>
+      <span class="input__name">...</span> has <span contenteditable data-name="auditory_summary">appropriate</span>
+      ability to perform basic operations of addition, subtraction, multiplication and division <span contenteditable
+        data-name="auditory_report">However, he makes mistakes in graded sums of multiplication, division and fractions.
+        He makes visuospatial and procedural errors in calculations</span>.
+    </section>
+    <section>
+      <h2>Summary</h2>
+      From the test results, interview and observation it can be concluded that H R is having borderline level of
+      intellectual functioning with learning difficulty. It is observable from the profile of the child that, he might
+      have difficulty <span contenteditable data-name="final_summary">with learning expression mostly as inappropriate
+        language processing and expression and
+        significant difficulty in visuo perception and processing. The profile and the observation data match with
+        profile
+        of Slow learner.</span>
+    </section>
+    <section>
+      <button id="submit">Submit Report</button>
+      (You can go back to review your changes)
+      <form action="{% url 'detail' %}" method="POST" class="hidden" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="user">Name</label>
+        <input type="text" name="report_name" id="">
+        <label for="Report">Report File</label>
+        <input type="file" name="Report" id="">
+        <input type="submit" name="" id="" value="Submit">
+      </form>
+    </section>
+
+    <div id="controls">
+      <button>⬅Back</button>
+      <button>Next➡</button>
+    </div>
+  </main>
+  <script src="{%static 'js/report.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <title>Dashboard Sign In, Free Admin Template</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo_main.css' %}">
+    <!-- 
+Dashboard Template 
+http://www.templatemo.com/preview/templatemo_415_dashboard
+-->
+</head>
+
+<body>
+    <div id="main-wrapper">
+        <div class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <div class="logo">
+                    <h1>Dashboard - Admin Template</h1>
+                </div>
+            </div>
+        </div>
+       <div class="container">
+            <div class="template-page-wrapper">
+                <div class="row g-4 mx-auto" style="margin-top: 30px;">
+                    <div class="col-12 mx-auto" style="color: black;">
+                        <label class="form-label" for="email" style="font-size:18px;">Username</label>
+                        <input type="email" name="email" class="form-control" value={{request.user.username}} disabled>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 mx-auto" style="color: black;">
+                            <label class="form-label" for="fname" style="font-size:18px;">First name</label>
+                            <input type="text" name="fname" value={{request.user.first_name}} class="form-control" disabled>
+                        </div>
+                        <div class="col-sm-6 mx-auto" style="color: black;">
+                            <label class="form-label" for="lname" style="font-size:18px;">Last name</label>
+                            <input type="text" name="lname" value={{request.user.last_name}} class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-12 mx-auto" style="color: black;">
+                        <label class="form-label" for="email" style="font-size:18px;">Email</label>
+                        <input type="email" name="email" class="form-control" value={{request.user.email}} disabled>
+                    </div>
+                    <div class="col-12 mx-auto" style="color: black;">
+                        <label class="form-label" for="email" style="font-size:18px;">Contact</label>
+                        <input type="email" name="email" class="form-control" value={{request.user.contact}} disabled>
+                    </div>
+                    <div class="col-12 mx-auto" style="color: black;margin-top: 30px;">
+                        <a href="{% url 'reset_password' %}" class="btn btn-default">Change Password</a>
+                    </div>
+                </div>
+            </div>
+       </div>
+</body>
+
+</html>

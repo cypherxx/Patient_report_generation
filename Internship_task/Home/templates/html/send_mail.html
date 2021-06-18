@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <title>Dashboard Sign In, Free Admin Template</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{% static 'css/templatemo_main.css' %}">
+    <!-- 
+Dashboard Template 
+http://www.templatemo.com/preview/templatemo_415_dashboard
+-->
+</head>
+
+<body>
+    <div id="main-wrapper">
+        <div class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <div class="logo">
+                    <h1>Dashboard - Admin Template</h1>
+                </div>
+            </div>
+        </div>
+        <header>
+            <h1>Enter Email ID to send Report</h3>
+        </header>
+        <div class="template-page-wrapper">
+            <form action="{% url 'report_mail' x.pk %}" method="post">
+                {% csrf_token %}
+                <label for="email">Email</label>
+                <input type="email" name="email" id="">
+                <input type="submit" value="Send Report">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
