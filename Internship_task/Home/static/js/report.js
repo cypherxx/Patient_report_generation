@@ -38,6 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const nextButton = $$("main>div button")[1];
   const inputs = $$("main [name]");
   const data_inputs = $$("main [contenteditable]");
+  const choices = $$(".test_choice");
 
   nextButton.addEventListener("click", () => {
     if (current === pages.length - 1) return;
@@ -127,6 +128,17 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  choices.forEach((choice, index)=>{
+    update_data('tests', [false, false, false, false, false, false]);
+    choice.addEventListener('change', function(){
+      const {tests} = JSON.parse(localStorage.getItem('form'));
+      tests[index] = choice.checked;
+      update_data('tests', tests);
+      pages[index] && pages[index].classList.toggle('hidden');
+    })
+  })
+
   $("#submit").addEventListener("click", () => {
 
     fetch("/get_report/", {
