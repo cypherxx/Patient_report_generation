@@ -70,6 +70,19 @@ window.addEventListener("DOMContentLoaded", () => {
   );
   data_inputs.forEach((input) => input.addEventListener("input", save));
 
+  // Development - Move when tab is clicked
+  tabs.forEach((tab, index)=>{
+
+    tab.addEventListener('click', ()=>{
+      pages[current] && pages[current].classList.remove("open");
+      tabs[current] && tabs[current].classList.remove("active");
+
+      current = index;
+      pages[current] && pages[current].classList.add("open");
+      tabs[current] && tabs[current].classList.add("active");
+    })
+  })
+
   $("[name=dob]").addEventListener("change", function () {
     const today = new Date();
     let year = today.getFullYear() - this.valueAsDate.getFullYear();
@@ -115,10 +128,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
   $("#submit").addEventListener("click", () => {
-    // const form = new FormData();
-    // const data = localStorage.getItem('form');
-
-    // for(const key in data) form.append(key, data[key]);
 
     fetch("/get_report/", {
       method: "POST",
