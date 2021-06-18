@@ -8,13 +8,16 @@ function update_data(name, value) {
   localStorage.setItem("form", JSON.stringify(data));
 }
 
-function replace_initials(element) {
-  $$(".input__" + element.name).forEach((e) => (e.textContent = element.value));
-  $$(".input__" + element.name + "_initial").forEach(
-    (e) => (e.textContent = element.value[0])
+function raven(age) {
+  const ravens_class = 'ravens_test';
+  const ravens_value = age>=11?"Standard":"Colour";
+  $$(".input__" + ravens_class).forEach((e) => (e.textContent = ravens_value));
+  $$(".input__" + ravens_class + "_initial").forEach(
+    (e) => (e.textContent = ravens_value[0])
   );
-  update_data(element.name, element.value);
+  update_data(ravens_class, ravens_value);
 }
+
 function save() {
   update_data(this.name || this.dataset.name, this.value || this.textContent);
   document
@@ -68,7 +71,6 @@ window.addEventListener("DOMContentLoaded", () => {
   data_inputs.forEach((input) => input.addEventListener("input", save));
 
   $("[name=dob]").addEventListener("change", function () {
-    // console.log('')
     const today = new Date();
     let year = today.getFullYear() - this.valueAsDate.getFullYear();
     let month = today.getMonth() - this.valueAsDate.getMonth();
@@ -78,8 +80,12 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     $$(".input__month").forEach((ele) => (ele.textContent = month));
     $$(".input__year").forEach((ele) => (ele.textContent = year));
+    $("[name=age]").value = year;
+    update_data('age', year);
     update_data("year", year);
     update_data("month", month);
+
+    raven(year);
   });
 
   $$("table[data-name]").forEach((table) => {

@@ -28,6 +28,7 @@
     </div>
   </section>
   <main>
+    <!-- Basic details: Page1 -->
     <section class="open">
       <h2>Basic Details</h2>
       <div>
@@ -38,10 +39,12 @@
           </select></label>
         <label>Date of testing <input type="date" name="dot"></label>
         <label>Date of Birth <input type="date" name="dob"></label>
-        <label>Age <input type="number" name="age" min="2"></label>
+        <label>Age <input type="number" name="age" min="2" disabled></label>
         <label>Informat <input type="text" name="informant"></label>
       </div>
     </section>
+
+    <!-- Tests, Observations Page2 -->
     <section>
       <p><span class="input__name">...</span>, <span class="input__year">...</span>years <span
           class="input__month">...</span>months old boy was brought to the center for intellectual and educational
@@ -72,14 +75,12 @@
       <p>In order to assess his Intellectual performance following test was administered;
       <ul>
         <li>Malin’s Intelligence Scale for Indian Children (MISIC)</li>
-        <li>Raven’s <select name="ravens_test" onchange="replace_initials(this)">
-            <!-- One more test -->
-            <option value="Standard" selected>Standard</option>
-            <option value="Advanced">Advanced</option>
-          </select> Progressive Matrices (R-<span class="input__ravens_test_initial">S</span>PM)</li>
+        <li>Raven’s <span class="input__ravens_test">...</span> Progressive Matrices (R-<span
+            class="input__ravens_test_initial">S</span>PM)</li>
       </ul>
       </p>
     </section>
+
     <section>
       <h2>Educational Assessment</h2>
       <ul style="list-style-type: disc;">
@@ -276,6 +277,7 @@
       factors with freedom from distractibility and the ability to concentrate to accomplish a visual motor task within
       time constraints. On this subtest, his score is at <span class="input__performance_tests_3"></span> range.
     </section>
+    
     <section>
       <strong>Mazes- Mental Planning Skills</strong>
       Mazes show the ability of mental planning, insight and attention to instructions of the child. It is a good
@@ -291,13 +293,11 @@
         nonverbal problem-solving, visual analysis and construction of a whole from its parts and mental planning
         skills</span>;
       which could influence his academic and day today functioning.
-      .
-      Raven’s <span class="input__ravens_test">...</span> Progressive Matrices (<R-span
-        class="input__ravens_test_initial">...</R-span>PM)
-
-      On R<span class="input__ravens_test_initial">...</span>PM, <span class="i"></span>`s score falls <span
-        contenteditable data-name="final_percentile">below 25th</span> percentile which indicates <span contenteditable
-        data-name="final_intelligence">low average</span> intelligence. He struggled in items
+      Raven’s <span class="input__ravens_test">...</span> Progressive Matrices (R<span
+        class="input__ravens_test_initial">...</span>PM) On R<span class="input__ravens_test_initial">...</span>PM,
+      <span class="i"></span>`s score falls <span contenteditable data-name="final_percentile">below 25th</span>
+      percentile which indicates <span contenteditable data-name="final_intelligence">low average</span> intelligence.
+      He struggled in items
       measuring visual analysis and organization, visual attention and visual sequencing.
 
     </section>
