@@ -14,8 +14,12 @@ body{
   height: 2em;
   flex-flow: column;
   justify-content: center !important;
+  position: relative;
+  border-radius: 40% 100px 100px 40%;
 }
 .tab.active{background-color: #10110f; font-weight: bold; color: #fffff0;}
+.tab.finished{background-color: #3da523;}
+.tab::before {content: "";height: 100%;width: 40%;position: absolute;left: -20px;background: inherit;border-radius: 100%;}
 
 main{overflow-y: auto; line-height: 1.4em;}
 
