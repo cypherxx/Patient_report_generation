@@ -48,6 +48,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const inputs = $$("main [name]");
   const data_inputs = $$("main [contenteditable]");
   const choices = $$(".test_choice");
+  // Sattler Checkoboxes
+  const checkboxes = $$('#sattler_table input[type=checkbox]');
 
   nextButton.addEventListener("click", () => {
     if (current === pages.length - 1) return;
@@ -155,6 +157,16 @@ window.addEventListener("DOMContentLoaded", () => {
       tests[index] = choice.checked;
       update_data('tests', tests);
       pages[index] && pages[index].classList.toggle('hidden');
+    })
+  })
+
+  // 7 rows, 5 columns
+  const data = Array.from({length: 7}, ()=>Array.from({length: 5}, ()=>false));
+  update_data('sattler_table', data);
+  checkboxes.forEach((c, i)=>{
+    c.addEventListener('change', function(){
+      data[Math.floor(i/5)][i%5] = c.checked;
+      update_data('sattler_table', data);
     })
   })
 
