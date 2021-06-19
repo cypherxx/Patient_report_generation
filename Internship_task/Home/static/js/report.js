@@ -29,6 +29,15 @@ function save() {
 function getGrade(num) {
   return num >= 90 && num <= 110 ? "Average" : "Borderline";
 }
+function digit_vocab(age){
+  $$('.digit').forEach(ele=>{
+    ele.textContent = age>=11?"Digit Span":"Vocabulary";
+  })
+}
+
+function get_data(key){
+  return JSON.parse(localStorage.getItem('form'))[key];
+}
 
 window.addEventListener("DOMContentLoaded", () => {
   const pages = $$("main>section");
@@ -100,6 +109,7 @@ window.addEventListener("DOMContentLoaded", () => {
     update_data("month", month);
 
     raven(year);
+    digit_vocab(year);
   });
 
   $$("table[data-name]").forEach((table) => {
@@ -109,10 +119,19 @@ window.addEventListener("DOMContentLoaded", () => {
         (sum, r) => sum + parseFloat(r.value || 0),
         0
       );
-      $(`.input__${name}_average`).textContent =
+      const avg =
         Math.floor((sum / inputs.length) * 100) / 100;
+      $(`.input__${name}_average`).textContent = avg;
+      $(`.input__${name}_verbose`).textContent = getGrade(avg);
       const arr = Array.from(inputs).map((ele) => ele.value || 0);
+
+      update_data(`${name}_average`, avg);
       update_data(name, arr);
+
+      // Change total score
+      const total_score = (get_data('verbal_tests_average')|| 0 + get_data('performance_tests_average') || 0)/2;
+      $('.full_score').textContent = total_score;
+      update_data('full_score', total_score)
     }
     const inputs = table.querySelectorAll("input");
     const trackerTable = $(`.${name}_report`);
