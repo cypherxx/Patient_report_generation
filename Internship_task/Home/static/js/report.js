@@ -48,10 +48,16 @@ window.addEventListener('DOMContentLoaded', () => {
   const inputs = $$('main [name]')
   const data_inputs = $$('main [contenteditable]')
   const choices = $$('.test_choice')
+  const test_sections = $$('.has_tests>.test');
   // Sattler Checkoboxes
   const checkboxes = $$('#sattler_table input[type=checkbox]')
 
   function finish () {
+    const p = pages[current];
+    if(p.classList.contains('has_tests')){
+      const visible_test = p.querySelector('.test:not(.hidden)');
+      visible_test || nextButton.dispatchEvent(new Event('click'))
+    }
     tabs.forEach((t, i) => {
       if (i < current) t.classList.add('finished')
       else t.classList.remove('finished')
@@ -160,13 +166,19 @@ window.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  const { tests:initial } = JSON.parse(localStorage.getItem('form'))
   choices.forEach((choice, index) => {
     update_data('tests', [false, false, false, false, false, false])
+    test_sections.forEach((s, i)=>{
+      if(initial[i]) s.classList.remove('hidden');
+      else s.classList.add('hidden');
+    })
     choice.addEventListener('change', function () {
       const { tests } = JSON.parse(localStorage.getItem('form'))
       tests[index] = choice.checked
+      if(choice.checked) test_sections[index].classList.remove('hidden');
+      else test_sections[index].classList.add('hidden');
       update_data('tests', tests)
-      pages[index] && pages[index].classList.toggle('hidden')
     })
   })
 
