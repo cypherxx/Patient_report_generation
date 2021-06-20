@@ -139,7 +139,7 @@ class get_report(View):
     global data
     def get(self, request):
         global data
-        return render_to_pdf_response(request,'html/generate_pdf.html',data,filename='report-'+data['name']+'-.pdf')
+        return render_to_pdf_response(request,'html/generate_pdf.html',data,filename='report-.pdf')
     def post(self, request):
         global data
         data = json.loads(request.body)
@@ -149,14 +149,34 @@ class get_report(View):
             data['performance_tests'] = [0,0,0,0,0]
         if not ver:
             data['verbal_tests'] = [0,0,0,0,0]
+       
+        data.pop('csrfmiddlewaretoken')
+        data.pop('')
+        data.pop('Report')
+        data.pop('report_name')
+        keys=list(data.keys())
+        print(keys)
+        x='ijk'
+        new_object=Report_Patient.objects.create()
+        for i in keys:
+            y=x+i
+            locals()[y]
+            print(y)
+            if type(data[i])==type(keys):
+                xx=json.dumps(data[i])
+                new_object.y=xx
+            else:
+                new_object.y=data[i]
+        new_object.save()
+
+        
         return JsonResponse({'status':201,"msg":"Working Correctly"})
     
 @login_required(login_url='sign_in')
 def detail(request):
-    print(request.POST,request.FILES)
-    name = request.POST['report_name']
+    x=Report_Patient.objects.order_by('patient_id')[0]
     pdf = request.FILES['Report']
     print(pdf)
-    patient = Report_Patient.objects.create(patient=name,report=pdf)
-    patient.save()
+    x.report=pdf
+    x.save()
     return redirect('index')
