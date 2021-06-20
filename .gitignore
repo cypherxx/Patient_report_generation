@@ -1,4 +1,5 @@
 venv/
+venv_windows/
 **/__pycache__
 .devcontainer/
 .vscode/
