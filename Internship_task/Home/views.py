@@ -95,6 +95,7 @@ def verify(request):
 @login_required(login_url='sign_in')
 def index(request):
     patient = list(Report_Patient.objects.values())
+    print(patient)
     l=[]
     for i in patient:
         x = list(i.values())
@@ -142,41 +143,90 @@ class get_report(View):
         return render_to_pdf_response(request,'html/generate_pdf.html',data,filename='report-.pdf')
     def post(self, request):
         global data
+        
         data = json.loads(request.body)
+        k=['name', 'gender', 'dot', 'dob', 'age', 'informant', 'class', '2_age_observation', '2_attention', 'appropriateness', 'inappropriate ', 'inappropriateness ', 'schonell_list_0', 'schonell_list_1', 'schonell_list_2', 'schonell_list_3', 'schonell_list_4', 'schonell_list_5', 'auditory_res', 'csrfmiddlewaretoken', '', '2_referral', 'school', 'complaints', 'languages', '2_qualities', '2_response', 'final_review', 'final_percentile', 'final_intelligence', 'schonell_reading_handwriting', 'schonell_reading_age', 'schonell_spelling_age', 'schonell_summary', 'schonell_list_7', 'auditory_age', 'auditory_summary', 'auditory_report', 'final_summary', 'tests', 'sattler_table', 'year', 'month', 'ravens_test', 'verbal_tests_average', 'verbal_tests', 'full_score', 'performance_tests_average', 'performance_tests']
+        a=list(data.keys())
+        for i in k:
+            if i not in a:
+                data[i]=None
         per = data.get('performance_tests')
         ver  =data.get('verbal_tests')
         if not per:
             data['performance_tests'] = [0,0,0,0,0]
         if not ver:
             data['verbal_tests'] = [0,0,0,0,0]
-       
-        data.pop('csrfmiddlewaretoken')
-        data.pop('')
-        data.pop('Report')
-        data.pop('report_name')
-        keys=list(data.keys())
-        print(keys)
-        x='ijk'
-        new_object=Report_Patient.objects.create()
-        for i in keys:
-            y=x+i
-            locals()[y]
-            print(y)
-            if type(data[i])==type(keys):
-                xx=json.dumps(data[i])
-                new_object.y=xx
-            else:
-                new_object.y=data[i]
+        new_object=Report_Patient.objects.create(ijkname=data['name'],
+                                            ijkgender=data['gender'],
+                                            ijkdot=data['dot'],
+                                            ijkdob=data['dob'],
+                                            ijkage=data['age'],
+                                            ijkinformant=data['informant'],
+                                            ijkclass=data['class'],
+                                            ijk2_age_observation=data['2_age_observation'],
+                                            ijk2_attention=data['2_attention'],
+                                            ijkappropriateness=data['appropriateness'],
+                                            ijkinappropriate =data['inappropriate '],
+                                            ijkinappropriateness =data['inappropriateness '],
+                                            ijkschonell_list_0=data['schonell_list_0'],
+                                            ijkschonell_list_1=data['schonell_list_1'],
+                                            ijkschonell_list_2=data['schonell_list_2'],
+                                            ijkschonell_list_3=data['schonell_list_3'],
+                                            ijkschonell_list_4=data['schonell_list_4'],
+                                            ijkschonell_list_5=data['schonell_list_5'],
+                                            ijkauditory_res=data['auditory_res'],
+                                            ijk2_referral=data['2_referral'],
+                                            ijkschool=data['school'],
+                                            ijkcomplaints=data['complaints'],
+                                            ijklanguages=data['languages'],
+                                            ijk2_qualities=data['2_qualities'],
+                                            ijk2_response=data['2_response'],
+                                            ijkfinal_review=data['final_review'],
+                                            ijkfinal_percentile=data['final_percentile'],
+                                            ijkfinal_intelligence=data['final_intelligence'],
+                                            ijkschonell_reading_handwriting=data['schonell_reading_handwriting'],
+                                            ijkschonell_reading_age=data['schonell_reading_age'],
+                                            ijkschonell_spelling_age=data['schonell_spelling_age'],
+                                            ijkschonell_summary=data['schonell_summary'],
+                                            ijkschonell_list_7=data['schonell_list_7'],
+                                            ijkauditory_age=data['auditory_age'],
+                                            ijkauditory_summary=data['auditory_summary'],
+                                            ijkauditory_report=data['auditory_report'],
+                                            ijkfinal_summary=data['final_summary'],
+                                            ijktests=data['tests'],
+                                            ijksattler_table=data['sattler_table'],
+                                            ijkyear=data['year'],
+                                            ijkmonth=data['month'],
+                                            ijkravens_test=data['ravens_test'],
+                                            ijkverbal_tests_average=data['verbal_tests_average'],
+                                            ijkverbal_tests=data['verbal_tests'],
+                                            ijkfull_score=data['full_score'],
+                                            ijkperformance_tests_average=data['performance_tests_average'],
+                                            ijkperformance_tests=data['performance_tests'])
         new_object.save()
-
-        
+        # for i in keys:
+        #     z=Report_Patient.objects.order_by('-patient_id')[0]
+        #     y=x+i
+        #     print(y)
+        #     if type(data[i])==type(keys):
+        #         xx=json.dumps(data[i])
+        #         z.y=xx
+        #     else:
+        #         z.y=data[i]
+        # z.save()
         return JsonResponse({'status':201,"msg":"Working Correctly"})
     
 @login_required(login_url='sign_in')
 def detail(request):
-    x=Report_Patient.objects.order_by('patient_id')[0]
+    x=Report_Patient.objects.order_by('-patient_id')[0]
+    print(x)
     pdf = request.FILES['Report']
     print(pdf)
-    x.report=pdf
+    x.Report=pdf
     x.save()
     return redirect('index')
+
+def edit(request):
+    return HttpResponse("Pass")
+    
+

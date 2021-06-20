@@ -69,7 +69,7 @@ class Report_Patient(models.Model):
         ordering = ('-patient_id',)
 
     def __str__(self):
-        return f'{self.ijkname}'
+        return f'{self.patient_id}'
 
 
 
