@@ -361,6 +361,7 @@ def detail(request):
     x.Report=pdf
     x.save()
     return redirect('index')
+
 @login_required(login_url='sign_in')
 def update_detail(request):
     x=Report_Patient.objects.get(patient_id=request.POST.get('report_id'))
@@ -370,6 +371,8 @@ def update_detail(request):
     x.Report=pdf
     x.save()
     return redirect('index')
+
+@login_required(login_url='sign_in')
 def edit(request):
     p_id=request.POST.get("edit")
     x=p_id[5:]

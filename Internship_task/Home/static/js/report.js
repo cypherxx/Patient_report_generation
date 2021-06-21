@@ -51,12 +51,13 @@ window.addEventListener('DOMContentLoaded', () => {
   const test_sections = $$('.has_tests>.test');
   // Sattler Checkoboxes
   const checkboxes = $$('#sattler_table input[type=checkbox]')
-  function finish () {
+  function finish (back=false) {
+    const handler = back ? backButton : nextButton;
     const p = pages[current];
     if(p.classList.contains('has_tests'))
     {
       const visible_test = p.querySelector('.test:not(.hidden)');
-      visible_test || nextButton.dispatchEvent(new Event('click'))
+      visible_test || handler.dispatchEvent(new Event("click"));
     }
     tabs.forEach((t, i) => {
       if (i < current) t.classList.add('finished')
@@ -81,7 +82,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     pages[current - 1] && pages[--current].classList.add('open')
     tabs[current] && tabs[current].classList.add('active')
-    finish()
+    finish(true)
   })
 
   inputs.forEach((input) => {
@@ -168,9 +169,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   
   let { tests:initial } = JSON.parse(localStorage.getItem('form')) 
-  if (!initial){
-    initial = [false, false, false, false, false, false];
-  }
+  initial = [false, false, false, false, false, false];
   update_data('tests',initial)
   test_sections.forEach((s, i) => {
     if (initial[i]) s.classList.remove("hidden");
@@ -223,4 +222,5 @@ window.addEventListener('DOMContentLoaded', () => {
         location.href = '/get_report/'
       })
   })
+  $("[name=dob]").dispatchEvent(new Event("change"));
 })
