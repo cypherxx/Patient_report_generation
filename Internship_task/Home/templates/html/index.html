@@ -54,7 +54,10 @@
                 <th scope="row">{{i.0}}</th>
                 <th scope="row">{{i.1}}</th>
                 <td><a href="{{u}}{{i.49}}" class="btn btn-default" download>Download</a></td>
-                <td><a href="{% url 'edit' %}" class="btn btn-default" name="{{i.0}}">Edit</a></td>
+                <form method="POST" action="{% url 'edit' %}">
+                  {% csrf_token %}
+                <td><input type="submit" class="btn btn-default" name="edit" value="Edit {{i.0}}"></a></td>
+              </form>
                 <td><a href="{% url 'send_mail' i.0 %}" class="btn btn-default">Send</a></td>
               </tr>
             {% endfor %}

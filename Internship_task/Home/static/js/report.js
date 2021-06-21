@@ -26,7 +26,7 @@ function save () {
       a.textContent = this.value || this.textContent
     })
 }
-function getGrade (num) {
+function getGrade (num){
   return num >= 90 && num <= 110 ? 'Average' : 'Borderline'
 }
 function digit_vocab (age) {
@@ -51,10 +51,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const test_sections = $$('.has_tests>.test');
   // Sattler Checkoboxes
   const checkboxes = $$('#sattler_table input[type=checkbox]')
-
   function finish () {
     const p = pages[current];
-    if(p.classList.contains('has_tests')){
+    if(p.classList.contains('has_tests'))
+    {
       const visible_test = p.querySelector('.test:not(.hidden)');
       visible_test || nextButton.dispatchEvent(new Event('click'))
     }
@@ -193,12 +193,16 @@ window.addEventListener('DOMContentLoaded', () => {
   })
 
   $('#submit').addEventListener('click', () => {
+    let x= document.getElementById("submit").value;
+    update_data('update_record',x)
     fetch('/get_report/', {
       method: 'POST',
+      
       headers: {
         'Content-Type': 'application/json',
         accept: 'application/json'
       },
+      
       body: localStorage.getItem('form')
     })
       .then(() => {
