@@ -168,13 +168,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const { tests:initial } = JSON.parse(localStorage.getItem('form'))
   choices.forEach((choice, index) => {
-    update_data('tests', [false, false, false, false, false, false])
-    test_sections.forEach((s, i)=>{
-      if(initial[i]) s.classList.remove('hidden');
-      else s.classList.add('hidden');
-    })
-    choice.addEventListener('change', function () {
+    choice.addEventListener('change', function ()
+    {
       const { tests } = JSON.parse(localStorage.getItem('form'))
+      
       tests[index] = choice.checked
       if(choice.checked) test_sections[index].classList.remove('hidden');
       else test_sections[index].classList.add('hidden');
@@ -206,7 +203,7 @@ window.addEventListener('DOMContentLoaded', () => {
       body: localStorage.getItem('form')
     })
       .then(() => {
-        // localStorage.removeItem('form')
+        localStorage.removeItem('form')
         location.href = '/get_report/'
         const form = $('form.hidden')
         form.classList.remove('hidden')

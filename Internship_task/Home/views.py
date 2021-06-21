@@ -35,7 +35,7 @@ def register(request):
         email=request.POST.get('email')
         phone=request.POST.get('mobile')
         password=request.POST.get('password')
-        print(username,f_name,l_name,email,password,phone)
+        #print(username,f_name,l_name,email,password,phone)
         new_user=CustomUser.objects.create_user(username=username, first_name=f_name, last_name=l_name, password=password,email=email, contact=phone)
         new_user.is_active=False
         new_user.save()
@@ -62,7 +62,7 @@ def user_profile(request):
 def send_report_mail(request,pk):
 
     x = Report_Patient.objects.get(pk=pk)
-    print(x)
+    #print(x)
     return render(request,'html/send_mail.html',{'x':x})
 
 @login_required(login_url='sign_in')
@@ -95,12 +95,12 @@ def verify(request):
 @login_required(login_url='sign_in')
 def index(request):
     patient = list(Report_Patient.objects.values())
-    print(patient)
+    #print(patient)
     l=[]
     for i in patient:
         x = list(i.values())
         l.append(x)
-    print(patient)
+    #print(patient)
     Url = f"{request.scheme}://{request.get_host()}/media/"
     return render(request, 'html/index.html',{'p':l,'u':Url})
 
@@ -156,58 +156,151 @@ class get_report(View):
             data['performance_tests'] = [0,0,0,0,0]
         if not ver:
             data['verbal_tests'] = [0,0,0,0,0]
-        if(data['update_record']!=0):
+        
+        if(data['update_record']!='0'):
+            #print(data)
             x=data['update_record']
-            print(x)
-            new_object=Report_Patient.objects.get(patient_id=x)
-            new_object.ijkname=data['name'],
-            new_object.ijkgender=data['gender'],
-            new_object.ijkdot=data['dot'],
-            new_object.ijkdob=data['dob'],
-            new_object.ijkage=data['age'],
-            new_object.ijkinformant=data['informant'],
-            new_object.ijkclass=data['class'],
-            new_object.ijk2_age_observation=data['2_age_observation'],
-            new_object.ijk2_attention=data['2_attention'],
-            new_object.ijkappropriateness=data['appropriateness'],
-            new_object.ijkinappropriate =data['inappropriate '],
-            new_object.ijkinappropriateness =data['inappropriateness '],
-            new_object.ijkschonell_list_0=data['schonell_list_0'],
-            new_object.ijkschonell_list_1=data['schonell_list_1'],
-            new_object.ijkschonell_list_2=data['schonell_list_2'],
-            new_object.ijkschonell_list_3=data['schonell_list_3'],
-            new_object.ijkschonell_list_4=data['schonell_list_4'],
-            new_object.ijkschonell_list_5=data['schonell_list_5'],
-            new_object.ijkauditory_res=data['auditory_res'],
-            new_object.ijk2_referral=data['2_referral'],
-            new_object.ijkschool=data['school'],
-            new_object.ijkcomplaints=data['complaints'],
-            new_object.ijklanguages=data['languages'],
-            new_object.ijk2_qualities=data['2_qualities'],
-            new_object.ijk2_response=data['2_response'],
-            new_object.ijkfinal_review=data['final_review'],
-            new_object.ijkfinal_percentile=data['final_percentile'],
-            new_object.ijkfinal_intelligence=data['final_intelligence'],
-            new_object.ijkschonell_reading_handwriting=data['schonell_reading_handwriting'],
-            new_object.ijkschonell_reading_age=data['schonell_reading_age'],
-            new_object.ijkschonell_spelling_age=data['schonell_spelling_age'],
-            new_object.ijkschonell_summary=data['schonell_summary'],
-            new_object.ijkschonell_list_7=data['schonell_list_7'],
-            new_object.ijkauditory_age=data['auditory_age'],
-            new_object.ijkauditory_summary=data['auditory_summary'],
-            new_object.ijkauditory_report=data['auditory_report'],
-            new_object.ijkfinal_summary=data['final_summary'],
-            new_object.ijktests=data['tests'],
-            new_object.ijksattler_table=data['sattler_table'],
-            new_object.ijkyear=data['year'],
-            new_object.ijkmonth=data['month'],
-            new_object.ijkravens_test=data['ravens_test'],
-            new_object.ijkverbal_tests_average=data['verbal_tests_average'],
-            new_object.ijkverbal_tests=data['verbal_tests'],
-            new_object.ijkfull_score=data['full_score'],
-            new_object.ijkperformance_tests_average=data['performance_tests_average'],
+            #print(x)
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            print(new_object.ijkname)
+            new_object.ijkname=data['name']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkgender=data['gender']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkdot=data['dot']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkdob=data['dob']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkinformant=data['informant']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkclass=data['class']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijk2_age_observation=data['2_age_observation']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijk2_attention=data['2_attention']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkappropriateness=data['appropriateness']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkinappropriate =data['inappropriate ']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkinappropriateness =data['inappropriateness ']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_list_0=data['schonell_list_0']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_list_1=data['schonell_list_1']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_list_2=data['schonell_list_2']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_list_3=data['schonell_list_3']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_list_4=data['schonell_list_4']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_list_5=data['schonell_list_5']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkauditory_res=data['auditory_res']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijk2_referral=data['2_referral']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschool=data['school']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkcomplaints=data['complaints']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijklanguages=data['languages']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijk2_qualities=data['2_qualities']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijk2_response=data['2_response']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkfinal_review=data['final_review']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkfinal_percentile=data['final_percentile']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkfinal_intelligence=data['final_intelligence']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_reading_handwriting=data['schonell_reading_handwriting']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_reading_age=data['schonell_reading_age']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_spelling_age=data['schonell_spelling_age']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_summary=data['schonell_summary']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_list_7=data['schonell_list_7']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkauditory_age=data['auditory_age']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkauditory_summary=data['auditory_summary']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkauditory_report=data['auditory_report']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkfinal_summary=data['final_summary']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijktests=data['tests']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijksattler_table=data['sattler_table']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkyear=data['year']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkmonth=data['month']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkravens_test=data['ravens_test']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkverbal_tests_average=data['verbal_tests_average']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkverbal_tests=data['verbal_tests']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkfull_score=data['full_score']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkperformance_tests_average=data['performance_tests_average']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
             new_object.ijkperformance_tests=data['performance_tests']
             new_object.save()
+            
         else:
             new_object=Report_Patient.objects.create(ijkname=data['name'],
                                             ijkgender=data['gender'],
@@ -262,18 +355,18 @@ class get_report(View):
 @login_required(login_url='sign_in')
 def detail(request):
     x=Report_Patient.objects.order_by('-patient_id')[0]
-    print(x)
+    #print(x)
     pdf = request.FILES['Report']
-    print(pdf)
+    #print(pdf)
     x.Report=pdf
     x.save()
     return redirect('index')
 @login_required(login_url='sign_in')
 def update_detail(request):
     x=Report_Patient.objects.get(patient_id=request.POST.get('report_id'))
-    print(x)
+    #print(x)
     pdf = request.FILES['Report']
-    print(pdf)
+    #print(pdf)
     x.Report=pdf
     x.save()
     return redirect('index')
@@ -284,13 +377,30 @@ def edit(request):
     y= (list(my_obj.values()))
     obj_keys= list(y[0].keys())
     obj_values= list(y[0].values())
+    flag=0
     for i in range(0,len(obj_values)):
         item=obj_values[i]
         if type(item)==type("str"):
             if item[0]=='[':
                 st='obj_values[i]='
                 exec(st+item)
-                print(obj_values[i])
+                flag+=1
+                if(flag==1):
+                    for j in range(0,len(obj_values[i])):
+                        if obj_values[i][j]==True:
+                            obj_values[i][j]='checked'
+                        else:
+                            obj_values[i][j]=''
+                    print(obj_values[i])
+                elif(flag==2):
+                    print(obj_values[i])
+                    for j in range(0,len(obj_values[i])):
+                        for k in range(0,5):
+                            if obj_values[i][j][k]==True:
+                                obj_values[i][j][k]='checked'
+                            else:
+                                obj_values[i][j][k]=''
+                    print(obj_values[i])                   
 
     return render(request, 'report/report_edit.html', {'key':obj_keys, 'value': obj_values})
     
