@@ -41,7 +41,7 @@
             <option value="Female">Female</option>
           </select></label>
         <label>Date of testing <input type="date" name="dot"></label>
-        <label>Date of Birth <input type="date" name="dob"></label>
+        <label>Date of Birth <input type="date" name="dob" required></label>
         <label>Age <input type="number" name="age" min="2" disabled></label>
         <label>Informat <input type="text" name="informant"></label>
       </div>
@@ -512,7 +512,7 @@
       <form action="{% url 'detail' %}" method="POST" class="hidden" enctype="multipart/form-data">
         {% csrf_token %}
         <label for="user">Name</label>
-        <input type="text" name="report_id" id="1">
+        <input type="text" name="report_name" >
         <label for="Report">Report File</label>
         <input type="file" name="Report" id="2">
         <input type="submit" name="" id="3" value="Submit">

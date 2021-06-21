@@ -306,7 +306,7 @@ class get_report(View):
                                             ijkgender=data['gender'],
                                             ijkdot=data['dot'],
                                             ijkdob=data['dob'],
-                                            ijkage=data['age'],
+                                            ijkage=data['age'] or 0,
                                             ijkinformant=data['informant'],
                                             ijkclass=data['class'],
                                             ijk2_age_observation=data['2_age_observation'],
@@ -380,7 +380,7 @@ def edit(request):
     flag=0
     for i in range(0,len(obj_values)):
         item=obj_values[i]
-        if type(item)==type("str"):
+        if type(item)==type("str") and item!='':
             if item[0]=='[':
                 st='obj_values[i]='
                 exec(st+item)

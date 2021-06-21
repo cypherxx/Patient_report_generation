@@ -51,12 +51,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const test_sections = $$('.has_tests>.test');
   // Sattler Checkoboxes
   const checkboxes = $$('#sattler_table input[type=checkbox]')
-  function finish () {
+  function finish (back=false) {
+    const handler = back?backButton:nextButton;
+
     const p = pages[current];
     if(p.classList.contains('has_tests'))
     {
       const visible_test = p.querySelector('.test:not(.hidden)');
-      visible_test || nextButton.dispatchEvent(new Event('click'))
+      visible_test || handler.dispatchEvent(new Event('click'))
     }
     tabs.forEach((t, i) => {
       if (i < current) t.classList.add('finished')
@@ -81,7 +83,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     pages[current - 1] && pages[--current].classList.add('open')
     tabs[current] && tabs[current].classList.add('active')
-    finish()
+    finish(true)
   })
 
   inputs.forEach((input) => {
@@ -110,7 +112,7 @@ window.addEventListener('DOMContentLoaded', () => {
       finish()
     })
   })
-
+  
   $('[name=dob]').addEventListener('change', function () {
     const today = new Date()
     let year = today.getFullYear() - this.valueAsDate.getFullYear()
@@ -165,29 +167,34 @@ window.addEventListener('DOMContentLoaded', () => {
       })
     })
   })
-
-  const { tests:initial } = JSON.parse(localStorage.getItem('form'))
-  choices.forEach((choice, index) => {
-    choice.addEventListener('change', function ()
-    {
-      const { tests } = JSON.parse(localStorage.getItem('form'))
-      
-      tests[index] = choice.checked
-      if(choice.checked) test_sections[index].classList.remove('hidden');
-      else test_sections[index].classList.add('hidden');
-      update_data('tests', tests)
-    })
-  })
+  let arr = [];
+   choices.forEach(choice=>{
+      arr.push(choice.checked);
+   })
+   update_data('tests',arr)
+   choices.forEach((choice, index) => {
+      if (choice.checked) test_sections[index].classList.remove("hidden");
+      else test_sections[index].classList.add("hidden");
+     choice.addEventListener("change", function () {
+       const { tests } = JSON.parse(localStorage.getItem("form"));
+       tests[index] = choice.checked;
+       if (choice.checked) test_sections[index].classList.remove("hidden");
+       else test_sections[index].classList.add("hidden");
+       update_data("tests", tests);
+     });
+   });
 
   // 7 rows, 5 columns
   const data = Array.from({ length: 7 }, () => Array.from({ length: 5 }, () => false))
-  update_data('sattler_table', data)
+  // update_data('sattler_table', data)
   checkboxes.forEach((c, i) => {
+    data[Math.floor(i / 5)][i % 5] = c.checked;
     c.addEventListener('change', function () {
       data[Math.floor(i / 5)][i % 5] = c.checked
       update_data('sattler_table', data)
     })
   })
+  update_data('sattler_table',data)
 
   $('#submit').addEventListener('click', () => {
     let x= document.getElementById("submit").value;
@@ -203,11 +210,10 @@ window.addEventListener('DOMContentLoaded', () => {
       body: localStorage.getItem('form')
     })
       .then(() => {
-        localStorage.removeItem('form')
+        
         location.href = '/get_report/'
         const form = $('form.hidden')
         form.classList.remove('hidden')
-        form.report_name.value = JSON.parse(localStorage.getItem('form')).name
         localStorage.removeItem('form')
       })
       .catch((err) => {
@@ -215,4 +221,5 @@ window.addEventListener('DOMContentLoaded', () => {
         location.href = '/get_report/'
       })
   })
+  $("[name=dob]").dispatchEvent(new Event("change"));
 })
