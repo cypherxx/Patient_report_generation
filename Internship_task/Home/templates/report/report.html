@@ -132,8 +132,9 @@
           <td>Similarities</td>
           <td><input type="number" min="0" max="100"></td>
         </tr>
+        
         <tr>
-          <td><span class="digit">Digit Span</span></td>
+          <td>Digit Span</td>
           <td><input type="number" min="0" max="100"></td>
         </tr>
       </table>
@@ -191,7 +192,7 @@
           <td><span class="input_verbal">0</span></td>
         </tr>
         <tr>
-          <td><span class="digit">Digit Span</span></td>
+          <td>Digit Span</td>
           <td><span class="input_verbal">0</span></td>
         </tr>
       </table>
@@ -307,7 +308,7 @@
       <span class="i"></span>`s score falls <span contenteditable data-name="final_percentile">below 25th</span>
       percentile which indicates <span contenteditable data-name="final_intelligence">low average</span> intelligence.
       He struggled in items
-      measuring visual analysis and organization, visual attention and visual sequencing.</p>
+      measuring visual analysis and organization, <span contenteditable data-name="schonell_reading_handwriting">visual attention and visual sequencing.</span></p>
 
     </section>
 
@@ -400,17 +401,15 @@
             <option value="severe level of inadequacy">severe level of inadequacy</option>
             <option value="profound level of inadequacy">profound level of inadequacy</option>
           </select>
-           in most areas as assessed by this tool. However, He has macro letter formation and puts more pressure on paper. He writes in cursive letters and has 
-           <select name="inappropriate ">
-            <option value="inappropriate ">inappropriate </option>
-            <option value="appropriateness">appropriateness</option>
-            <option value="inappropriateness">inappropriateness</option>
+          <span contenteditable data-name="schonell_reading_handwriting">in most areas as assessed by this tool. However, He has macro letter formation and puts more pressure on paper. He writes in cursive letters and has </span>
+           <select name="appropriate ">
+            <option value="appropriate ">appropriate </option>
+            <option value="inappropriate">inappropriate</option>
+            <option value="adequate">adequate</option>
             <option value="mild level of inadequacy">mild level of inadequacy</option>
-            <option value="moderate level of inadequacy">moderate level of inadequacy</option>
-            <option value="severe level of inadequacy">severe level of inadequacy</option>
-            <option value="profound level of inadequacy">profound level of inadequacy</option>
+            <option value="inadequate">inadequate</option>
           </select>
-            pencil hold. </p>
+          <span contenteditable data-name="schonell_reading_handwriting"> pencil hold. </span></p>
       </div>
 
       <div class="test hidden">
@@ -439,7 +438,17 @@
         <p>On Schonell’s Spelling test his spelling age is calculated as <span contenteditable data-name="schonell_spelling_age">7
           years 5 months</span>, which is significantly below his chronological age (<span class="input__year">...</span>
         years <span class="input__month">...</span> months). This score shows
-        <span contenteditable data-name="schonell_summary">severe level of inadequacy</span> in his spelling skills.</p>
+        <select name="severe level of inadequacy ">
+          <option value="severe level of inadequacy">severe level of inadequacy</option>
+          <option value="inappropriateness ">inappropriateness </option>
+          <option value="inappropriate ">inappropriate </option>
+          <option value="appropriateness">appropriateness</option>
+          <option value="inappropriateness">inappropriateness</option>
+          <option value="mild level of inadequacy">mild level of inadequacy</option>
+          <option value="moderate level of inadequacy">moderate level of inadequacy</option>
+          
+          <option value="profound level of inadequacy">profound level of inadequacy</option>
+        </select>severe level of inadequacy</span> in his spelling skills.</p>
       </div>
 
       <div class="test hidden">
@@ -450,14 +459,20 @@
           <li>He has <select name="schonell_list_0" id="">
               <option value="adequate">adequate</option>
               <option value="inadequate">inadequate</option>
+              <option value="appropriate ">appropriate </option>
+              <option value="inappropriate">inappropriate</option>
             </select> knowledge of phonic sounds.</li>
           <li>He has <select name="schonell_list_1" id="">
               <option value="adequate">adequate</option>
               <option value="inadequate">inadequate</option>
+              <option value="appropriate ">appropriate </option>
+              <option value="inappropriate">inappropriate</option>
             </select> knowledge of blends.</li>
           <li>He has <select name="schonell_list_2" id="">
               <option value="adequate">adequate</option>
               <option value="inadequate">inadequate</option>
+              <option value="appropriate ">appropriate </option>
+              <option value="inappropriate">inappropriate</option>
             </select> understanding of vowel sounds.
           </li>
           <li>He <select name="schonell_list_3" id="">
@@ -468,6 +483,8 @@
           <li>He has <select name="schonell_list_4" id="">
               <option value="appropriate">appropriate</option>
               <option value="inappropriate">inappropriate</option>
+              <option value="adequate">adequate</option>
+              <option value="inadequate">inadequate</option>
             </select> understanding of silent ‘e’
             sounds.</li>
           <li>He <select name="schonell_list_5" id="">
@@ -485,12 +502,19 @@
           months</span> level, showing significantly <select name="auditory_res" id="">
           <option value="inappropriate">inappropriate</option>
           <option value="appropriate">appropriate</option>
+          <option value="adequate">adequate</option>
+          <option value="inadequate">inadequate</option>
         </select> ability in sequential memory skills with his age level.</p>
       </div>
 
       <div class="test hidden">
         <strong>Nimhans SLD Index- Arithmetic test</strong>
-        <p><span class="input__name">...</span> has <span contenteditable data-name="auditory_summary">appropriate</span>
+        <p><span class="input__name">...</span> has <select name="auditory_res" id="">
+          <option value="appropriate">appropriate</option>
+          <option value="inappropriate">inappropriate</option>
+          <option value="adequate">adequate</option>
+          <option value="inadequate">inadequate</option>
+        </select>appropriate
         ability to perform basic operations of addition, subtraction, multiplication and division <span contenteditable
           data-name="auditory_report">However, he makes mistakes in graded sums of multiplication, division and fractions.
           He makes visuospatial and procedural errors in calculations</span>.</p>
