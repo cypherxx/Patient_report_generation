@@ -26,7 +26,7 @@ function save () {
       a.textContent = this.value || this.textContent
     })
 }
-function getGrade (num){
+function getGrade (num) {
   return num >= 90 && num <= 110 ? 'Average' : 'Borderline'
 }
 function digit_vocab (age) {
@@ -48,16 +48,15 @@ window.addEventListener('DOMContentLoaded', () => {
   const inputs = $$('main [name]')
   const data_inputs = $$('main [contenteditable]')
   const choices = $$('.test_choice')
-  const test_sections = $$('.has_tests>.test');
+  const test_sections = $$('.has_tests>.test')
   // Sattler Checkoboxes
   const checkboxes = $$('#sattler_table input[type=checkbox]')
-  function finish (back=false) {
-    const handler = back ? backButton : nextButton;
-    const p = pages[current];
-    if(p.classList.contains('has_tests'))
-    {
-      const visible_test = p.querySelector('.test:not(.hidden)');
-      visible_test || handler.dispatchEvent(new Event("click"));
+  function finish (back = false) {
+    const handler = back ? backButton : nextButton
+    const p = pages[current]
+    if (p.classList.contains('has_tests')) {
+      const visible_test = p.querySelector('.test:not(.hidden)')
+      visible_test || handler.dispatchEvent(new Event('click'))
     }
     tabs.forEach((t, i) => {
       if (i < current) t.classList.add('finished')
@@ -113,7 +112,7 @@ window.addEventListener('DOMContentLoaded', () => {
   })
 
   $('[name=dob]').addEventListener('change', function () {
-    if(!this.valueAsDate) return;
+    if (!this.valueAsDate) return
     const today = new Date()
     let year = today.getFullYear() - this.valueAsDate.getFullYear()
     let month = today.getMonth() - this.valueAsDate.getMonth()
@@ -168,21 +167,20 @@ window.addEventListener('DOMContentLoaded', () => {
     })
   })
 
-  
-  let { tests:initial } = JSON.parse(localStorage.getItem('form')) 
-  initial = [false, false, false, false, false, false];
-  update_data('tests',initial)
+  let { tests: initial } = JSON.parse(localStorage.getItem('form'))
+  initial = [false, false, false, false, false, false]
+  update_data('tests', initial)
   test_sections.forEach((s, i) => {
-    if (initial[i]) s.classList.remove("hidden");
-    else s.classList.add("hidden");
-  });
+    if (initial[i]) s.classList.remove('hidden')
+    else s.classList.add('hidden')
+  })
   choices.forEach((choice, index) => {
     choice.checked = initial[index]
     choice.addEventListener('change', function () {
       const { tests } = JSON.parse(localStorage.getItem('form'))
       tests[index] = choice.checked
-      if(choice.checked) test_sections[index].classList.remove('hidden');
-      else test_sections[index].classList.add('hidden');
+      if (choice.checked) test_sections[index].classList.remove('hidden')
+      else test_sections[index].classList.add('hidden')
       update_data('tests', tests)
     })
   })
@@ -198,20 +196,19 @@ window.addEventListener('DOMContentLoaded', () => {
   })
 
   $('#submit').addEventListener('click', () => {
-    let x= document.getElementById("submit").value;
-    update_data('update_record',x)
+    const x = document.getElementById('submit').value
+    update_data('update_record', x)
     fetch('/get_report/', {
       method: 'POST',
-      
+
       headers: {
         'Content-Type': 'application/json',
         accept: 'application/json'
       },
-      
+
       body: localStorage.getItem('form')
     })
       .then(() => {
-        
         location.href = '/get_report/'
         const form = $('form.hidden')
         form.classList.remove('hidden')
@@ -223,5 +220,5 @@ window.addEventListener('DOMContentLoaded', () => {
         location.href = '/get_report/'
       })
   })
-  $("[name=dob]").dispatchEvent(new Event("change"));
+  $('[name=dob]').dispatchEvent(new Event('change'))
 })
