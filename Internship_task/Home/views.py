@@ -143,8 +143,8 @@ class get_report(View):
         return render_to_pdf_response(request,'html/generate_pdf.html',data,filename='report-.pdf')
     def post(self, request):
         global data
-        
         data = json.loads(request.body)
+        print(data)
         k=['name', 'gender', 'dot', 'dob', 'age', 'informant', 'class', '2_age_observation', '2_attention', 'appropriateness', 'inappropriate ', 'inappropriateness ', 'schonell_list_0', 'schonell_list_1', 'schonell_list_2', 'schonell_list_3', 'schonell_list_4', 'schonell_list_5', 'auditory_res', 'csrfmiddlewaretoken', '', '2_referral', 'school', 'complaints', 'languages', '2_qualities', '2_response', 'final_review', 'final_percentile', 'final_intelligence', 'schonell_reading_handwriting', 'schonell_reading_age', 'schonell_spelling_age', 'schonell_summary', 'schonell_list_7', 'auditory_age', 'auditory_summary', 'auditory_report', 'final_summary', 'tests', 'sattler_table', 'year', 'month', 'ravens_test', 'verbal_tests_average', 'verbal_tests', 'full_score', 'performance_tests_average', 'performance_tests']
         a=list(data.keys())
         for i in k:
@@ -394,7 +394,7 @@ def edit(request):
                             obj_values[i][j]='checked'
                         else:
                             obj_values[i][j]=''
-                    print(obj_values[i])
+                    # print(obj_values[i])
                 elif(flag==2):
                     print(obj_values[i])
                     for j in range(0,len(obj_values[i])):
@@ -403,8 +403,8 @@ def edit(request):
                                 obj_values[i][j][k]='checked'
                             else:
                                 obj_values[i][j][k]=''
-                    print(obj_values[i])                   
-
+                    # print(obj_values[i])                   
+    print(obj_values)
     return render(request, 'report/report_edit.html', {'key':obj_keys, 'value': obj_values})
     
 
