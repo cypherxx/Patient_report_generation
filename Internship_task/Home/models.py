@@ -65,6 +65,11 @@ class Report_Patient(models.Model):
     ijkperformance_tests=models.CharField(max_length=100,null=True)
     Report = models.FileField(upload_to='media')
     report_name=models.CharField(max_length=100,null=True)
+    ijkappropriate=models.CharField(max_length=100,null=True)
+    ijksevere_level_of_inadequacy=models.CharField(max_length=100,null=True)
+    ijkschonell_reading_handwriting_1=models.CharField(max_length=100,null=True)
+    ijkschonell_reading_handwriting_2=models.CharField(max_length=100,null=True)
+    ijkschonell_reading_handwriting_3=models.CharField(max_length=100,null=True)
     class Meta:
         ordering = ('-patient_id',)
 

@@ -27,7 +27,9 @@ function save () {
     })
 }
 function getGrade (num) {
+  
   return num >= 90 && num <= 110 ? 'Average' : 'Borderline'
+
 }
 function digit_vocab (age) {
   $$('.digit').forEach(ele => {

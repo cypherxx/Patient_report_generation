@@ -97,8 +97,7 @@ print(type(a['dot']))
 , 'month': 0
 , 'ravens_test': 'Colour'
 , 'appropriate ': 'appropriate '  #handwriting_1
-, 'severe level of inadequacy ': 'severe level of inadequacy'
-, 'report_name': ''
+, 'severe_level_of_inadequacy ': 'severe level of inadequacy'
 , 'schonell_reading_handwriting_1': 'handwriting shows'
 , 'schonell_reading_handwriting_2': 'in most areas as assessed by this tool. However, He has macro letter formation and puts more pressure on paper. He writes in cursive letters and has '
 , 'schonell_reading_handwriting_3': ' pencil hold. '
@@ -108,3 +107,10 @@ print(type(a['dot']))
 , 'performance_tests_average': 99
 , 'performance_tests': ['99', '99', '99', '99', '99']
 , 'update_record': '0'}
+
+ijkappropriate=models.CharField(max_length=100,null=True)
+    ijksevere_level_of_inadequacy=models.CharField(max_length=100,null=True)
+    ijkschonell_reading_handwriting_1=models.CharField(max_length=100,null=True)
+    ijkschonell_reading_handwriting_2=models.CharField(max_length=100,null=True)
+    ijkschonell_reading_handwriting_3=models.CharField(max_length=100,null=True)
+    

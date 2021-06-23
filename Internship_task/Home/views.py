@@ -301,7 +301,21 @@ class get_report(View):
             new_object=Report_Patient.objects.get(patient_id=int(x))
             new_object.ijkperformance_tests=data['performance_tests']
             new_object.save()
-            
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkappropriate=data['appropriate']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijksevere_level_of_inadequacy=data['severe_level_of_inadequacy']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_reading_handwriting_1=data['schonell_reading_handwriting_1']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_reading_handwriting_2=data['schonell_reading_handwriting_2']
+            new_object.save()
+            new_object=Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkschonell_reading_handwriting_3=data['schonell_reading_handwriting_3']
+            new_object.save()
         else:
             new_object=Report_Patient.objects.create(ijkname=data['name'],
                                             ijkgender=data['gender'],
@@ -349,7 +363,13 @@ class get_report(View):
                                             ijkverbal_tests=data['verbal_tests'],
                                             ijkfull_score=data['full_score'],
                                             ijkperformance_tests_average=data['performance_tests_average'],
-                                            ijkperformance_tests=data['performance_tests'])
+                                            ijkperformance_tests=data['performance_tests'],
+                                            ijkappropriate=data['appropriate'],
+                                            ijksevere_level_of_inadequacy=data['severe_level_of_inadequacy'],
+                                            ijkschonell_reading_handwriting_1=data['schonell_reading_handwriting_1'],
+                                            ijkschonell_reading_handwriting_2=data['schonell_reading_handwriting_2'],
+                                            ijkschonell_reading_handwriting_3=data['schonell_reading_handwriting_3'],
+                                            )
             new_object.save()
         return JsonResponse({'status':201,"msg":"Working Correctly"})
     
