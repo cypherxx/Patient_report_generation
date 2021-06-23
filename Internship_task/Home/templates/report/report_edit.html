@@ -42,8 +42,8 @@
           </select></label>
         <label>Date of testing <input type="date" name="dot" value="{{value.3}}"></label>
         <label>Date of Birth <input type="date" name="dob" value="{{value.4}}"></label>
-        <label>Age <input type="number" name="age" min="2" value="{{value.5}}"> </label>
-        <label>Informat <input type="text" name="informant" value="{{value.6}}"></label>
+        <label>Age <input type="number" name="age" min="2" value="{{value.5}}" disabled> </label>
+        <label>Informant <input type="text" name="informant" value="{{value.6}}"></label>
       </div>
     </section>
 
@@ -290,7 +290,7 @@
       <p>A pure test of perceptual intelligence, Block Design is the only perceptual subtest that factors heavily with
         overall intelligence. Block Design will give you a good clue to innate intellectual potential. However, Block
         Design is a visual-motor task and poor performance may be developmental or related to a motor deficiency. Here
-        <span class="input__name">...</span> scored <span class="input__performance_tests_1">...</span> score.
+        <span class="input__name">{{value.1}}</span> scored <span class="input__performance_tests_1">...</span> score.
       </p>
 
       <strong>Object Assembly - Visual analysis and construction of a whole from its parts</strong>
@@ -314,7 +314,7 @@
       <p>Mazes show the ability of mental planning, insight and attention to instructions of the child. It is a good
         measure of visuo-motor coordination with accuracy and speed. Here also he has scored at borderline level.
       </p>
-      <p>Overall,<span class="input__name">...</span>’s Full-Scale Intelligence Quotient is <span
+      <p>Overall,<span class="input__name">{{value.1}}</span>’s Full-Scale Intelligence Quotient is <span
           class="full_score">...</span> which indicate low average intellectual functioning. His
         verbal scale scores are better than his performance scale scores. <span contenteditable
           data-name="final_review">{{value.27}}</span>;
@@ -435,31 +435,13 @@
         </p>
       </div>
       <div class="test hidden">
-        <strong textalign="left"><li>Schonell’s Graded Word reading Test </li></strong>
-        <p>His reading age as found on this test is <span contenteditable data-name="schonell_reading_age">12 years 6 months
-        </span> , which is below his chronological age (<span class="input__year">...</span> years <span class="input__month">...</span> months). This score shows 
-        <select name="inappropriateness " selected="{{value.13}}">
-          <option value="inappropriateness ">inappropriateness </option>
-          <option value="inappropriate ">inappropriate </option>
-          <option value="appropriateness">appropriateness</option>
-          <option value="inappropriateness">inappropriateness</option>
-          <option value="mild level of inadequacy">mild level of inadequacy</option>
-          <option value="moderate level of inadequacy">moderate level of inadequacy</option>
-          <option value="severe level of inadequacy">severe level of inadequacy</option>
-          <option value="profound level of inadequacy">profound level of inadequacy</option>
-        </select> in his word reading skills.
-        </p>
-      </div>
-      </section>
-      <section class="has_tests">
-      <div class="test hidden">
         <strong textalign="left">
           <li>Schonell’s Graded Word reading Test </li>
         </strong>
         <p>His reading age as found on this test is <span contenteditable data-name="schonell_reading_age">12 years 6
             months
-          </span> , which is below his chronological age (<span class="input__year">...</span> years <span
-            class="input__month">...</span> months). This score shows
+          </span> , which is below his chronological age (<span class="input__year">{{value.41}}</span> years <span
+            class="input__month">{{value.42}}</span> months). This score shows
           <select name="inappropriateness " selected="{{value.13}}">
             <option value="inappropriateness ">inappropriateness </option>
             <option value="inappropriate ">inappropriate </option>
@@ -473,9 +455,7 @@
         </p>
       </div>
     </section>
-
-
-
+    
     <section class="has_tests">
       <div class="test hidden">
         <strong>Schonell’s Spelling Test-B</strong>
@@ -492,10 +472,11 @@
             <option value="inappropriateness">inappropriateness</option>
             <option value="mild level of inadequacy">mild level of inadequacy</option>
             <option value="moderate level of inadequacy">moderate level of inadequacy</option>
-            
+
             <option value="profound level of inadequacy">profound level of inadequacy</option>
-          </select> in his spelling skills.</p>
-         </p>
+          </select> in his spelling skills.
+        </p>
+        </p>
       </div>
 
       <div class="test hidden">
@@ -548,7 +529,7 @@
 
       <div class="test hidden">
         <strong>Nimhans SLD Index- Arithmetic test</strong>
-        <p><span class="input__name">...</span> has <span contenteditable
+        <p><span class="input__name">{{value.1}}</span> has <span contenteditable
             data-name="auditory_summary">{{value.36}}</span>
           ability to perform basic operations of addition, subtraction, multiplication and division <span
             contenteditable data-name="auditory_report">{{value.37}}</span>.</p>
