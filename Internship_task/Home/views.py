@@ -364,7 +364,7 @@ class get_report(View):
                                             ijkfull_score=data['full_score'],
                                             ijkperformance_tests_average=data['performance_tests_average'],
                                             ijkperformance_tests=data['performance_tests'],
-                                            ijkappropriate=data['appropriate'],
+                                            ijkappropriate=data['appropriate '],
                                             ijksevere_level_of_inadequacy=data['severe_level_of_inadequacy'],
                                             ijkschonell_reading_handwriting_1=data['schonell_reading_handwriting_1'],
                                             ijkschonell_reading_handwriting_2=data['schonell_reading_handwriting_2'],

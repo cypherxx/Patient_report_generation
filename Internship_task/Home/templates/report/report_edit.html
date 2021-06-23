@@ -413,8 +413,7 @@
         </table>
         <p>(Penmanship Score 1- illegible to 5- Beautiful)</p>
         <p><span class="input__name"> </span> 's <span contenteditable
-            data-name="schonell_reading_handwriting_1">handwriting
-            shows</span>
+            data-name="schonell_reading_handwriting_1">{{value.51}}</span>
           <select name="appropriateness">
             <option value="appropriateness">appropriateness</option>
             <option value="inappropriateness">inappropriateness</option>
@@ -424,17 +423,15 @@
             <option value="profound level of inadequacy">profound level of inadequacy</option>
           </select>
 
-          <span contenteditable data-name="schonell_reading_handwriting_2">in most areas as assessed by this tool.
-            However, He
-            has macro letter formation and puts more pressure on paper. He writes in cursive letters and has </span>
-          <select name="appropriate ">
+          <span contenteditable data-name="schonell_reading_handwriting_2">{{value.52}}</span>
+          <select name="appropriate " selected="{{value.49}}">
             <option value="appropriate ">appropriate </option>
             <option value="inappropriate">inappropriate</option>
             <option value="adequate">adequate</option>
             <option value="mild level of inadequacy">mild level of inadequacy</option>
             <option value="inadequate">inadequate</option>
           </select>
-          <span contenteditable data-name="schonell_reading_handwriting_3"> pencil hold. </span>
+          <span contenteditable data-name="schonell_reading_handwriting_3">{{value.53}} </span>
         </p>
       </div>
 
@@ -468,10 +465,20 @@
         <p>On Schonell’s Spelling test his spelling age is calculated as <span contenteditable
             data-name="schonell_spelling_age">7
             years 5 months</span>, which is significantly below his chronological age (<span
-            class="input__year">...</span>
-          years <span class="input__month">...</span> months). This score shows
-          <span contenteditable data-name="schonell_summary">{{value.33}}</span> in his spelling skills.
-        </p>
+            class="input__year">{{value.41}}</span>
+          years <span class="input__month">{{value.42}}</span> months). This score shows
+          <select name="severe_level_of_inadequacy" selected="{{value.50}}">
+            <option value="severe level of inadequacy">severe level of inadequacy</option>
+            <option value="inappropriateness ">inappropriateness </option>
+            <option value="inappropriate ">inappropriate </option>
+            <option value="appropriateness">appropriateness</option>
+            <option value="inappropriateness">inappropriateness</option>
+            <option value="mild level of inadequacy">mild level of inadequacy</option>
+            <option value="moderate level of inadequacy">moderate level of inadequacy</option>
+            
+            <option value="profound level of inadequacy">profound level of inadequacy</option>
+          </select> in his spelling skills.</p>
+          
       </div>
 
       <div class="test hidden">
