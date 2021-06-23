@@ -24,7 +24,7 @@ AUTH_USER_MODEL = 'Home.CustomUser'
 SECRET_KEY = os.getenv('secret') or 'django-insecure-d*q(-f)_%-ee6m-^43k)cr7=q=s@^bn%-bidq40t@h5jwiylj9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
