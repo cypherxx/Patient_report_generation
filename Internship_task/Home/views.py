@@ -71,7 +71,7 @@ def report_mail(request,pk):
     x = Report_Patient.objects.get(pk=pk)
     email_id = request.POST['email']
     mail = EmailMessage('Report','Attached Report with this mail',settings.EMAIL_HOST_USER,[email_id])
-    r = x.report
+    r = x.Report
     mail.attach(r.name,r.read())
     mail.send()
     return redirect('index')
@@ -364,7 +364,7 @@ class get_report(View):
                                             ijkfull_score=data['full_score'],
                                             ijkperformance_tests_average=data['performance_tests_average'],
                                             ijkperformance_tests=data['performance_tests'],
-                                            ijkappropriate=data['appropriate '],
+                                            ijkappropriate=data['appropriate'],
                                             ijksevere_level_of_inadequacy=data['severe_level_of_inadequacy'],
                                             ijkschonell_reading_handwriting_1=data['schonell_reading_handwriting_1'],
                                             ijkschonell_reading_handwriting_2=data['schonell_reading_handwriting_2'],
