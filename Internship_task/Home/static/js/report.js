@@ -113,6 +113,7 @@ window.addEventListener('DOMContentLoaded', () => {
   })
 
   $('[name=dob]').addEventListener('change', function () {
+    if(!this.valueAsDate) return;
     const today = new Date()
     let year = today.getFullYear() - this.valueAsDate.getFullYear()
     let month = today.getMonth() - this.valueAsDate.getMonth()
@@ -148,13 +149,13 @@ window.addEventListener('DOMContentLoaded', () => {
       update_data(name, arr)
 
       // Change total score
-      const total_score = (get_data('verbal_tests_average') || 0 + get_data('performance_tests_average') || 0) / 2
+      const total_score = ((get_data('verbal_tests_average') || 0) + get_data('performance_tests_average') || 0) / 2
       $('.full_score').textContent = total_score
       update_data('full_score', total_score)
     }
     const inputs = table.querySelectorAll('input')
     const trackerTable = $(`.${name}_report`)
-    const trackers = trackerTable && trackerTable.querySelectorAll('span')
+    const trackers = trackerTable && trackerTable.querySelectorAll('span:not(.digit)')
     inputs.forEach((input, index) => {
       input.addEventListener('change', () => {
         trackers &&
