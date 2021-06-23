@@ -89,6 +89,7 @@ window.addEventListener('DOMContentLoaded', () => {
   inputs.forEach((input) => {
     update_data(input.name, input.value)
     input.addEventListener('change', save)
+    input.dispatchEvent(new Event('change'))
   })
 
   data_inputs.forEach((input) =>
@@ -158,6 +159,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const trackers = trackerTable && trackerTable.querySelectorAll('span')
     inputs.forEach((input, index) => {
       input.addEventListener('change', () => {
+        console.log('Changed', input);
         trackers &&
           trackers[index] &&
           (trackers[index].textContent = input.value)
@@ -165,6 +167,7 @@ window.addEventListener('DOMContentLoaded', () => {
           ($(`.input__${name}_${index}`).textContent = getGrade(input.value))
         populate()
       })
+      input.dispatchEvent(new Event('change'))
     })
   })
   let arr = [];
@@ -175,14 +178,14 @@ window.addEventListener('DOMContentLoaded', () => {
    choices.forEach((choice, index) => {
       if (choice.checked) test_sections[index].classList.remove("hidden");
       else test_sections[index].classList.add("hidden");
-     choice.addEventListener("change", function () {
-       const { tests } = JSON.parse(localStorage.getItem("form"));
-       tests[index] = choice.checked;
-       if (choice.checked) test_sections[index].classList.remove("hidden");
-       else test_sections[index].classList.add("hidden");
-       update_data("tests", tests);
-     });
-   });
+      choice.addEventListener("change", function () {
+        const { tests } = JSON.parse(localStorage.getItem("form"));
+        tests[index] = choice.checked;
+        if (choice.checked) test_sections[index].classList.remove("hidden");
+        else test_sections[index].classList.add("hidden");
+        update_data("tests", tests);
+      });
+    });
 
   // 7 rows, 5 columns
   const data = Array.from({ length: 7 }, () => Array.from({ length: 5 }, () => false))
