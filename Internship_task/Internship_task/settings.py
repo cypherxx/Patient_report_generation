@@ -21,12 +21,12 @@ AUTH_USER_MODEL = 'Home.CustomUser'
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d*q(-f)_%-ee6m-^43k)cr7=q=s@^bn%-bidq40t@h5jwiylj9'
+SECRET_KEY = os.getenv('secret') or 'django-insecure-d*q(-f)_%-ee6m-^43k)cr7=q=s@^bn%-bidq40t@h5jwiylj9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -120,6 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
