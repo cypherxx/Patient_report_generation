@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load tags %}
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,16 +84,19 @@
             <li>Malin’ s Intelligence Scale for Indian Children ( MISIC)</li>
             <li>Raven’ s {{ravens_test}} Progressive Matrices ( R-{{ravens_test.0 | upper}}PM)</li>
         </ul>
-        <p><b><u>Educational Assessment</u></b></p>
-        <ol>
-            <li>Sattler’s Informal Writing Assessment</li>
-            <li>Schonell’s Reading test</li>
-            <li>Schonell's Spelling Test</li>
-            <li>Roswell- Chall Diagnostic Reading Test of word analysis</li>
-            <li>Auditory Sequential Memory Test</li>
-            <li>Nimhans SLD index- Arithmetic test</li>
+        <section>
+            <h2>Educational Assessment</h2>
+            <div class="jc-initial">
+                <label>{% if tests.0 %} ✔ {% else %} ✖ {% endif %}Sattler’s Informal Writing Assessment</label><br>
+                <label>{% if tests.1 %} ✔ {% else %} ✖ {% endif %}Schonell’s Reading test</label><br>
+                <label>{% if tests.2 %} ✔ {% else %} ✖ {% endif %}Schonell’s Spelling Test</label><br>
+                <label>{% if tests.3 %} ✔ {% else %} ✖ {% endif %}Roswell-Chall Diagnostic Reading Test of word
+                    analysis</label><br>
+                <label>{% if tests.4 %} ✔ {% else %} ✖ {% endif %}Auditory Sequential Memory Test</label><br>
+                <label>{% if tests.5 %} ✔ {% else %} ✖ {% endif %}Nimhans SLD index- Arithmetic test</label><br>
+            </div>
+        </section>
 
-        </ol>
         <p style="text-align: center;"><u><b>Test Findings</b></u></p>
         <p><b><u>I. Intellectual Assessment</u></b></p>
         <p>On MISIC, his verbal quotient is
@@ -157,7 +161,7 @@
             mathematical operations required by each item, and therefore rev eals information on the child's achievement
             in arithmetic learning.
             <u>On this subtest, his score is at {{verbal_tests.2 | Convert}}
-                    level.</u>
+                level.</u>
         </p>
         <p><b>Similarities - Verbal categories and concepts; abstract verbal reasoning</b></p>
         <p>In order to store language and information in long -term memory, humans use a process of categorization and
@@ -168,14 +172,15 @@
             process that is reflected in the
             Similarities subtest.
             <u>{{name}} has scored {{verbal_tests.3 | Convert}} level on this subtest
-                    . </u>
+                . </u>
         </p>
         <p><b>Digit Span - Short-term auditory memory; concentration and attention
 
             </b></p>
         <p>It is included in an assessment of the factor known as Freedom from Distractibility. High Digit Span scores
             suggest a superior ability to
-            concentrate and memorize orally presented information.<u>Here he has scored at {{verbal_tests.4 | Convert}} level.</u>
+            concentrate and memorize orally presented information.<u>Here he has scored at {{verbal_tests.4 | Convert}}
+                level.</u>
         </p>
 
         <p>His performance quotient on the same test is {{performance_tests | Average}} which fall in
@@ -219,19 +224,21 @@
         <p>The skill reflected by the Picture Completion subtest is not visual acuity; it is visual discrimination. The
             child must look at the visual whole presented and analyze its parts to identify what is missing. A
             relatively simp le task, poor performance in a child with Learning Difficulty/Disability may be
-            related to visual-perceptual difficulties or environmenta l awareness. <u>Here {{name}} has {{performance_tests.0 | Convert}} score</u>
+            related to visual-perceptual difficulties or environmenta l awareness. <u>Here {{name}} has
+                {{performance_tests.0 | Convert}} score</u>
         </p>
         <p><b>Block Design - Abstract visual-perceptual ability; spatial and nonverbal problem-solving</b></p>
         <p>A pure test of perceptual intelligence, Block Design is the only perceptual subtest that factors heavily with
             overall intelligence. Block Design will
             give you a good clue to innate intellectual potential. However, Block Design is a visual- motor task and
-            poor performance may be
-            developmental or related to a motor deficiency<u>. Here {{name}} scored below {{performance_tests.1 | Convert}} score.</u>
+            poor performance may be developmental or related to a motor deficiency<u>.
+                Here {{name}} scored below {{performance_tests.1 |Convert}} score.</u>
         </p>
         <p><b>Object Assembly - Visual analysis and construction of a whole from its parts</b></p>
         <p>The Object Assembly subtest score reflects the visual -motor skills of
             puzzle construction. The child must analyze the object and construct the
-            whole visual object from its parts within time constraints. <u>His score on this subtest is at below {{performance_tests.2 | Convert}} level.</u>
+            whole visual object from its parts within time constraints. <u>His score on this subtest is at below
+                {{performance_tests.2 | Convert}} level.</u>
         </p>
         <p><b>Coding - Visual motor coordination; speed; concentration</b></p>
         <p>An interesting performance subtests that measures visual motor skill.
@@ -246,7 +253,7 @@
         <p>Mazes show the ability of mental planning, insight and attention to
             instructions of the child. It is a good measure of visuo - motor coordination with accuracy and speed.
             <u>Here also he has scored at {{performance_tests.4 | Convert}} level.
-                    </u>
+            </u>
         </p>
         <p>Overall, {{name}}’s <u>Full-Scale Intelligence Quotient is {{full_score}}</u>which indicate <u>average
                 intellectual
@@ -260,56 +267,192 @@
             intelligence. He struggled in items measuring visual analysis and organization, visual attention and
             visual sequencing .
         </p>
-        <p style="text-align: center;"><b><u>Educational Assessment Report</u></b></p>
+        <section class="has_tests">
+            <h2><strong>Educational Assessment Report</strong></h2>
+            {% if tests.0 %}
+            <div class="test hidden">
+                <li><strong>Sattler’s Informal Writing Assessment Tool</strong></li>
+                <p>Following rating is based on a writing sample taken from the child during testing time on an un-ruled
+                    paper.
+                </p>
 
-        <p><b>
+                <table id="sattler_table">
+                    <thead>
+                        <tr>
+                            <th>Area</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Spacing on the page</td>
+                            <td> {% if sattler_table.0.0 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.0.1 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.0.2 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.0.3 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.0.4 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Spacing of the sentences</td>
+                            <td> {% if sattler_table.1.0 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.1.1 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.1.2 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.1.3 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.1.4 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>Spacing of words</td>
+                            <td> {% if sattler_table.2.0 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.2.1 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.2.2 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.2.3 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.2.4 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Spacing of letters</td>
+                            <td> {% if sattler_table.3.0 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.3.1 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.3.2 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.3.3 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.3.4 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Slant</td>
+                            <td> {% if sattler_table.4.0 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.4.1 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.4.2 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.4.3 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.4.4 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Letter Formation</td>
+                            <td> {% if sattler_table.5.0 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.5.1 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.5.2 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.5.3 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.5.4 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pencil Grip </td>
+                            <td> {% if sattler_table.6.0 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.6.1 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.6.2 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.6.3 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                            <td> {% if sattler_table.6.4 %} ✔ {% else %} ✖ {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>(Penmanship Score 1- illegible to 5- Beautiful)</p>
+                <p>{{name}}'s {{schonell_reading_handwriting_1}} {{appropriateness}} {{schonell_reading_handwriting_2}}
+                    {{appropraite}} {{schonell_reading_handwriting_3}</p>
+            </div>
+            {% endif %}
+
+            {% if tests.1 %}
+            <div class="test hidden">
+                <strong textalign="left">
+                    <li>Schonell’s Graded Word reading Test </li>
+                </strong>
+                <p>His reading age as found on this test is {{schonell_reading_age}} , which is below his chronological
+                    age ({{year}} years {{month}} months). This score shows
+                    {{inappropriateness}} in his word reading skills.
+                </p>
+            </div>
+            {% endif %}
+
+
+        </section>
+
+
+
+        <section class="has_tests">
+            {% if tests.2 %}
+            <div class="test hidden">
+                <strong>Schonell’s Spelling Test-B</strong>
+                <p>On Schonell’s Spelling test his spelling age is calculated as {{schonell_spelling_age}}, which is
+                    significantly below his chronological age ({{year}}
+                    years {{month}} months). This score shows
+                    {{schonell_summary}} in his spelling skills.
+                </p>
+            </div>
+            {% endif %}
+            {% if tests.3 %}
+            <div class="test hidden">
+                <strong>Roswell-Chall Diagnostic Reading Test of word analysis</strong>
+                <p>The qualitative analysis of Roswell-Chall shows following observations;
+
                 <ul>
-                    <li>Schonell’s Spelling Test- B</li>
-                </ul>
-            </b></p>
-        <p>On Schonell’s Spelling test his spelling age is calculated as {{schonell_age}}, which is significantly below
-            his chronological age ({{year}} years {{month}} months). This score shows {{schonell_summary}} in his
-            spelling
-            skills.
-
-        </p>
-        <p><b>
-                <ul>
-                    <li>Roswell-Chall Diagnostic Reading Test of word analysis
-
+                    <li>He has {{schonell_list_0}} knowledge of phonic sounds.</li>
+                    <li>He has {{schonell_list_1}} knowledge of blends.</li>
+                    <li>He has {{schonell_list_2}} understanding of vowel sounds.
                     </li>
+                    <li>He {{schonell_list_3}} syllabicate long and multisyllable words.
+                    </li>
+                    <li>He has {{schonell_list_4}} understanding of silent ‘e’
+                        sounds.</li>
+                    <li>He {{schonell_list_5}} read words and short sentences, {{schonell_list_7}}.</li>
                 </ul>
-            </b></p>
-        <p>The qualitative analysis of Roswell-Chall shows following observations;
-
-        </p>
-        <ol>
-            <li>He has {{schonell_list_0}} knowledge of phonic sounds.</li>
-            <li>He has {{schonell_list_1}} knowledge of blends.</li>
-            <li>He has {{schonell_list_2}} understanding of vowel sounds.</li>
-            <li>He {{schonell_list_3}} syllabicate long and multisyllable words.</li>
-            <li>5. He has {{schonell_list_4}} understanding of silent ‘e’ sounds.</li>
-            <li>6. He {{schonell_list_5}} read words and short sentences, {{schonell_list_7}}.
-
-            </li>
-        </ol>
-        <p><b>
-                <ul>
-                    <li>Auditory Sequential Memory Test</li>
-                </ul>
-            </b></p>
-        <p>His auditory sequential memory is found to be at {{auditory_age}}
-            level, showing significantly inappropriate ability in sequential memory skills with his age level.
-        </p>
-        <p><b>
-                <ul>
-                    <li>NIMHANS SLD Index- Arithmetic test</li>
-                </ul>
-            </b></p>
-        <p>{{name}} has {{auditory_summary}} ability to perform basic operations of addition,
-            subtraction, multiplication and division {{auditory_report}}.
-
-        </p>
+                </p>
+            </div>
+            {% endif %}
+            {% if tests.4 %}
+            <div class="test hidden">
+                <strong>Auditory Sequential Memory Test</strong>
+                <p>His auditory sequential memory is found to be at {{auditory_age}} level, showing significantly
+                    {{auditory_res}} ability in sequential memory skills with his age level.
+                </p>
+            </div>
+            {% endif %}
+            {% if tests.5 %}
+            <div class="test hidden">
+                <strong>Nimhans SLD Index- Arithmetic test</strong>
+                <p>{{name}} has {{auditory_summary}}
+                    ability to perform basic operations of addition, subtraction, multiplication and division
+                    {{auditory_report}}.</p>
+            </div>
+            {% endif %}
+        </section>
         <p><b><u>Summary</u></b></p>
         <p>From the test results, interview and observation it can be concluded that {{name}} is having borderline level
             of
