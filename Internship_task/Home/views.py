@@ -147,6 +147,7 @@ class get_report(View):
         print(data)
         k=['name', 'gender', 'dot', 'dob', 'age', 'informant', 'class', '2_age_observation', '2_attention', 'appropriateness', 'inappropriate ', 'inappropriateness ', 'schonell_list_0', 'schonell_list_1', 'schonell_list_2', 'schonell_list_3', 'schonell_list_4', 'schonell_list_5', 'auditory_res', 'csrfmiddlewaretoken', '', '2_referral', 'school', 'complaints', 'languages', '2_qualities', '2_response', 'final_review', 'final_percentile', 'final_intelligence', 'schonell_reading_handwriting', 'schonell_reading_age', 'schonell_spelling_age', 'schonell_summary', 'schonell_list_7', 'auditory_age', 'auditory_summary', 'auditory_report', 'final_summary', 'tests', 'sattler_table', 'year', 'month', 'ravens_test', 'verbal_tests_average', 'verbal_tests', 'full_score', 'performance_tests_average', 'performance_tests']
         a=list(data.keys())
+        print(a)
         for i in k:
             if i not in a:
                 data[i]=None
@@ -158,7 +159,7 @@ class get_report(View):
             data['verbal_tests'] = [0,0,0,0,0]
         
         if(data['update_record']!='0'):
-            #print(data)
+            # print(data)
             x=data['update_record']
             #print(x)
             new_object=Report_Patient.objects.get(patient_id=int(x))
