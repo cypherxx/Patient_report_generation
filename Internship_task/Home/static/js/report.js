@@ -32,6 +32,14 @@ function getGrade (num) {
 
 }
 function digit_vocab (age) {
+  const opts = $("#digit_vocab").querySelectorAll("div");
+  if(age >= 11){
+    opts[0].classList.remove('hidden');
+    opts[1].classList.add('hidden');
+  }else{
+    opts[0].classList.add('hidden');
+    opts[1].classList.remove('hidden');
+  }
   $$('.digit').forEach(ele => {
     ele.textContent = age >= 11 ? 'Digit Span' : 'Vocabulary'
   })
