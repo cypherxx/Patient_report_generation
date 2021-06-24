@@ -171,7 +171,7 @@ window.addEventListener('DOMContentLoaded', () => {
           trackers[index] &&
           (trackers[index].textContent = input.value)
         $(`.input__${name}_${index}`) &&
-          ($(`.input__${name}_${index}`).textContent = getGrade(input.value))
+          ($$(`.input__${name}_${index}`).forEach(i=>{i.textContent = getGrade(input.value)}))
         populate()
       })
     })

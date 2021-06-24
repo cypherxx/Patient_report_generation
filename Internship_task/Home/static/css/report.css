@@ -43,3 +43,4 @@ form.hidden{ display: none;}
 .jc-initial>label{justify-content: initial;}
 .test.hidden{display: none;}
 #digit_vocab>div.hidden{display: none;}
+#digit_vocab>div {display: flex;flex-flow: column;align-items: center;}

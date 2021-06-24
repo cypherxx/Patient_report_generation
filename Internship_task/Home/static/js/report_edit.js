@@ -30,6 +30,14 @@ function getGrade (num){
   return num >= 90 && num <= 110 ? 'Average' : 'Borderline'
 }
 function digit_vocab (age) {
+  const opts = $("#digit_vocab").querySelectorAll("div");
+  if(age >= 11){
+    opts[0].classList.remove('hidden');
+    opts[1].classList.add('hidden');
+  }else{
+    opts[0].classList.add('hidden');
+    opts[1].classList.remove('hidden');
+  }
   $$('.digit').forEach(ele => {
     ele.textContent = age >= 11 ? 'Digit Span' : 'Vocabulary'
   })
@@ -132,6 +140,7 @@ window.addEventListener('DOMContentLoaded', () => {
     raven(year)
     digit_vocab(year)
   })
+  $('[name=dob]').dispatchEvent(new Event('change'));
 
   $$('table[data-name]').forEach((table) => {
     const name = table.dataset.name
@@ -156,15 +165,14 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     const inputs = table.querySelectorAll('input')
     const trackerTable = $(`.${name}_report`)
-    const trackers = trackerTable && trackerTable.querySelectorAll('span')
+    const trackers = trackerTable && trackerTable.querySelectorAll('span:not(.digit)')
     inputs.forEach((input, index) => {
       input.addEventListener('change', () => {
-        console.log('Changed', input);
         trackers &&
           trackers[index] &&
           (trackers[index].textContent = input.value)
         $(`.input__${name}_${index}`) &&
-          ($(`.input__${name}_${index}`).textContent = getGrade(input.value))
+          ($$(`.input__${name}_${index}`).forEach(i=>{i.textContent = getGrade(input.value)}))
         populate()
       })
       input.dispatchEvent(new Event('change'))
