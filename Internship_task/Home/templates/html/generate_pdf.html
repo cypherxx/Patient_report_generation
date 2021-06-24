@@ -128,7 +128,11 @@
                 <td>{{verbal_tests.3}}</td>
             </tr>
             <tr>
+                {% if age >= 11 %}
                 <td>Digit Span</td>
+                {% else %}
+                <td>Vocabulary</td>
+                {% endif %}
                 <td>{{verbal_tests.4}}</td>
             </tr>
         </table>
@@ -171,16 +175,24 @@
             course of the child' s development, their conceptual skills progress from concrete to abstract reasoning, a
             process that is reflected in the
             Similarities subtest.
-            <u>{{name}} has scored {{verbal_tests.3 | Convert}} level on this subtest
-                . </u>
+            <u>{{name}} has scored {{verbal_tests.3 | Convert}} level on this subtest.</u>
         </p>
-        <p><b>Digit Span - Short-term auditory memory; concentration and attention
-
+        <p><b>{% if age >= 11 %} Digit Span - Short-term auditory memory;
+                concentration and attention {% else %} Vocabulary: language development, word knowledge, verbal fluency
+                {% endif %}
             </b></p>
-        <p>It is included in an assessment of the factor known as Freedom from Distractibility. High Digit Span scores
+        <p>{% if age >= 11 %}
+            It is included in an assessment of the factor known as Freedom from Distractibility. High
+            Digit Span
+            scores
             suggest a superior ability to
             concentrate and memorize orally presented information.<u>Here he has scored at {{verbal_tests.4 | Convert}}
                 level.</u>
+            {% else %}
+            The degree to which one has learned, to be able to comprehend and verbally express vocabulary. This is a
+            test considered to be a measure of general intelligence. This is also a measure of acquired knowledge.
+            <u>Here he has scored at {{verbal_tests.4 | Convert}} level.</u>
+            {% endif %}
         </p>
 
         <p>His performance quotient on the same test is {{performance_tests | Average}} which fall in
@@ -263,7 +275,8 @@
             .
         </p>
         <p><b><u>Raven’s {{ravens_test}} Progressive Matrices (R-{{ravens_test.0 | upper}}PM)</u></b></p>
-        <p>On R-SPM, {{name}}`s score falls {{final_percentile}} percentile which indicates {{final_intelligence}}
+        <p>On R-{{ravens_test.0 | upper}}PM, {{name}}`s score falls {{final_percentile}} percentile which indicates
+            {{final_intelligence}}
             intelligence. He struggled in items measuring visual analysis and organization, visual attention and
             visual sequencing .
         </p>
