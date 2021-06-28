@@ -206,7 +206,22 @@ window.addEventListener('DOMContentLoaded', () => {
     })
   })
   update_data('sattler_table',data)
+  const newgender = $("#gender").value;
+  
+  if(newgender == "Male"){
+      $(".input__heshe").innerHTML=" he ";
+      $(".input__hisher").innerHTML=" his ";
+      $(".input__boygirl").innerHTML=" boy ";
+  }
 
+  $('#gender').addEventListener('change', () => {
+    var newgender = $("#gender").value;
+    if(newgender == "Female"){
+      $(".input__heshe").innerHTML=" she ";
+      $(".input__hisher").innerHTML=" her ";
+      $(".input__boygirl").innerHTML=" girl ";
+    }
+  })
   $('#submit').addEventListener('click', () => {
     let x= document.getElementById("submit").value;
     update_data('update_record',x)

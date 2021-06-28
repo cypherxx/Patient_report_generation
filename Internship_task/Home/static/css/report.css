@@ -6,6 +6,20 @@ body{
   grid-template-rows: minmax(max-content, 20vh) minmax(80vh, 100%);
 }
 
+.input__boygirl{
+  color: #10110f;
+}
+.input__heshe{
+  color: #10110f;
+}
+.input__hisher{
+  color: #10110f;
+}
+#gender{
+  color: #10110f;
+}
+
+
 #top{overflow-x: auto; text-align: center;}
 #top div{display: flex; width: 100%; overflow-x: auto; justify-content: space-between; text-align: center;}
 .tab{
