@@ -36,9 +36,9 @@
       <h2>Basic Details</h2>
       <div>
         <label>Name <input type="text" name='name' value="{{value.1}}" class="editable"></label>
-        <label>Gender <select name="gender" id="" selected="{{value.2}}">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
+        <label>Gender <select name="gender" id="gender">
+            <option value="Male" {% if value.2 == 'Male' %} selected {% endif %}>Male</option>
+            <option value="Female" {% if value.2 == 'Female' %} selected {% endif %}>Female</option>
           </select></label>
         <label>Date of testing <input type="date" name="dot" value="{{value.3}}"></label>
         <label>Date of Birth <input type="date" name="dob" value="{{value.4}}"></label>
