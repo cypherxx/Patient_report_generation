@@ -48,30 +48,7 @@ function digit_vocab (age) {
 function get_data (key) {
   return JSON.parse(localStorage.getItem('form'))[key]
 }
-function genderChange(){
-  var newgender = $("#gender").val();
-  if(newgender == "male"){
-    $(".heshe").text("he");
-    $(".HeShe").text("He");
-    $(".himher").text("him");
-  } else {
-    $(".heshe").text("she");
-    $(".HeShe").text("She");
-    $(".himher").text("her");
-  }
-}
-function changeBehaviour(){
-  switch($("#behave").val()){
-  case "good":{
-    $(".plotelement1").html('<span class="HeShe">She</span> made <span class="hisher">her</span> parents proud of <span class="himher">her</span> and they told <span class="himher">her</span> all the time how good <span class="heshe">she</span> was.');
-    break;
-  }
-  default:{
-    $(".plotelement1").html('<span class="HeShe">She</span> was constantly being told off by <span class="hisher">her</span> <span class="mainparent">mother</span>');
-  }
-  }
-genderChange();
-}
+
 window.addEventListener('DOMContentLoaded', () => {
   const pages = $$('main>section')
   const tabs = $$('.tab')
@@ -231,17 +208,35 @@ window.addEventListener('DOMContentLoaded', () => {
   const newgender = $("#gender").value;
   
   if(newgender == "Male"){
-      $(".input__heshe").innerHTML=" he ";
-      $(".input__hisher").innerHTML=" his ";
-      $(".input__boygirl").innerHTML=" boy ";
+      var x= $$(".input__heshe");
+      var i;
+      for (i = 0; i < x.length; i++) {
+      x[i].innerHTML = " he ";
+    }
+    var y= $$(".input__hisher");
+    var i;
+    for (i = 0; i < x.length; i++) {
+    y[i].innerHTML = " his ";
+  }
+  var z= $$(".input__heshe");
+  var i;
+  for (i = 0; i < x.length; i++) {
+  z[i].innerHTML = " boy ";
+}
+  }else{
+      
   }
 
   $('#gender').addEventListener('change', () => {
     var newgender = $("#gender").value;
     if(newgender == "Female"){
-      $(".input__heshe").innerHTML=" she ";
-      $(".input__hisher").innerHTML=" her ";
-      $(".input__boygirl").innerHTML=" girl ";
+      $$(".input__heshe").innerHTML=" she ";
+      $$(".input__hisher").innerHTML=" her ";
+      $$(".input__boygirl").innerHTML=" girl ";
+    }else{
+      $$(".input__heshe").innerHTML=" he ";
+      $$(".input__hisher").innerHTML=" his ";
+      $$(".input__boygirl").innerHTML=" boy ";
     }
   })
   $('#submit').addEventListener('click', () => {
@@ -271,18 +266,4 @@ window.addEventListener('DOMContentLoaded', () => {
   })
   $('[name=dob]').dispatchEvent(new Event('change'))
 })
-
-// function genderChange(){
-//   var newgender = document.getElementById("gender").value;
-//   console.log("hi")
-//   if(newgender == "Male"){
-//     $(".input__heshe").html("he");
-//     $(".input__hisher").html("his");
-//     $(".input__boygirl").html("boy");
-//   } else {
-//     $(".input__heshe").textContent = "she";
-//     $(".input__hisher").html("her");
-//     $(".input__boygirl").html("girl");
-//   }
-// };
 

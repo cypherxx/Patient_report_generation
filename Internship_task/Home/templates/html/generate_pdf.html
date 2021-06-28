@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load tags %}
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/report.css' %}">
 
     <title>Report</title>
     <style>
@@ -55,7 +57,7 @@
         <div class="column"
             style="flex: 50%; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 16px">
             
-            <p id=><b>Gender: {{gender}}</b></p>
+            <p><b>Gender: <b id="gender">{{gender}}</b></b></p>
             <p><b>Age: {{age}}</b></p>
             <p><b>Informant: {{informant}}</b></p>
 
@@ -65,22 +67,22 @@
     <hr>
     <div class="content"
         style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 16px; ">
-        <p>{{name}}, {{year}} years {{month}} months old person was brought to the center for intellectual
-            and educational assessment by his {{informant}} with referral from {{2_referral}}. He is a student of class
-            {{class}} at {{school}}. He was referred with
+        <p>{{name}}, {{year}} years {{month}} months old <span class="input__boygirl">...</span> was brought to the center for intellectual
+            and educational assessment by<span class="input__hisher">...</span>{{informant}} with referral from {{2_referral}}.<span class="input__heshe">...</span>is a student of class
+            {{class}} at {{school}}.<span class="input__heshe">...</span>was referred with
             complaints of {{complaints}}</p>
         <p><u><b>Observations</b></u></p>
-        <p>{{name}} was cooperative for assessment. His physical built was observed as
+        <p>{{name}} was cooperative for assessment.<span class="input__hisher">...</span>physical built was observed as
             age {{2_age_observation}}. Assessment was done in a comfortable environment a fter
-            establishing rapport. He was able to comprehend the instruction in
+            establishing rapport.<span class="input__heshe">...</span>was able to comprehend the instruction in
             English, {{languages}} language, though with repetitions. {{name}} was {{2_qualities}} for the assessment.
-            His attention {{2_attention}}
+           <span class="input__hisher">...</span>attention {{2_attention}}
             aroused however sustaining the same for the required period of time
-            required prompts in between. His rate of responses was {{2_response}} to perform a task given. Assessment
+            required prompts in between.<span class="input__hisher">...</span>rate of responses was {{2_response}} to perform a task given. Assessment
             was completed with
             appropriate breaks in between sessions.</p>
         <p><b><u>Tests Administered</u></b></p>
-        <p>In order to assess his Intellectual performance following test was administered;</p>
+        <p>In order to assess<span class="input__hisher">...</span>Intellectual performance following test was administered;</p>
         <ul>
             <li>Malin’ s Intelligence Scale for Indian Children ( MISIC)</li>
             <li>Raven’ s {{ravens_test}} Progressive Matrices ( R-{{ravens_test.0 | upper}}PM)</li>
@@ -100,7 +102,7 @@
 
         <p style="text-align: center;"><u><b>Test Findings</b></u></p>
         <p><b><u>I. Intellectual Assessment</u></b></p>
-        <p>On MISIC, his verbal quotient is
+        <p>On MISIC,<span class="input__hisher">...</span>verbal quotient is
             {{verbal_tests | Average}}
             which suggests average
             functioning on verbal scale (Average range is 90 -110; borderline range of intelligence is 71 -89). His
@@ -144,7 +146,7 @@
         <p><b>Information - fund of general knowledge; long-term memory; recall</b></p>
         <p>The Information subtest reflects two factors in the child's development of language and knowledge: 1) The
             richness of the child's verbal
-            environment during His development is reflected in the fund of knowledge. 2) The ability to store that
+            environment during<span class="input__hisher">...</span>development is reflected in the fund of knowledge. 2) The ability to store that
             knowledge in long -term memory, recall it, and
             verbally express it is an individual ability that is measured by the
             Information subtest.<u>On this subtest {{name}} has scored at
@@ -160,12 +162,12 @@
         </p>
         <p><b>Arithmetic - Numerical reasoning; attention and concentration</b></p>
         <p>The numerical tasks of the Arithmetic subtest are worked out "in the
-            child's head". He must have the ability to attend to the verbally presented problem and concentrate on
-            working out the answer in His short-term
+            child's head".<span class="input__heshe">...</span>must have the ability to attend to the verbally presented problem and concentrate on
+            working out the answer in<span class="input__hisher">...</span>short-term
             memory. Performance on Arithmetic also requires a mastery of the
             mathematical operations required by each item, and therefore rev eals information on the child's achievement
             in arithmetic learning.
-            <u>On this subtest, his score is at {{verbal_tests.2 | Convert}}
+            <u>On this subtest,<span class="input__hisher">...</span>score is at {{verbal_tests.2 | Convert}}
                 level.</u>
         </p>
         <p><b>Similarities - Verbal categories and concepts; abstract verbal reasoning</b></p>
@@ -187,12 +189,12 @@
             Digit Span
             scores
             suggest a superior ability to
-            concentrate and memorize orally presented information.<u>Here he has scored at {{verbal_tests.4 | Convert}}
+            concentrate and memorize orally presented information.<u>Here<span class="input__heshe">...</span>has scored at {{verbal_tests.4 | Convert}}
                 level.</u>
             {% else %}
             The degree to which one has learned, to be able to comprehend and verbally express vocabulary. This is a
             test considered to be a measure of general intelligence. This is also a measure of acquired knowledge.
-            <u>Here he has scored at {{verbal_tests.4 | Convert}} level.</u>
+            <u>Here<span class="input__heshe">...</span>has scored at {{verbal_tests.4 | Convert}} level.</u>
             {% endif %}
         </p>
 
@@ -258,27 +260,27 @@
             Coding gives clues to basic deficiencies in visual motor performance
             needed for writing. Good short-term memory improves performance on coding. It also factors with freedom from
             distractibility and the ability to
-            concentrate to accomplish a visual motor task within time constraints. <u>On this subtest, his score is at
+            concentrate to accomplish a visual motor task within time constraints. <u>On this subtest,<span class="input__hisher">...</span>score is at
                 {{performance_tests.3 | Convert}} range.</u>
 
         </p>
         <p><b>Mazes- Mental Planning Skills</b></p>
         <p>Mazes show the ability of mental planning, insight and attention to
             instructions of the child. It is a good measure of visuo - motor coordination with accuracy and speed.
-            <u>Here also he has scored at {{performance_tests.4 | Convert}} level.
+            <u>Here also<span class="input__heshe">...</span>has scored at {{performance_tests.4 | Convert}} level.
             </u>
         </p>
         <p>Overall, {{name}}’s <u>Full-Scale Intelligence Quotient is {{full_score}}</u>which indicate <u>average
                 intellectual
-                functioning. </u>His verbal scale scores are better than his performance scale scores. {{final_review}}
+                functioning. </u>His verbal scale scores are better than<span class="input__hisher">...</span>performance scale scores. {{final_review}}
             which could influence
-            his academic and day today functioning.
+           <span class="input__hisher">...</span>academic and day today functioning.
             .
         </p>
         <p><b><u>Raven’s {{ravens_test}} Progressive Matrices (R-{{ravens_test.0 | upper}}PM)</u></b></p>
         <p>On R-{{ravens_test.0 | upper}}PM, {{name}}`s score falls {{final_percentile}} percentile which indicates
             {{final_intelligence}}
-            intelligence. He struggled in items measuring visual analysis and organization, visual attention and
+            intelligence.<span class="input__heshe">...</span>struggled in items measuring visual analysis and organization, visual attention and
             visual sequencing .
         </p>
         <section class="has_tests">
@@ -408,9 +410,9 @@
                 <strong textalign="left">
                     <li>Schonell’s Graded Word reading Test </li>
                 </strong>
-                <p>His reading age as found on this test is {{schonell_reading_age}} , which is below his chronological
+                <p>His reading age as found on this test is {{schonell_reading_age}} , which is below<span class="input__hisher">...</span>chronological
                     age ({{year}} years {{month}} months). This score shows
-                    {{inappropriateness}} in his word reading skills.
+                    {{inappropriateness}} in<span class="input__hisher">...</span>word reading skills.
                 </p>
             </div>
             {% endif %}
@@ -424,10 +426,10 @@
             {% if tests.2 %}
             <div class="test hidden">
                 <strong>Schonell’s Spelling Test-B</strong>
-                <p>On Schonell’s Spelling test his spelling age is calculated as {{schonell_spelling_age}}, which is
-                    significantly below his chronological age ({{year}}
+                <p>On Schonell’s Spelling test<span class="input__hisher">...</span>spelling age is calculated as {{schonell_spelling_age}}, which is
+                    significantly below<span class="input__hisher">...</span>chronological age ({{year}}
                     years {{month}} months). This score shows
-                    {{schonell_summary}} in his spelling skills.
+                    {{schonell_summary}} in<span class="input__hisher">...</span>spelling skills.
                 </p>
             </div>
             {% endif %}
@@ -454,7 +456,7 @@
             <div class="test hidden">
                 <strong>Auditory Sequential Memory Test</strong>
                 <p>His auditory sequential memory is found to be at {{auditory_age}} level, showing significantly
-                    {{auditory_res}} ability in sequential memory skills with his age level.
+                    {{auditory_res}} ability in sequential memory skills with<span class="input__hisher">...</span>age level.
                 </p>
             </div>
             {% endif %}
@@ -482,21 +484,21 @@
                 accept the child and help him in a more appropriate way.</li>
             <li>Individual counseling to learn how to cope up with academic and other stressful situations and build
                 confidence.</li>
-            <li>Cognitive Training to improve his deficient cognitive skills.</li>
-            <li>Training on study skills to improve his overall academic performance.</li>
-            <li>Remedial training to enhance his attentional skills, education skills like reading, writing, spelling,
+            <li>Cognitive Training to improve<span class="input__hisher">...</span>deficient cognitive skills.</li>
+            <li>Training on study skills to improve<span class="input__hisher">...</span>overall academic performance.</li>
+            <li>Remedial training to enhance<span class="input__hisher">...</span>attentional skills, education skills like reading, writing, spelling,
                 arithmetic skills and facilitate rate of expression</li>
             <li>Academic planning based on assessment results.</li>
-            <li>Demeaning comments about his performance should be altered with productive feedback.</li>
+            <li>Demeaning comments about<span class="input__hisher">...</span>performance should be altered with productive feedback.</li>
             <li>Periodic review of intervention program with adequate modifications to be made from time to time and to
                 work on appropriate transfer of learning</li>
             <li>An orientation to teachers about the results of assessment to provide suitable accommodations and
                 appropriate classroom modifications like,<p>
                 <ul>
-                    <li>extra t ime to complete his work</li>
+                    <li>extra t ime to complete<span class="input__hisher">...</span>work</li>
                     <li>appropriate monitoring and providing assistance for class work</li>
                     <li>facilitate buddy system in classroom and outside activities so as to help monitor and develop
-                        his academic and adaptive
+                       <span class="input__hisher">...</span>academic and adaptive
                         functioning.
                     </li>
                 </ul>
@@ -505,10 +507,10 @@
             <li>He should also be provided accommodations during evaluations during the period of intervention namely
                 <p>
                 <ul>
-                    <li>extra time to write all his examinations</li>
+                    <li>extra time to write all<span class="input__hisher">...</span>examinations</li>
                     <li>to read out questions to him as and when required by him</li>
                     <li>spelling errors to be overlooked for content</li>
-                    <li>provide distraction free environment to write his exams</li>
+                    <li>provide distraction free environment to write<span class="input__hisher">...</span>exams</li>
                 </ul>
                 </p>
             </li>
@@ -517,6 +519,34 @@
 
 
     </div>
+    <script>
+  const $ = document.querySelector.bind(document)
+
+  const newgender = $("#gender").value;
+  
+  if(newgender == "Male"){
+      $(".input__heshe").innerHTML=" he ";
+      $(".input__hisher").innerHTML=" his ";
+      $(".input__boygirl").innerHTML=" boy ";
+  }else{
+    $(".input__heshe").innerHTML=" she ";
+      $(".input__hisher").innerHTML=" her ";
+      $(".input__boygirl").innerHTML=" girl ";
+  }
+
+  $('#gender').addEventListener('change', () => {
+    var newgender = $("#gender").value;
+    if(newgender == "Female"){
+      $(".input__heshe").innerHTML=" she ";
+      $(".input__hisher").innerHTML=" her ";
+      $(".input__boygirl").innerHTML=" girl ";
+    }else{
+        $(".input__heshe").innerHTML=" he ";
+      $(".input__hisher").innerHTML=" his ";
+      $(".input__boygirl").innerHTML=" boy ";
+    }
+  })
+    </script>
 
 </body>
 

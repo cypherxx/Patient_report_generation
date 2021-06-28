@@ -212,6 +212,10 @@ window.addEventListener('DOMContentLoaded', () => {
       $(".input__heshe").innerHTML=" he ";
       $(".input__hisher").innerHTML=" his ";
       $(".input__boygirl").innerHTML=" boy ";
+  }else{
+    $(".input__heshe").innerHTML=" she ";
+    $(".input__hisher").innerHTML=" her ";
+    $(".input__boygirl").innerHTML=" girl ";
   }
 
   $('#gender').addEventListener('change', () => {
@@ -220,6 +224,11 @@ window.addEventListener('DOMContentLoaded', () => {
       $(".input__heshe").innerHTML=" she ";
       $(".input__hisher").innerHTML=" her ";
       $(".input__boygirl").innerHTML=" girl ";
+    }
+    else{
+      $(".input__heshe").innerHTML=" he ";
+      $(".input__hisher").innerHTML=" his ";
+      $(".input__boygirl").innerHTML=" boy ";
     }
   })
   $('#submit').addEventListener('click', () => {
