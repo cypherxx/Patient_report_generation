@@ -431,12 +431,11 @@ def edit(request):
 def Search_report(request) : 
     if request.method == 'GET':
         if 'term' in request.GET:
-            print(request.GET['term'])
             qs = Report_Patient.objects.filter(ijkname__istartswith = request.GET['term'])
             names = []
-            counter=10
+            counter=8
             for i in qs:
-                names.append(i.name)
+                names.append(i.ijkname)
                 counter-=1
                 if counter==0:
                     break
@@ -447,7 +446,6 @@ def Search_report(request) :
         for i in z:
             x = list(i.values())
             l.append(x)
-        print(l)
         Url = f"{request.scheme}://{request.get_host()}/media/"
         return render(request, 'html/index.html',{'p':l,'u':Url})
         
