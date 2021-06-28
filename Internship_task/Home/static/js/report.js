@@ -228,6 +228,22 @@ window.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  const newgender = $("#gender").value;
+  
+  if(newgender == "Male"){
+      $(".input__heshe").innerHTML=" he ";
+      $(".input__hisher").innerHTML=" his ";
+      $(".input__boygirl").innerHTML=" boy ";
+  }
+
+  $('#gender').addEventListener('change', () => {
+    var newgender = $("#gender").value;
+    if(newgender == "Female"){
+      $(".input__heshe").innerHTML=" she ";
+      $(".input__hisher").innerHTML=" her ";
+      $(".input__boygirl").innerHTML=" girl ";
+    }
+  })
   $('#submit').addEventListener('click', () => {
     const x = document.getElementById('submit').value
     update_data('update_record', x)
@@ -255,3 +271,18 @@ window.addEventListener('DOMContentLoaded', () => {
   })
   $('[name=dob]').dispatchEvent(new Event('change'))
 })
+
+// function genderChange(){
+//   var newgender = document.getElementById("gender").value;
+//   console.log("hi")
+//   if(newgender == "Male"){
+//     $(".input__heshe").html("he");
+//     $(".input__hisher").html("his");
+//     $(".input__boygirl").html("boy");
+//   } else {
+//     $(".input__heshe").textContent = "she";
+//     $(".input__hisher").html("her");
+//     $(".input__boygirl").html("girl");
+//   }
+// };
+
