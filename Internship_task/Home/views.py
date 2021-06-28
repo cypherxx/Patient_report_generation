@@ -431,7 +431,8 @@ def edit(request):
 def Search_report(request) : 
     if request.method == 'GET':
         if 'term' in request.GET:
-            qs = Report_Patient.objects.filter(name__istartswith = request.GET['term'])
+            print(request.GET['term'])
+            qs = Report_Patient.objects.filter(ijkname__istartswith = request.GET['term'])
             names = []
             counter=10
             for i in qs:
@@ -439,7 +440,7 @@ def Search_report(request) :
                 counter-=1
                 if counter==0:
                     break
-            return JsonResponse(names,safe=False)
+            #return JsonResponse(names,safe=False)
         x = request.GET.get('report_search')
         z = list(Report_Patient.objects.filter(ijkname=x).values())
         l=[]
