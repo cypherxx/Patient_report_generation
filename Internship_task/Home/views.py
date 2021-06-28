@@ -447,5 +447,6 @@ def Search_report(request) :
             x = list(i.values())
             l.append(x)
         print(l)
-        return render(request, 'html/index.html',{'p':l})
+        Url = f"{request.scheme}://{request.get_host()}/media/"
+        return render(request, 'html/index.html',{'p':l,'u':Url})
         
