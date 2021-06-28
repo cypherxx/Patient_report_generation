@@ -67,22 +67,58 @@
     <hr>
     <div class="content"
         style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 16px; ">
-        <p>{{name}}, {{year}} years {{month}} months old <span class="input__boygirl">...</span> was brought to the center for intellectual
-            and educational assessment by<span class="input__hisher">...</span>{{informant}} with referral from {{2_referral}}.<span class="input__heshe">...</span>is a student of class
-            {{class}} at {{school}}.<span class="input__heshe">...</span>was referred with
+        <p>{{name}}, {{year}} years {{month}} months old {% if gender == 'Male' %}
+            boy
+            {% else %}
+            girl
+            {% endif %} was brought to the center for intellectual
+            and educational assessment by {% if gender == 'Male' %}
+            his
+            {% else %}
+            her
+            {% endif %} {{informant}} with referral from {{2_referral}}. {% if gender == 'Male' %}
+            He
+            {% else %}
+            She
+            {% endif %} is a student of class
+            {{class}} at {{school}}. {% if gender == 'Male' %}
+            He
+            {% else %}
+            She
+            {% endif %} was referred with
             complaints of {{complaints}}</p>
         <p><u><b>Observations</b></u></p>
-        <p>{{name}} was cooperative for assessment.<span class="input__hisher">...</span>physical built was observed as
+        <p>{{name}} was cooperative for assessment. {% if gender == 'Male' %}
+            His
+            {% else %}
+            Her
+            {% endif %} physical built was observed as
             age {{2_age_observation}}. Assessment was done in a comfortable environment a fter
-            establishing rapport.<span class="input__heshe">...</span>was able to comprehend the instruction in
+            establishing rapport. {% if gender == 'Male' %}
+            He
+            {% else %}
+            She
+            {% endif %} was able to comprehend the instruction in
             English, {{languages}} language, though with repetitions. {{name}} was {{2_qualities}} for the assessment.
-           <span class="input__hisher">...</span>attention {{2_attention}}
+            {% if gender == 'Male' %}
+            His
+            {% else %}
+            Her
+            {% endif %} attention {{2_attention}}
             aroused however sustaining the same for the required period of time
-            required prompts in between.<span class="input__hisher">...</span>rate of responses was {{2_response}} to perform a task given. Assessment
+            required prompts in between. {% if gender == 'Male' %}
+            His
+            {% else %}
+            Her
+            {% endif %} rate of responses was {{2_response}} to perform a task given. Assessment
             was completed with
             appropriate breaks in between sessions.</p>
         <p><b><u>Tests Administered</u></b></p>
-        <p>In order to assess<span class="input__hisher">...</span>Intellectual performance following test was administered;</p>
+        <p>In order to assess {% if gender == 'Male' %}
+            his
+            {% else %}
+            her
+            {% endif %} Intellectual performance following test was administered;</p>
         <ul>
             <li>Malin’ s Intelligence Scale for Indian Children ( MISIC)</li>
             <li>Raven’ s {{ravens_test}} Progressive Matrices ( R-{{ravens_test.0 | upper}}PM)</li>
@@ -102,10 +138,19 @@
 
         <p style="text-align: center;"><u><b>Test Findings</b></u></p>
         <p><b><u>I. Intellectual Assessment</u></b></p>
-        <p>On MISIC,<span class="input__hisher">...</span>verbal quotient is
+        <p>On MISIC, {% if gender == 'Male' %}
+            his
+            {% else %}
+            her
+            {% endif %} verbal quotient is
             {{verbal_tests | Average}}
             which suggests average
-            functioning on verbal scale (Average range is 90 -110; borderline range of intelligence is 71 -89). His
+            functioning on verbal scale (Average range is 90 -110; borderline range of intelligence is 71 -89).
+            {% if gender == 'Male' %}
+            His
+            {% else %}
+            Her
+            {% endif %}
             profile on the verbal scale is as follows;
         </p>
         <table class="center">
@@ -146,7 +191,11 @@
         <p><b>Information - fund of general knowledge; long-term memory; recall</b></p>
         <p>The Information subtest reflects two factors in the child's development of language and knowledge: 1) The
             richness of the child's verbal
-            environment during<span class="input__hisher">...</span>development is reflected in the fund of knowledge. 2) The ability to store that
+            environment during {% if gender == 'Male' %}
+            His
+            {% else %}
+            Her
+            {% endif %} development is reflected in the fund of knowledge. 2) The ability to store that
             knowledge in long -term memory, recall it, and
             verbally express it is an individual ability that is measured by the
             Information subtest.<u>On this subtest {{name}} has scored at
@@ -157,17 +206,34 @@
             children. The social understanding that underlies the Comprehension subtest is greatly influenced by
             environment. Ethical judgment may be lacking for a variety of reasons -
             intellectual, environmental, and emotional. For children with significantly
-            weak comprehension subtest scores, direct instruction in social skills may be required.<u>He has scored at
+            weak comprehension subtest scores, direct instruction in social skills may be required.<u>
+                {% if gender == 'Male' %}
+                He
+                {% else %}
+                She
+                {% endif %} has scored at
                 {{verbal_tests.1 | Convert}} level .</u>
         </p>
         <p><b>Arithmetic - Numerical reasoning; attention and concentration</b></p>
         <p>The numerical tasks of the Arithmetic subtest are worked out "in the
-            child's head".<span class="input__heshe">...</span>must have the ability to attend to the verbally presented problem and concentrate on
-            working out the answer in<span class="input__hisher">...</span>short-term
+            child's head". {% if gender == 'Male' %}
+            He
+            {% else %}
+            She
+            {% endif %} must have the ability to attend to the verbally presented problem and concentrate on
+            working out the answer in {% if gender == 'Male' %}
+            His
+            {% else %}
+            Her
+            {% endif %} short-term
             memory. Performance on Arithmetic also requires a mastery of the
             mathematical operations required by each item, and therefore rev eals information on the child's achievement
             in arithmetic learning.
-            <u>On this subtest,<span class="input__hisher">...</span>score is at {{verbal_tests.2 | Convert}}
+            <u>On this subtest, {% if gender == 'Male' %}
+                his
+                {% else %}
+                her
+                {% endif %} score is at {{verbal_tests.2 | Convert}}
                 level.</u>
         </p>
         <p><b>Similarities - Verbal categories and concepts; abstract verbal reasoning</b></p>
@@ -189,18 +255,35 @@
             Digit Span
             scores
             suggest a superior ability to
-            concentrate and memorize orally presented information.<u>Here<span class="input__heshe">...</span>has scored at {{verbal_tests.4 | Convert}}
+            concentrate and memorize orally presented information.<u>Here {% if gender == 'Male' %}
+                he
+                {% else %}
+                she
+                {% endif %} has scored at {{verbal_tests.4 | Convert}}
                 level.</u>
             {% else %}
             The degree to which one has learned, to be able to comprehend and verbally express vocabulary. This is a
             test considered to be a measure of general intelligence. This is also a measure of acquired knowledge.
-            <u>Here<span class="input__heshe">...</span>has scored at {{verbal_tests.4 | Convert}} level.</u>
+            <u>Here {% if gender == 'Male' %}
+                he
+                {% else %}
+                she
+                {% endif %} has scored at {{verbal_tests.4 | Convert}} level.</u>
             {% endif %}
         </p>
 
-        <p>His performance quotient on the same test is {{performance_tests | Average}} which fall in
+        <p>{% if gender == 'Male' %}
+            His
+            {% else %}
+            Her
+            {% endif %} performance quotient on the same test is {{performance_tests | Average}} which fall in
             {{performance_tests_verbose}}
-            level of functioning (Average range is 90 -110; borderline range of intelligence is 71 -89). His
+            level of functioning (Average range is 90 -110; borderline range of intelligence is 71 -89).
+            {% if gender == 'Male' %}
+            His
+            {% else %}
+            Her
+            {% endif %}
             profile on the performance scale is as
             mentioned below.
         </p>
@@ -252,7 +335,11 @@
         <p><b>Object Assembly - Visual analysis and construction of a whole from its parts</b></p>
         <p>The Object Assembly subtest score reflects the visual -motor skills of
             puzzle construction. The child must analyze the object and construct the
-            whole visual object from its parts within time constraints. <u>His score on this subtest is at below
+            whole visual object from its parts within time constraints. <u>{% if gender == 'Male' %}
+                His
+                {% else %}
+                Her
+                {% endif %} score on this subtest is at below
                 {{performance_tests.2 | Convert}} level.</u>
         </p>
         <p><b>Coding - Visual motor coordination; speed; concentration</b></p>
@@ -260,27 +347,52 @@
             Coding gives clues to basic deficiencies in visual motor performance
             needed for writing. Good short-term memory improves performance on coding. It also factors with freedom from
             distractibility and the ability to
-            concentrate to accomplish a visual motor task within time constraints. <u>On this subtest,<span class="input__hisher">...</span>score is at
+            concentrate to accomplish a visual motor task within time constraints. <u>On this subtest,
+                {% if gender == 'Male' %}
+                his
+                {% else %}
+                her
+                {% endif %} score is at
                 {{performance_tests.3 | Convert}} range.</u>
 
         </p>
         <p><b>Mazes- Mental Planning Skills</b></p>
         <p>Mazes show the ability of mental planning, insight and attention to
             instructions of the child. It is a good measure of visuo - motor coordination with accuracy and speed.
-            <u>Here also<span class="input__heshe">...</span>has scored at {{performance_tests.4 | Convert}} level.
+            <u>Here also {% if gender == 'Male' %}
+                he
+                {% else %}
+                she
+                {% endif %} has scored at {{performance_tests.4 | Convert}} level.
             </u>
         </p>
         <p>Overall, {{name}}’s <u>Full-Scale Intelligence Quotient is {{full_score}}</u>which indicate <u>average
                 intellectual
-                functioning. </u>His verbal scale scores are better than<span class="input__hisher">...</span>performance scale scores. {{final_review}}
+                functioning. </u>{% if gender == 'Male' %}
+            His
+            {% else %}
+            Her
+            {% endif %} verbal scale scores are better than {% if gender == 'Male' %}
+            his
+            {% else %}
+            her
+            {% endif %} performance scale scores. {{final_review}}
             which could influence
-           <span class="input__hisher">...</span>academic and day today functioning.
+            {% if gender == 'Male' %}
+            his
+            {% else %}
+            her
+            {% endif %} academic and day today functioning.
             .
         </p>
         <p><b><u>Raven’s {{ravens_test}} Progressive Matrices (R-{{ravens_test.0 | upper}}PM)</u></b></p>
         <p>On R-{{ravens_test.0 | upper}}PM, {{name}}`s score falls {{final_percentile}} percentile which indicates
             {{final_intelligence}}
-            intelligence.<span class="input__heshe">...</span>struggled in items measuring visual analysis and organization, visual attention and
+            intelligence. {% if gender == 'Male' %}
+            He
+            {% else %}
+            She
+            {% endif %} struggled in items measuring visual analysis and organization, visual attention and
             visual sequencing .
         </p>
         <section class="has_tests">
@@ -410,9 +522,23 @@
                 <strong textalign="left">
                     <li>Schonell’s Graded Word reading Test </li>
                 </strong>
-                <p>His reading age as found on this test is {{schonell_reading_age}} , which is below<span class="input__hisher">...</span>chronological
+                <p>{% if gender == 'Male' %}
+                    His
+                    {% else %}
+                    Her
+                    {% endif %} reading age as found on this test is {{schonell_reading_age}} , which is below
+                    {% if gender == 'Male' %}
+                    his
+                    {% else %}
+                    her
+                    {% endif %} chronological
                     age ({{year}} years {{month}} months). This score shows
-                    {{inappropriateness}} in<span class="input__hisher">...</span>word reading skills.
+                    {{inappropriateness}} in
+                    {% if gender == 'Male' %}
+                    his
+                    {% else %}
+                    her
+                    {% endif %} word reading skills.
                 </p>
             </div>
             {% endif %}
@@ -426,10 +552,22 @@
             {% if tests.2 %}
             <div class="test hidden">
                 <strong>Schonell’s Spelling Test-B</strong>
-                <p>On Schonell’s Spelling test<span class="input__hisher">...</span>spelling age is calculated as {{schonell_spelling_age}}, which is
-                    significantly below<span class="input__hisher">...</span>chronological age ({{year}}
+                <p>On Schonell’s Spelling test {% if gender == 'Male' %}
+                    his
+                    {% else %}
+                    her
+                    {% endif %} spelling age is calculated as {{schonell_spelling_age}}, which is
+                    significantly below {% if gender == 'Male' %}
+                    his
+                    {% else %}
+                    her
+                    {% endif %} chronological age ({{year}}
                     years {{month}} months). This score shows
-                    {{schonell_summary}} in<span class="input__hisher">...</span>spelling skills.
+                    {{schonell_summary}} in {% if gender == 'Male' %}
+                    his
+                    {% else %}
+                    her
+                    {% endif %} spelling skills.
                 </p>
             </div>
             {% endif %}
@@ -439,15 +577,39 @@
                 <p>The qualitative analysis of Roswell-Chall shows following observations;
 
                 <ul>
-                    <li>He has {{schonell_list_0}} knowledge of phonic sounds.</li>
-                    <li>He has {{schonell_list_1}} knowledge of blends.</li>
-                    <li>He has {{schonell_list_2}} understanding of vowel sounds.
+                    <li>{% if gender == 'Male' %}
+                        He
+                        {% else %}
+                        She
+                        {% endif %} has {{schonell_list_0}} knowledge of phonic sounds.</li>
+                    <li>{% if gender == 'Male' %}
+                        He
+                        {% else %}
+                        She
+                        {% endif %} has {{schonell_list_1}} knowledge of blends.</li>
+                    <li>{% if gender == 'Male' %}
+                        He
+                        {% else %}
+                        She
+                        {% endif %} has {{schonell_list_2}} understanding of vowel sounds.
                     </li>
-                    <li>He {{schonell_list_3}} syllabicate long and multisyllable words.
+                    <li>{% if gender == 'Male' %}
+                        He
+                        {% else %}
+                        She
+                        {% endif %} {{schonell_list_3}} syllabicate long and multisyllable words.
                     </li>
-                    <li>He has {{schonell_list_4}} understanding of silent ‘e’
+                    <li>{% if gender == 'Male' %}
+                        He
+                        {% else %}
+                        She
+                        {% endif %} has {{schonell_list_4}} understanding of silent ‘e’
                         sounds.</li>
-                    <li>He {{schonell_list_5}} read words and short sentences, {{schonell_list_7}}.</li>
+                    <li>{% if gender == 'Male' %}
+                        He
+                        {% else %}
+                        She
+                        {% endif %}{{schonell_list_5}} read words and short sentences, {{schonell_list_7}}.</li>
                 </ul>
                 </p>
             </div>
@@ -455,8 +617,17 @@
             {% if tests.4 %}
             <div class="test hidden">
                 <strong>Auditory Sequential Memory Test</strong>
-                <p>His auditory sequential memory is found to be at {{auditory_age}} level, showing significantly
-                    {{auditory_res}} ability in sequential memory skills with<span class="input__hisher">...</span>age level.
+                <p>{% if gender == 'Male' %}
+                    His
+                    {% else %}
+                    Her
+                    {% endif %} auditory sequential memory is found to be at {{auditory_age}} level, showing
+                    significantly
+                    {{auditory_res}} ability in sequential memory skills with {% if gender == 'Male' %}
+                    his
+                    {% else %}
+                    her
+                    {% endif %} age level.
                 </p>
             </div>
             {% endif %}
@@ -484,33 +655,71 @@
                 accept the child and help him in a more appropriate way.</li>
             <li>Individual counseling to learn how to cope up with academic and other stressful situations and build
                 confidence.</li>
-            <li>Cognitive Training to improve<span class="input__hisher">...</span>deficient cognitive skills.</li>
-            <li>Training on study skills to improve<span class="input__hisher">...</span>overall academic performance.</li>
-            <li>Remedial training to enhance<span class="input__hisher">...</span>attentional skills, education skills like reading, writing, spelling,
+            <li>Cognitive Training to improve {% if gender == 'Male' %}
+                his
+                {% else %}
+                her
+                {% endif %} deficient cognitive skills.</li>
+            <li>Training on study skills to improve {% if gender == 'Male' %}
+                his
+                {% else %}
+                her
+                {% endif %} overall academic performance.</li>
+            <li>Remedial training to enhance {% if gender == 'Male' %}
+                his
+                {% else %}
+                her
+                {% endif %} attentional skills, education skills like reading, writing, spelling,
                 arithmetic skills and facilitate rate of expression</li>
             <li>Academic planning based on assessment results.</li>
-            <li>Demeaning comments about<span class="input__hisher">...</span>performance should be altered with productive feedback.</li>
+            <li>Demeaning comments about {% if gender == 'Male' %}
+                his
+                {% else %}
+                her
+                {% endif %} performance should be altered with productive feedback.</li>
             <li>Periodic review of intervention program with adequate modifications to be made from time to time and to
                 work on appropriate transfer of learning</li>
             <li>An orientation to teachers about the results of assessment to provide suitable accommodations and
                 appropriate classroom modifications like,<p>
                 <ul>
-                    <li>extra t ime to complete<span class="input__hisher">...</span>work</li>
+                    <li>extra t ime to complete {% if gender == 'Male' %}
+                        his
+                        {% else %}
+                        her
+                        {% endif %} work</li>
                     <li>appropriate monitoring and providing assistance for class work</li>
                     <li>facilitate buddy system in classroom and outside activities so as to help monitor and develop
-                       <span class="input__hisher">...</span>academic and adaptive
+                        {% if gender == 'Male' %}
+                        his
+                        {% else %}
+                        her
+                        {% endif %} academic and adaptive
                         functioning.
                     </li>
                 </ul>
                 </p>
             </li>
-            <li>He should also be provided accommodations during evaluations during the period of intervention namely
+            <li>
+                {% if gender == 'Male' %}
+                He
+                {% else %}
+                She
+                {% endif %}
+                should also be provided accommodations during evaluations during the period of intervention namely
                 <p>
                 <ul>
-                    <li>extra time to write all<span class="input__hisher">...</span>examinations</li>
+                    <li>extra time to write all {% if gender == 'Male' %}
+                        his
+                        {% else %}
+                        her
+                        {% endif %} examinations</li>
                     <li>to read out questions to him as and when required by him</li>
                     <li>spelling errors to be overlooked for content</li>
-                    <li>provide distraction free environment to write<span class="input__hisher">...</span>exams</li>
+                    <li>provide distraction free environment to write {% if gender == 'Male' %}
+                        his
+                        {% else %}
+                        her
+                        {% endif %} exams</li>
                 </ul>
                 </p>
             </li>
