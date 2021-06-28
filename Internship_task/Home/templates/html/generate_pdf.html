@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load tags %}
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/report.css' %}">
 
     <title>Report</title>
     <style>
@@ -54,8 +56,8 @@
 
         <div class="column"
             style="flex: 50%; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 16px">
-
-            <p id=><b>Gender: {{gender}}</b></p>
+            
+            <p><b>Gender: <b id="gender">{{gender}}</b></b></p>
             <p><b>Age: {{age}}</b></p>
             <p><b>Informant: {{informant}}</b></p>
 
@@ -726,6 +728,34 @@
 
 
     </div>
+    <script>
+  const $ = document.querySelector.bind(document)
+
+  const newgender = $("#gender").value;
+  
+  if(newgender == "Male"){
+      $(".input__heshe").innerHTML=" he ";
+      $(".input__hisher").innerHTML=" his ";
+      $(".input__boygirl").innerHTML=" boy ";
+  }else{
+    $(".input__heshe").innerHTML=" she ";
+      $(".input__hisher").innerHTML=" her ";
+      $(".input__boygirl").innerHTML=" girl ";
+  }
+
+  $('#gender').addEventListener('change', () => {
+    var newgender = $("#gender").value;
+    if(newgender == "Female"){
+      $(".input__heshe").innerHTML=" she ";
+      $(".input__hisher").innerHTML=" her ";
+      $(".input__boygirl").innerHTML=" girl ";
+    }else{
+        $(".input__heshe").innerHTML=" he ";
+      $(".input__hisher").innerHTML=" his ";
+      $(".input__boygirl").innerHTML=" boy ";
+    }
+  })
+    </script>
 
 </body>
 

@@ -43,35 +43,20 @@ function digit_vocab(age) {
   });
 }
 
-function get_data(key) {
-  return JSON.parse(localStorage.getItem("form"))[key];
+function get_data (key) {
+  return JSON.parse(localStorage.getItem('form'))[key]
 }
 
-function changeBehaviour() {
-  switch ($("#behave").val()) {
-    case "good": {
-      $(".plotelement1").html(
-        '<span class="HeShe">She</span> made <span class="hisher">her</span> parents proud of <span class="himher">her</span> and they told <span class="himher">her</span> all the time how good <span class="heshe">she</span> was.'
-      );
-      break;
-    }
-    default: {
-      $(".plotelement1").html(
-        '<span class="HeShe">She</span> was constantly being told off by <span class="hisher">her</span> <span class="mainparent">mother</span>'
-      );
-    }
-  }
-}
-window.addEventListener("DOMContentLoaded", () => {
-  const pages = $$("main>section");
-  const tabs = $$(".tab");
-  let current = 0;
-  const backButton = $$("main>div button")[0];
-  const nextButton = $$("main>div button")[1];
-  const inputs = $$("main [name]");
-  const data_inputs = $$("main [contenteditable]");
-  const choices = $$(".test_choice");
-  const test_sections = $$(".has_tests>.test");
+window.addEventListener('DOMContentLoaded', () => {
+  const pages = $$('main>section')
+  const tabs = $$('.tab')
+  let current = 0
+  const backButton = $$('main>div button')[0]
+  const nextButton = $$('main>div button')[1]
+  const inputs = $$('main [name]')
+  const data_inputs = $$('main [contenteditable]')
+  const choices = $$('.test_choice')
+  const test_sections = $$('.has_tests>.test')
   // Sattler Checkoboxes
   const checkboxes = $$("#sattler_table input[type=checkbox]");
   function finish(back = false) {
@@ -286,16 +271,3 @@ window.addEventListener("DOMContentLoaded", () => {
   $("[name=dob]").dispatchEvent(new Event("change"));
 });
 
-// function genderChange(){
-//   var newgender = document.getElementById("gender").value;
-//   console.log("hi")
-//   if(newgender == "Male"){
-//     $(".input__heshe").html("he");
-//     $(".input__hisher").html("his");
-//     $(".input__boygirl").html("boy");
-//   } else {
-//     $(".input__heshe").textContent = "she";
-//     $(".input__hisher").html("her");
-//     $(".input__boygirl").html("girl");
-//   }
-// };
