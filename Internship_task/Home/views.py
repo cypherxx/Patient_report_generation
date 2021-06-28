@@ -439,7 +439,7 @@ def Search_report(request) :
                 counter-=1
                 if counter==0:
                     break
-            #return JsonResponse(names,safe=False)
+            return JsonResponse(names,safe=False)
         x = request.GET.get('report_search')
         z = list(Report_Patient.objects.filter(ijkname=x).values())
         l=[]
