@@ -48,7 +48,30 @@ function digit_vocab (age) {
 function get_data (key) {
   return JSON.parse(localStorage.getItem('form'))[key]
 }
-
+function genderChange(){
+  var newgender = $("#gender").val();
+  if(newgender == "male"){
+    $(".heshe").text("he");
+    $(".HeShe").text("He");
+    $(".himher").text("him");
+  } else {
+    $(".heshe").text("she");
+    $(".HeShe").text("She");
+    $(".himher").text("her");
+  }
+}
+function changeBehaviour(){
+  switch($("#behave").val()){
+  case "good":{
+    $(".plotelement1").html('<span class="HeShe">She</span> made <span class="hisher">her</span> parents proud of <span class="himher">her</span> and they told <span class="himher">her</span> all the time how good <span class="heshe">she</span> was.');
+    break;
+  }
+  default:{
+    $(".plotelement1").html('<span class="HeShe">She</span> was constantly being told off by <span class="hisher">her</span> <span class="mainparent">mother</span>');
+  }
+  }
+genderChange();
+}
 window.addEventListener('DOMContentLoaded', () => {
   const pages = $$('main>section')
   const tabs = $$('.tab')

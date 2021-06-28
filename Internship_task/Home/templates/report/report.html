@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="{% static 'css/report.css' %}">
 </head>
 
+
+
 <body>
   <section id="top">
     <h1>New Report</h1>
@@ -85,7 +87,10 @@
           motivated</span> for the assessment.<span class="input__hisher">...</span>attention <select name="2_attention">
           <option value="could be">could be</option>
           <option value="could not be">could not be</option>
-        </select> aroused however sustaining the same for the required period of time required prompts in between. His
+        </select> aroused however sustaining the same for the required period of time required prompts in between.           <select name="His">
+          <option value="his">His</option>
+          <option value="her">Her</option>
+        </select>
         rate of responses was <span contenteditable data-name="2_response">slow and needed more time</span> to perform a
         task given. Assessment was completed with appropriate breaks in between sessions.
       </p>
@@ -171,7 +176,10 @@
       <h2>Test Findings</h2>
       <p>On MISIC,<span class="input__hisher">...</span>verbal quotient is <span class="input__verbal_tests_average">...</span> which suggests <span
           class="input__verbal_tests_verbose">...</span> functioning on verbal scale (Average range is 90-110;
-        borderline range of intelligence is 71-89). His
+        borderline range of intelligence is 71-89).           <select name="His">
+          <option value="his">His</option>
+          <option value="her">Her</option>
+        </select>
         profile on the verbal scale is as follows;</p>
       <table class="verbal_tests_report">
         <thead>
@@ -256,7 +264,11 @@
       </div>
     </section>
     <section>
-      <p>His performance quotient on the same test is <span class="input__performance_tests_average">...</span>
+      <p>          <select name="His">
+        <option value="his">His</option>
+        <option value="her">Her</option>
+      </select>
+performance quotient on the same test is <span class="input__performance_tests_average">...</span>
         which fall <span class="input__performance_tests_verbose">...</span> level of functioning (Average range is
         90-110; borderline range of intelligence is 71-89).<span class="input__hisher">...</span>profile
         on the performance
@@ -456,7 +468,12 @@
         <strong textalign="left">
           <li>Schonell’s Graded Word reading Test </li>
         </strong>
-        <p>His reading age as found on this test is <span contenteditable data-name="schonell_reading_age">12 years 6
+        <p>
+          <select name="His">
+            <option value="his">His</option>
+            <option value="her">Her</option>
+          </select>
+ reading age as found on this test is <span contenteditable data-name="schonell_reading_age">12 years 6
             months
           </span> , which is below<span class="input__hisher">...</span>chronological age (<span class="input__year">...</span> years <span
             class="input__month">...</span> months). This score shows
@@ -503,38 +520,56 @@
         <p>The qualitative analysis of Roswell-Chall shows following observations;
 
         <ul>
-          <li>He has <select name="schonell_list_0" id="">
+          <li>          <select name="he">
+            <option value="he">He</option>
+            <option value="she">She</option>
+          </select> has <select name="schonell_list_0" id="">
               <option value="adequate">adequate</option>
               <option value="inadequate">inadequate</option>
               <option value="appropriate ">appropriate </option>
               <option value="inappropriate">inappropriate</option>
             </select> knowledge of phonic sounds.</li>
-          <li>He has <select name="schonell_list_1" id="">
+          <li>          <select name="he">
+            <option value="he">He</option>
+            <option value="she">She</option>
+          </select> has <select name="schonell_list_1" id="">
               <option value="adequate">adequate</option>
               <option value="inadequate">inadequate</option>
               <option value="appropriate ">appropriate </option>
               <option value="inappropriate">inappropriate</option>
             </select> knowledge of blends.</li>
-          <li>He has <select name="schonell_list_2" id="">
+          <li>          <select name="he">
+            <option value="he">He</option>
+            <option value="she">She</option>
+          </select> has <select name="schonell_list_2" id="">
               <option value="adequate">adequate</option>
               <option value="inadequate">inadequate</option>
               <option value="appropriate ">appropriate </option>
               <option value="inappropriate">inappropriate</option>
             </select> understanding of vowel sounds.
           </li>
-          <li>He <select name="schonell_list_3" id="">
+          <li>          <select name="he">
+            <option value="he">He</option>
+            <option value="she">She</option>
+          </select> <select name="schonell_list_3" id="">
               <option value="could be"> could be</option>
               <option value="could not be">could not be</option>
             </select> syllabicate long and multisyllable words.
           </li>
-          <li>He has <select name="schonell_list_4" id="">
+          <li>          <select name="he">
+            <option value="he">He</option>
+            <option value="she">She</option>
+          </select> has <select name="schonell_list_4" id="">
               <option value="appropriate">appropriate</option>
               <option value="inappropriate">inappropriate</option>
               <option value="adequate">adequate</option>
               <option value="inadequate">inadequate</option>
             </select> understanding of silent ‘e’
             sounds.</li>
-          <li>He <select name="schonell_list_5" id="">
+          <li>          <select name="he">
+            <option value="he">He</option>
+            <option value="she">She</option>
+          </select> <select name="schonell_list_5" id="">
               <option value="could">could</option>
               <option value="could not">could not</option>
             </select> read words and short sentences, <span contenteditable data-name="schonell_list_7">however tries to
@@ -546,7 +581,11 @@
 
       <div class="test hidden">
         <strong>Auditory Sequential Memory Test</strong>
-        <p>His auditory sequential memory is found to be at <span contenteditable data-name="auditory_age">8 years 6
+        <p>          <select name="His">
+          <option value="his">His</option>
+          <option value="her">Her</option>
+        </select>
+auditory sequential memory is found to be at <span contenteditable data-name="auditory_age">8 years 6
             months</span> level, showing significantly <select name="auditory_res" id="">
             <option value="inappropriate">inappropriate</option>
             <option value="appropriate">appropriate</option>
@@ -577,7 +616,7 @@
         language processing and expression and
         significant difficulty in visuo perception and processing. The profile and the observation data match with
         profile
-        of Slow learner.</span>
+        of Slow learner.</p>   </span>
     </section>
     <section>
       <button id="submit" value='0'>Submit Report</button>
