@@ -428,4 +428,24 @@ def edit(request):
     print(obj_values)
     return render(request, 'report/report_edit.html', {'key':obj_keys, 'value': obj_values})
     
-
+def Search_report(request) : 
+    if request.method == 'GET':
+        if 'term' in request.GET:
+            qs = Report_Patient.objects.filter(name__istartswith = request.GET['term'])
+            names = []
+            counter=10
+            for i in qs:
+                names.append(i.name)
+                counter-=1
+                if counter==0:
+                    break
+            return JsonResponse(names,safe=False)
+        x = request.GET.get('report_search')
+        z = list(Report_Patient.objects.filter(ijkname=x).values())
+        l=[]
+        for i in z:
+            x = list(i.values())
+            l.append(x)
+        print(l)
+        return render(request, 'html/index.html',{'p':l})
+        

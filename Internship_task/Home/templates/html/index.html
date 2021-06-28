@@ -10,6 +10,15 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/templatemo_main.css' %}">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function () {
+      $("#search").autocomplete({
+        source: "{% url 'search_report' %}"
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -29,7 +38,7 @@
   <div class="template-page-wrapper">
     <div class="navbar-collapse collapse templatemo-sidebar">
       <ul class="templatemo-sidebar-menu">
-        <li class="active"><a href="#"><i class="fa fa-home"></i>Dashboard</a></li>
+        <li class="active"><a href="{% url 'index' %}"><i class="fa fa-home"></i>Dashboard</a></li>
         <li><a href="{% url 'profile' %}"><i class="fa fa-cog"></i>User Profile</a></li>
         <li><a href="{% url 'new_profile' %}"><i class="fa fa-cog"></i>New Report</a></li>
         <li><a href="javascript:;" data-toggle="modal" data-target="#confirmModal"><i class="fa fa-sign-out"></i>Sign
@@ -40,6 +49,16 @@
   <div class="container">
     <div class="templatemo-content-wrapper">
       <div class="templatemo-content">
+              <div class="container">
+                <form action="{% url 'search_report' %}" method='GET' class="d-flex">
+                {% csrf_token %}
+                <input name="report_search" id="search" class="form-control me-2" type="search" placeholder="Search"
+                  aria-label="Search" />
+                <button class="btn nav_btn btn-outline-dark mx-1" type="submit" id="search">
+                  Search
+                </button>
+              </form>
+              </div>
         <table class="table table-striped table-hover">
           <thead>
             <tr>
