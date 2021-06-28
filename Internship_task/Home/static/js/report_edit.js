@@ -227,6 +227,19 @@ window.addEventListener("DOMContentLoaded", () => {
     for (var i = 0; i < z.length; i++) {
       z[i].innerHTML = " boy ";
     }
+  } else {
+    const x = $$(".input__heshe");
+    const y = $$(".input__hisher");
+    const z = $$(".input__boygirl");
+    for (var i = 0; i < x.length; i++) {
+      x[i].innerHTML = " she ";
+    }
+    for (var i = 0; i < y.length; i++) {
+      y[i].innerHTML = " her ";
+    }
+    for (var i = 0; i < z.length; i++) {
+      z[i].innerHTML = " girl ";
+    }
   }
 
   $("#gender").addEventListener("change", () => {
@@ -243,6 +256,19 @@ window.addEventListener("DOMContentLoaded", () => {
       }
       for (var i = 0; i < z.length; i++) {
         z[i].innerHTML = " girl ";
+      }
+    } else {
+      const x = $$(".input__heshe");
+      const y = $$(".input__hisher");
+      const z = $$(".input__boygirl");
+      for (var i = 0; i < x.length; i++) {
+        x[i].innerHTML = " he ";
+      }
+      for (var i = 0; i < y.length; i++) {
+        y[i].innerHTML = " his ";
+      }
+      for (var i = 0; i < z.length; i++) {
+        z[i].innerHTML = " boy ";
       }
     }
   });

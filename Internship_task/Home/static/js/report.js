@@ -43,20 +43,20 @@ function digit_vocab(age) {
   });
 }
 
-function get_data (key) {
-  return JSON.parse(localStorage.getItem('form'))[key]
+function get_data(key) {
+  return JSON.parse(localStorage.getItem("form"))[key];
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  const pages = $$('main>section')
-  const tabs = $$('.tab')
-  let current = 0
-  const backButton = $$('main>div button')[0]
-  const nextButton = $$('main>div button')[1]
-  const inputs = $$('main [name]')
-  const data_inputs = $$('main [contenteditable]')
-  const choices = $$('.test_choice')
-  const test_sections = $$('.has_tests>.test')
+window.addEventListener("DOMContentLoaded", () => {
+  const pages = $$("main>section");
+  const tabs = $$(".tab");
+  let current = 0;
+  const backButton = $$("main>div button")[0];
+  const nextButton = $$("main>div button")[1];
+  const inputs = $$("main [name]");
+  const data_inputs = $$("main [contenteditable]");
+  const choices = $$(".test_choice");
+  const test_sections = $$(".has_tests>.test");
   // Sattler Checkoboxes
   const checkboxes = $$("#sattler_table input[type=checkbox]");
   function finish(back = false) {
@@ -224,6 +224,19 @@ window.addEventListener('DOMContentLoaded', () => {
     for (var i = 0; i < z.length; i++) {
       z[i].innerHTML = " boy ";
     }
+  } else {
+    const x = $$(".input__heshe");
+    const y = $$(".input__hisher");
+    const z = $$(".input__boygirl");
+    for (var i = 0; i < x.length; i++) {
+      x[i].innerHTML = " she ";
+    }
+    for (var i = 0; i < y.length; i++) {
+      y[i].innerHTML = " her ";
+    }
+    for (var i = 0; i < z.length; i++) {
+      z[i].innerHTML = " girl ";
+    }
   }
 
   $("#gender").addEventListener("change", () => {
@@ -240,6 +253,19 @@ window.addEventListener('DOMContentLoaded', () => {
       }
       for (var i = 0; i < z.length; i++) {
         z[i].innerHTML = " girl ";
+      }
+    } else {
+      const x = $$(".input__heshe");
+      const y = $$(".input__hisher");
+      const z = $$(".input__boygirl");
+      for (var i = 0; i < x.length; i++) {
+        x[i].innerHTML = " he ";
+      }
+      for (var i = 0; i < y.length; i++) {
+        y[i].innerHTML = " his ";
+      }
+      for (var i = 0; i < z.length; i++) {
+        z[i].innerHTML = " boy ";
       }
     }
   });
@@ -270,4 +296,3 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   $("[name=dob]").dispatchEvent(new Event("change"));
 });
-
