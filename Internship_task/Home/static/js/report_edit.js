@@ -220,15 +220,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const z = $$(".input__boygirl");
     for (var i = 0; i < x.length; i++) {
       x[i].innerHTML = " he ";
-      x[i].parentElement.dispatchEvent(new Event("input"));
     }
     for (var i = 0; i < y.length; i++) {
       y[i].innerHTML = " his ";
-      y[i].parentElement.dispatchEvent(new Event("input"));
     }
     for (var i = 0; i < z.length; i++) {
       z[i].innerHTML = " boy ";
-      z[i].parentElement.dispatchEvent(new Event("input"));
     }
   } else {
     const x = $$(".input__heshe");
@@ -236,15 +233,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const z = $$(".input__boygirl");
     for (var i = 0; i < x.length; i++) {
       x[i].innerHTML = " she ";
-      x[i].parentElement.dispatchEvent(new Event("input"));
     }
     for (var i = 0; i < y.length; i++) {
       y[i].innerHTML = " her ";
-      y[i].parentElement.dispatchEvent(new Event("input"));
     }
     for (var i = 0; i < z.length; i++) {
       z[i].innerHTML = " girl ";
-      z[i].parentElement.dispatchEvent(new Event("input"));
     }
   }
 
@@ -256,15 +250,12 @@ window.addEventListener("DOMContentLoaded", () => {
       const z = $$(".input__boygirl");
       for (var i = 0; i < x.length; i++) {
         x[i].innerHTML = " she ";
-        x[i].parentElement.dispatchEvent(new Event("input"));
       }
       for (var i = 0; i < y.length; i++) {
         y[i].innerHTML = " her ";
-        y[i].parentElement.dispatchEvent(new Event("input"));
       }
       for (var i = 0; i < z.length; i++) {
         z[i].innerHTML = " girl ";
-        z[i].parentElement.dispatchEvent(new Event("input"));
       }
     } else {
       const x = $$(".input__heshe");
@@ -272,15 +263,12 @@ window.addEventListener("DOMContentLoaded", () => {
       const z = $$(".input__boygirl");
       for (var i = 0; i < x.length; i++) {
         x[i].innerHTML = " he ";
-        x[i].parentElement.dispatchEvent(new Event("input"));
       }
       for (var i = 0; i < y.length; i++) {
         y[i].innerHTML = " his ";
-        y[i].parentElement.dispatchEvent(new Event("input"));
       }
       for (var i = 0; i < z.length; i++) {
         z[i].innerHTML = " boy ";
-        z[i].parentElement.dispatchEvent(new Event("input"));
       }
     }
   });
