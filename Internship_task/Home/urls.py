@@ -20,6 +20,7 @@ urlpatterns=[
     path('detail/',views.detail,name='detail'),
     path('update_detail/',views.update_detail,name='update_detail'),
     path('sendmail/<pk>/',views.send_report_mail,name='send_mail'),
-    path('report_mail/<pk>',views.report_mail,name='report_mail')
+    path('report_mail/<pk>',views.report_mail,name='report_mail'),
+    path('delete/<pk>',views.delete_report,name='delete_report')
     
 ]

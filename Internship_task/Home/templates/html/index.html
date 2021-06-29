@@ -69,7 +69,7 @@
             <tr>
               <th scope="col">Patient Id</th>
               <th scope="col">Patient Name</th>
-              <th colspan="3" style="text-align: center;">Action</th>
+              <th colspan="4" style="text-align: center;">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -83,6 +83,7 @@
                 <td><input type="submit" class="btn btn-default" name="edit" value="Edit {{i.0}}"></a></td>
               </form>
               <td><a href="{% url 'send_mail' i.0 %}" class="btn btn-default">Send</a></td>
+              <td><a href="{% url 'delete_report' i.0 %}" class="btn btn-default">Delete</a></td>
             </tr>
             {% endfor %}
           </tbody>
