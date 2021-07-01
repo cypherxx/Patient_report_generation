@@ -449,3 +449,8 @@ def Search_report(request) :
         Url = f"{request.scheme}://{request.get_host()}/media/"
         return render(request, 'html/index.html',{'p':l,'u':Url})
         
+def delete_report(request,pk):
+
+    report = Report_Patient.objects.get(pk=pk)
+    report.delete()
+    return HttpResponse("<h1><center>REPORT DELETED SUCCESSFULLY !!</center></h1>")
