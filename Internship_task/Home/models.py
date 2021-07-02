@@ -1,3 +1,4 @@
+from os import X_OK
 from django.db import models
 from django.contrib.auth.models import User,AbstractUser
 from django.db.models.base import Model
@@ -70,6 +71,8 @@ class Report_Patient(models.Model):
     ijkschonell_reading_handwriting_1=models.CharField(max_length=100,null=True)
     ijkschonell_reading_handwriting_2=models.CharField(max_length=100,null=True)
     ijkschonell_reading_handwriting_3=models.CharField(max_length=100,null=True)
+    ijkrecommendations=models.CharField(max_length=100,null=True) 
+    ijkrecommendations_input=models.CharField(max_length=100,null=True) 
     class Meta:
         ordering = ('-patient_id',)
 
