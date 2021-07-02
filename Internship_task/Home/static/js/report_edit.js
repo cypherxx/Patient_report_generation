@@ -27,7 +27,15 @@ function save() {
     });
 }
 function getGrade(num) {
-  return num >= 90 && num <= 110 ? "Average" : "Borderline";
+  if (num >= 130) return "Very Superior";
+  else if (num >= 120 && num <= 129) return "Superior";
+  else if (num >= 110 && num <= 119) return "Above average";
+  else if (num >= 85 && num <= 109) return "Average";
+  else if (num >= 70 && num <= 84) return "Borderline";
+  else if (num >= 50 && num <= 69) return "Mild Intellectual Disability";
+  else if (num >= 35 && num <= 49) return "Moderate";
+  else if (num >= 20 && num <= 34) return "Severe";
+  else return "Profound";
 }
 function digit_vocab(age) {
   const opts = $("#digit_vocab").querySelectorAll("div");
