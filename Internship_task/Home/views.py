@@ -409,7 +409,11 @@ def edit(request):
     x=p_id[5:]
     my_obj=Report_Patient.objects.filter(patient_id=x)
     y= (list(my_obj.values()))
+    #print(my_obj)
+    #print(y)
+    
     obj_keys= list(y[0].keys())
+    #print(obj_keys)
     obj_values= list(y[0].values())
     flag=0
     for i in range(0,len(obj_values)):
@@ -435,8 +439,13 @@ def edit(request):
                             else:
                                 obj_values[i][j][k]=''
                 
-                    # print(obj_values[i])                   
-   
+                    # print(obj_values[i])
+    zz=0
+    for kk in obj_keys:
+        
+        print(zz," ",kk,"\n")
+        zz+=1
+
     return render(request, 'report/report_edit.html', {'key':obj_keys, 'value': obj_values})
     
 def Search_report(request) : 

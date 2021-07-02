@@ -1,116 +1,117 @@
+0   patient_id 
 
-'name': 'Vaishnavi Jadhav', 
-'gender': 'Female',
-'dot': '2021-06-08', 
-'dob': '2021-06-17', 
-'age': 0, 
-'informant': 'Father',
-'class': 'I', 
-'2_age_observation': 'appropriate', 
-'2_attention': 'could be', 
-'appropriateness': 'appropriateness', 
-'inappropriate ': 'inappropriate ', 
-'inappropriateness ': 'inappropriateness ',
-'schonell_list_0': 'adequate',
-'schonell_list_1': 'adequate',
-'schonell_list_2': 'adequate',
-'schonell_list_3': 'could be', 
-'schonell_list_4': 'appropriate', 
-'schonell_list_5': 'could', 
-'auditory_res': 'inappropriate', 
-'2_referral': 'Department of\n          Special Education (DSE)of his school', 
-'school': 'St. Andrews School, Keesara,\n          Hyderabad, Telangana', 
-'complaints': 'fear of exams, low academic performance and selective social interaction. He has been\n          availing remedial support from DSE of his school.', 
-'languages': 'Telugu & Hindi', 
-'2_qualities': 'well oriented and was\n          motivated', 
-'2_response': 'slow and needed more time', 
-'final_review': 'There is a discrepancy of above 24 points\n        between the two scale scores, suggestive of presence of learning difficulty. He might exhibit difficulties in\n        the\n        areas of, visual discrimination, attention to visual detail, abstract visual-perceptual ability, spatial and\n        nonverbal problem-solving, visual analysis and construction of a whole from its parts and mental planning\n        skills', 
-'final_percentile': 'below 25th', 
-'final_intelligence': 'low average', 
-'schonell_reading_handwriting': 'handwriting shows', 
-'schonell_reading_age': '12 years 6 months\n      ',
-'schonell_spelling_age': '7\n        years 5 months', 
-'schonell_summary': 'severe level of inadequacy', 
-'schonell_list_7': 'however tries to\n read letter by letter, hence takes more time\n            for reading', 
-'auditory_age': '8 years 6\n        months',
-'auditory_summary': 'appropriate', 
-'auditory_report': 'However, he makes mistakes in graded sums of multiplication, division and fractions.\n        He makes visuospatial and procedural errors in calculations', 
-'final_summary': 'with learning expression mostly as inappropriate\n        language processing and expression and\n        significant difficulty in visuo perception and processing. The profile and the observation data match with\n        profile\n        of Slow learner.', 
-'tests': [True, True, True, True, True, True], 
-'sattler_table': [[False, True, False, False, False], [False, False, True, False, False], [False, False, False, True, False], [False, False, False, False, True], [False, False, False, True, False], [False, False, True, False, False], [False, True, False, False, False]],
-'year': 0, 
-'month': 0,
-'ravens_test': 'Colour',
-'verbal_tests_average': 100, 
-'verbal_tests': ['100', '100', '100', '100', '100'], 
-'full_score': 50, 
-'performance_tests_average': 100, 
-'performance_tests': ['100', '100', '100', '100', '100']}
+1   ijkname    
 
-print(type(a['dot']))
+2   ijkgender  
 
-{'Report': ''
-, 'name': 'Sumit Mahajan'
-, 'gender': 'Male'
-, 'dot': '2012-04-23'
-, 'dob': '2021-06-23'
-, 'age': 0
-, 'informant': 'Father'
-, 'class': 'I'
-, '2_age_observation': 'appropriate'
-, '2_attention': 'could be'
-, 'appropriateness': 'appropriateness'#handwriting_1
-, 'inappropriate ': 'inappropriate '
-, 'inappropriateness ': 'inappropriateness '
-, 'schonell_list_0': 'adequate'
-, 'schonell_list_1': 'adequate'
-, 'schonell_list_2': 'adequate'
-, 'schonell_list_3': 'could be'
-, 'schonell_list_4': 'appropriate'
-, 'schonell_list_5': 'could'
-, 'auditory_res': 'appropriate'
-, 'csrfmiddlewaretoken': 'oSMXU9ZyqYNuT98ZpeEHTaz0NONauCsQI4Q0aU7QWXv1NTtopmizNa5YNUCbZOmj'
-, 'report_id': '25'
-, '': 'Submit'
-, '2_referral': 'Department of\n          Special Education (DSE)of his school'
-, 'school': 'St. Andrews School, Keesara,\n          Hyderabad, Telangana'
-, 'complaints': 'fear of exams, low academic performance and selective social interaction. He has been\n          availing remedial support from DSE of his school.'
-, 'languages': 'Telugu & Hindi'
-, '2_qualities': 'well oriented and was\n          motivated'
-, '2_response': 'slow and needed more time'
-, 'final_review': 'There is a discrepancy of above 24 points\n       
- between the two scale scores, suggestive of presence of learning difficulty. He might exhibit difficulties in\n        the\n        areas of, visual discrimination, attention to visual detail, abstract visual-perceptual ability, spatial and\n        nonverbal problem-solving, visual analysis and construction of a whole from its parts and mental planning\n        skills'
- , 'final_percentile': 'below 25th'
- , 'final_intelligence': 'low average'
- , 'schonell_reading_handwriting': 'visual attention and visual sequencing.'
- , 'schonell_reading_age': '12 years 6 months\n        '
- , 'schonell_spelling_age': '7\n          years 5 months'
- , 'schonell_summary': 'None'
- , 'schonell_list_7': 'however tries to\n              read letter by letter, hence takes more time\n              for reading'
- , 'auditory_age': '8 years 6\n          months'
- , 'auditory_summary': 'None'
- , 'auditory_report': 'However, he makes mistakes in graded sums of multiplication, division and fractions.\n          He makes visuospatial and procedural errors in calculations'
- , 'final_summary': 'with learning expression mostly as inappropriate\n        language processing and expression and\n        significant difficulty in visuo perception and processing. The profile and the observation data match with\n        profile\n        of Slow learner.'
-, 'tests': [True, True, True, True, True, True]
-, 'sattler_table': [[False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True]]
-, 'year': 0
-, 'month': 0
-, 'ravens_test': 'Colour'
-, 'appropriate ': 'appropriate '  #handwriting_1
-, 'severe_level_of_inadequacy ': 'severe level of inadequacy'
-, 'schonell_reading_handwriting_1': 'handwriting shows'
-, 'schonell_reading_handwriting_2': 'in most areas as assessed by this tool. However, He has macro letter formation and puts more pressure on paper. He writes in cursive letters and has '
-, 'schonell_reading_handwriting_3': ' pencil hold. '
-, 'verbal_tests_average': 100
-, 'verbal_tests': ['100', '100', '100', '100', '100']
-, 'full_score': 99.5
-, 'performance_tests_average': 99
-, 'performance_tests': ['99', '99', '99', '99', '99']
-, 'update_record': '0'}
+3   ijkdot     
 
-ijkappropriate=models.CharField(max_length=100,null=True)
-    ijksevere_level_of_inadequacy=models.CharField(max_length=100,null=True)
-    ijkschonell_reading_handwriting_1=models.CharField(max_length=100,null=True)
-    ijkschonell_reading_handwriting_2=models.CharField(max_length=100,null=True)
-    ijkschonell_reading_handwriting_3=models.CharField(max_length=100,null=True)
-    
+4   ijkdob     
+
+5   ijkage
+
+6   ijkinformant
+
+7   ijkclass
+
+8   ijk2_age_observation
+
+9   ijk2_attention
+
+10   ijkappropriateness
+
+11   ijkinappropriate
+
+12   ijkinappropriateness
+
+13   ijkschonell_list_0
+
+14   ijkschonell_list_1
+
+15   ijkschonell_list_2
+
+16   ijkschonell_list_3
+
+17   ijkschonell_list_4
+
+18   ijkschonell_list_5
+
+19   ijkauditory_res
+
+20   ijkreport_name
+
+21   ijk2_referral
+
+22   ijkschool
+
+23   ijkcomplaints
+
+24   ijklanguages
+
+25   ijk2_qualities
+
+26   ijk2_response
+
+27   ijkfinal_review
+
+28   ijkfinal_percentile
+
+29   ijkfinal_intelligence
+
+30   #ijkschonell_reading_handwriting
+
+31   ijkschonell_reading_age
+
+32   ijkschonell_spelling_age
+
+33   ijkschonell_summary
+
+34   ijkschonell_list_7
+
+35   ijkauditory_age
+
+36   ijkauditory_summary
+
+37   ijkauditory_report
+
+38   ijkfinal_summary
+
+39   ijktests
+
+40   ijksattler_table
+
+41   ijkyear
+
+42   ijkmonth
+
+43   ijkravens_test
+
+44   ijkverbal_tests_average
+
+45   ijkverbal_tests
+
+46   ijkfull_score
+
+47   ijkperformance_tests_average
+
+48   ijkperformance_tests
+
+49   Report
+
+50   report_name
+
+51   ijkappropriate
+
+52   ijksevere_level_of_inadequacy
+
+53   ijkschonell_reading_handwriting_1
+
+54   ijkschonell_reading_handwriting_2
+
+55   ijkschonell_reading_handwriting_3
+
+56   ijkrecommendations
+
+57   ijkrecommendations_input
+
+58   ijkdigit_vocab
