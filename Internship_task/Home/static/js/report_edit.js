@@ -66,8 +66,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const inputs = $$("main [name]");
   const data_inputs = $$("main [contenteditable]");
   const choices = $$(".test_choice");
+  const recommended = $$(".recomendate");
   const test_sections = $$(".has_tests>.test");
   // Sattler Checkoboxes
+  
   const checkboxes = $$("#sattler_table input[type=checkbox]");
   function finish(back = false) {
     const handler = back ? backButton : nextButton;
@@ -209,6 +211,20 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const recommended_initial =
+    Array.from({ length: 10 }, () => false);
+  //update_data("recommendations", recommended_initial);
+  recommended.forEach((item, i) => {
+    recommended_initial[i]=item.checked;
+    item.addEventListener("change", function () {
+      //const re = get_data("recommendations");
+      recommended_initial[i] = item.checked;
+      update_data("recommendations", recommended_initial);
+    });
+  });
+
+
+  update_data("recommendations", recommended_initial)
   // 7 rows, 5 columns
   const data = Array.from({ length: 7 }, () =>
     Array.from({ length: 5 }, () => false)
@@ -303,6 +319,7 @@ window.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem("form");
       })
       .catch((err) => {
+        localStorage.removeItem("form");
         console.log("Recheck the form, ", err);
         location.href = "/get_report/";
       });
