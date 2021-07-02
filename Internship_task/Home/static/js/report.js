@@ -26,8 +26,8 @@ function save() {
       a.textContent = this.value || this.textContent;
     });
 }
+
 function getGrade(num) {
-  // return num >= 90 && num <= 110 ? "Average" : "Borderline";
   if (num >= 130) return "Very Superior";
   else if (num >= 120 && num <= 129) return "Superior";
   else if (num >= 110 && num <= 119) return "Above average";
@@ -36,8 +36,9 @@ function getGrade(num) {
   else if (num >= 50 && num <= 69) return "Mild Intellectual Disability";
   else if (num >= 35 && num <= 49) return "Moderate";
   else if (num >= 20 && num <= 34) return "Severe";
-  else return "Profound";
+  return "Profound";
 }
+
 function digit_vocab(age) {
   const opts = $("#digit_vocab").querySelectorAll("div");
   if (age >= 11) {
@@ -65,6 +66,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const inputs = $$("main [name]");
   const data_inputs = $$("main [contenteditable]");
   const choices = $$(".test_choice");
+  const recommended = $$('.recomendate')
   const test_sections = $$(".has_tests>.test");
   // Sattler Checkoboxes
   const checkboxes = $$("#sattler_table input[type=checkbox]");
@@ -189,7 +191,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   let { tests: initial } = JSON.parse(localStorage.getItem("form"));
-  initial = [false, false, false, false, false, false];
+  initial || (initial = [false, false, false, false, false, false]);
   update_data("tests", initial);
   test_sections.forEach((s, i) => {
     if (initial[i]) s.classList.remove("hidden");
@@ -205,6 +207,18 @@ window.addEventListener("DOMContentLoaded", () => {
       update_data("tests", tests);
     });
   });
+
+  const recommended_initial = get_data('recommendations') || Array.from({length: 10}, () => false)
+  update_data('recommendations', recommended_initial)
+  recommended.forEach((item, i) => {
+    item.checked = recommended_initial[i];
+    item.addEventListener('change', function(){
+      const re = get_data('recommendations')
+      re[i] = item.checked
+      update_data('recommendations', re)
+    })
+  });
+
 
   // 7 rows, 5 columns
   const data = Array.from({ length: 7 }, () =>
