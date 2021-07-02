@@ -56,19 +56,19 @@
         assessment by<span class="input__hisher">...</span><span class="input__informant">{{value.6}}</span> with
         referral from <span contenteditable="" data-name="2_referral"
           class="input__2_referral">{{value.21}}</span>.<span class="input__heshe">...</span>is a student of class
-        <select name="class" selected={{value.7}}>
-          <option value="I">I</option>
-          <option value="II">II</option>
-          <option value="III">III</option>
-          <option value="IV">IV</option>
-          <option value="V">V</option>
-          <option value="VI">VI</option>
-          <option value="VII">VII</option>
-          <option value="VIII">VIII</option>
-          <option value="IX">IX</option>
-          <option value="X">X</option>
-          <option value="XI">XI</option>
-          <option value="XII">XII</option>
+        <select name="class" >
+          <option value="I" {% if value.7 == 'I' %} selected {% endif %}>I</option>
+          <option value="II" {% if value.7 == 'II' %} selected {% endif %}>II</option>
+          <option value="III" {% if value.7 == 'III' %} selected {% endif %}>III</option>
+          <option value="IV" {% if value.7 == 'IV' %} selected {% endif %}>IV</option>
+          <option value="V" {% if value.7 == 'V' %} selected {% endif %}>V</option>
+          <option value="VI" {% if value.7 == 'VI' %} selected {% endif %}>VI</option>
+          <option value="VII" {% if value.7 == 'VII' %} selected {% endif %}>VII</option>
+          <option value="VIII" {% if value.7 == 'VIII' %} selected {% endif %}>VIII</option>
+          <option value="IX" {% if value.7 == 'IX' %} selected {% endif %}>IX</option>
+          <option value="X" {% if value.7 == 'X' %} selected {% endif %}>X</option>
+          <option value="XI" {% if value.7 == 'XI' %} selected {% endif %}>XI</option>
+          <option value="XII" {% if value.7 == 'XII' %} selected {% endif %}>XII</option>
         </select> at <span contenteditable data-name="school">{{value.22}}</span>.<span
           class="input__heshe">...</span>was referred with complaints of
         <span contenteditable data-name="complaints">{{value.23}}</span>
@@ -77,20 +77,19 @@
       <p><span class="input__name">{{value.1}}</span> was cooperative for assessment.<span
           class="input__hisher">...</span>physical built was observed as
         age
-        <select name="2_age_observation" selected={{value.8}}>
-          <option value="appropriate">appropriate</option>
-          <option value="inappropriate">inappropriate</option>
-          <option value="adequate">adequate</option>
-          <option value="inadequate">inadequate</option>
+        <select name="2_age_observation">
+          <option value="appropriate" {% if value.8 == 'appropriate' %} selected {% endif %}>appropriate</option>
+          <option value="inappropriate" {% if value.8 == 'inappropriate' %} selected {% endif %}>inappropriate</option>
+          <option value="adequate" {% if value.8 == 'adequate' %} selected {% endif %}>adequate</option>
+          <option value="inadequate" {% if value.8 == 'inadequate' %} selected {% endif %}>inadequate</option>
         </select>. Assessment was done in a comfortable
         environment after establishing rapport.<span class="input__heshe">...</span>was able to comprehend the
         instruction in English, <span contenteditable data-name="languages">{{value.24}}</span> language, though with
         repetitions. <span class="input__name">{{value.1}}</span> was <span contenteditable
           data-name="2_qualities">{{value.25}}
-        </span> for the assessment.<span class="input__hisher">...</span>attention <select name="2_attention"
-          selected={{value.9}}>
-          <option value="could be">could be</option>
-          <option value="could not be">could not be</option>
+        </span> for the assessment.<span class="input__hisher">...</span>attention <select name="2_attention">
+          <option value="could be" {% if value.9 == 'could be' %} selected {% endif %}>could be</option>
+          <option value="could not be" {% if value.9 == 'could not be' %} selected {% endif %}>could not be</option>
         </select> aroused however sustaining the same for the required period of time required prompts in between. His
         rate of responses was <span contenteditable data-name="2_response">{{value.26}}</span> to perform a
         task given. Assessment was completed with appropriate breaks in between sessions.
@@ -143,9 +142,9 @@
           <td><input type="number" min="0" max="100" value="{{value.45.3}}"></td>
         </tr>
         <tr>
-          <td> <select id="digit" onload="this.value={{value.58}}">
-            <option value="0">Digit Span</option>
-            <option value="1">Vocabulary</option>
+          <td> <select id="digit">
+            <option value="0" {% if value.58 == '0' %} selected {% endif %}>Digit Span</option>
+            <option value="1" {% if value.58 == '1' %} selected {% endif %}>Vocabulary</option>
           </select> </td>
           <td><input type="number" min="0" max="100" value="{{value.45.4}}"></td>
         </tr>
@@ -447,22 +446,22 @@
         <p>(Penmanship Score 1- illegible to 5- Beautiful)</p>
         <p><span class="input__name"> </span> 's <span contenteditable
             data-name="schonell_reading_handwriting_1">{{value.53}}</span>
-          <select name="appropriateness" selected="{{value.11}}">
-            <option value="appropriateness">appropriateness</option>
-            <option value="inappropriateness">inappropriateness</option>
-            <option value="mild level of inadequacy">mild level of inadequacy</option>
-            <option value="moderate level of inadequacy">moderate level of inadequacy</option>
-            <option value="severe level of inadequacy">severe level of inadequacy</option>
-            <option value="profound level of inadequacy">profound level of inadequacy</option>
+          <select name="appropriateness" >
+            <option value="appropriateness" {% if value.11 == 'appropriateness' %} selected {% endif %}>appropriateness</option>
+            <option value="inappropriateness" {% if value.11 == 'inappropriateness' %} selected {% endif %}>inappropriateness</option>
+            <option value="mild level of inadequacy" {% if value.11 == 'mild level of inadequacy' %} selected {% endif %}>mild level of inadequacy</option>
+            <option value="moderate level of inadequacy" {% if value.11 == 'moderate level of inadequacy' %} selected {% endif %}>moderate level of inadequacy</option>
+            <option value="severe level of inadequacy" {% if value.11 == 'severe level of inadequacy' %} selected {% endif %}>severe level of inadequacy</option>
+            <option value="profound level of inadequacy" {% if value.11 == 'profound level of inadequacy' %} selected {% endif %}>profound level of inadequacy</option>
           </select>
 
           <span contenteditable data-name="schonell_reading_handwriting_2">{{value.54}}</span>
-          <select name="appropriate" selected="{{value.49}}">
-            <option value="appropriate ">appropriate </option>
-            <option value="inappropriate">inappropriate</option>
-            <option value="adequate">adequate</option>
-            <option value="mild level of inadequacy">mild level of inadequacy</option>
-            <option value="inadequate">inadequate</option>
+          <select name="appropriate" >
+            <option value="appropriate " {% if value.49 == 'appropriate' %} selected {% endif %}>appropriate </option>
+            <option value="inappropriate" {% if value.49 == 'inappropriate' %} selected {% endif %}>inappropriate</option>
+            <option value="adequate" {% if value.49 == 'adequate' %} selected {% endif %}>adequate</option>
+            <option value="mild level of inadequacy" {% if value.49 == 'mild level of inadequancy' %} selected {% endif %}>mild level of inadequacy</option>
+            <option value="inadequate" {% if value.49 == 'inadequate' %} selected {% endif %}>inadequate</option>
           </select>
           <span contenteditable data-name="schonell_reading_handwriting_3">{{value.55}} </span>
         </p>
@@ -476,15 +475,13 @@
           </span> , which is below<span class="input__hisher">...</span>chronological age (<span
             class="input__year">{{value.41}}</span> years <span class="input__month">{{value.42}}</span> months). This
           score shows
-          <select name="inappropriateness " selected="{{value.13}}">
-            <option value="inappropriateness ">inappropriateness </option>
-            <option value="inappropriate ">inappropriate </option>
-            <option value="appropriateness">appropriateness</option>
-            <option value="inappropriateness">inappropriateness</option>
-            <option value="mild level of inadequacy">mild level of inadequacy</option>
-            <option value="moderate level of inadequacy">moderate level of inadequacy</option>
-            <option value="severe level of inadequacy">severe level of inadequacy</option>
-            <option value="profound level of inadequacy">profound level of inadequacy</option>
+          <select name="inappropriateness " >
+            <option value="appropriateness" {% if value.13 == 'appropriateness' %} selected {% endif %}>appropriateness</option>
+            <option value="inappropriateness" {% if value.13 == 'inappropriateness' %} selected {% endif %}>inappropriateness</option>
+            <option value="mild level of inadequacy" {% if value.13 == 'mild level of inadequacy' %} selected {% endif %}>mild level of inadequacy</option>
+            <option value="moderate level of inadequacy" {% if value.13 == 'moderate level of inadequacy' %} selected {% endif %}>moderate level of inadequacy</option>
+            <option value="severe level of inadequacy" {% if value.13 == 'severe level of inadequacy' %} selected {% endif %}>severe level of inadequacy</option>
+            <option value="profound level of inadequacy" {% if value.13 == 'profound level of inadequacy' %} selected {% endif %}>profound level of inadequacy</option>
           </select> in<span class="input__hisher">...</span>word reading skills.
         </p>
       </div>
@@ -499,15 +496,15 @@
           (<span class="input__year">{{value.41}}</span>
           years <span class="input__month">{{value.42}}</span> months). This score shows
           <select name="severe_level_of_inadequacy">
-            <option value="severe level of inadequacy">severe level of inadequacy</option>
-            <option value="inappropriateness ">inappropriateness </option>
-            <option value="inappropriate ">inappropriate </option>
-            <option value="appropriateness">appropriateness</option>
-            <option value="inappropriateness">inappropriateness</option>
-            <option value="mild level of inadequacy">mild level of inadequacy</option>
-            <option value="moderate level of inadequacy">moderate level of inadequacy</option>
+            <option value="severe level of inadequacy" {% if value.47 == 'severe level of inadequacy' %} selected {% endif %}>severe level of inadequacy</option>
+            <option value="inappropriateness " {% if value.47 == 'inappropriateness' %} selected {% endif %}>inappropriateness </option>
+            <option value="inappropriate " {% if value.47 == 'inappropriate' %} selected {% endif %}>inappropriate </option>
+            <option value="appropriateness" {% if value.47 == 'appropriateness' %} selected {% endif %}>appropriateness</option>
+            <option value="inappropriateness" {% if value.47 == 'inappropriateness' %} selected {% endif %}>inappropriateness</option>
+            <option value="mild level of inadequacy" {% if value.47 == 'mild level of inadequacy' %} selected {% endif %}>mild level of inadequacy</option>
+            <option value="moderate level of inadequacy" {% if value.47 == 'moderate level of inadequacy' %} selected {% endif %}>moderate level of inadequacy</option>
 
-            <option value="profound level of inadequacy">profound level of inadequacy</option>
+            <option value="profound level of inadequacy" {% if value.47 == 'profound level of inadequacy' %} selected {% endif %}>profound level of inadequacy</option>
           </select> in<span class="input__hisher">...</span>spelling skills.
         </p>
         </p>
@@ -518,32 +515,32 @@
         <p>The qualitative analysis of Roswell-Chall shows following observations;
 
         <ul>
-          <li><span class="input__heshe">...</span> has <select name="schonell_list_0" id="" selected="{{value.14}}">
-              <option value="adequate">adequate</option>
-              <option value="inadequate">inadequate</option>
+          <li><span class="input__heshe">...</span> has <select name="schonell_list_0">
+              <option value="adequate" {% if value.14 == 'adequate' %} selected {% endif %}>adequate</option>
+              <option value="inadequate" {% if value.14 == 'inadequate' %} selected {% endif %}>inadequate</option>
             </select> knowledge of phonic sounds.</li>
-          <li><span class="input__heshe">...</span> has <select name="schonell_list_1" id="" selected="{{value.15}}">
-              <option value="adequate">adequate</option>
-              <option value="inadequate">inadequate</option>
+          <li><span class="input__heshe">...</span> has <select name="schonell_list_1">
+              <option value="adequate" {% if value.15 == 'adequate' %} selected {% endif %}>adequate</option>
+              <option value="inadequate" {% if value.15 == 'inadequate' %} selected {% endif %}>inadequate</option>
             </select> knowledge of blends.</li>
-          <li><span class="input__heshe">...</span> has <select name="schonell_list_2" id="" selected="{{value.16}}">
-              <option value="adequate">adequate</option>
-              <option value="inadequate">inadequate</option>
+          <li><span class="input__heshe">...</span> has <select name="schonell_list_2">
+              <option value="adequate" {% if value.16 == 'adequate' %} selected {% endif %}>adequate</option>
+              <option value="inadequate" {% if value.16 == 'inadequate' %} selected {% endif %}>inadequate</option>
             </select> understanding of vowel sounds.
           </li>
-          <li><span class="input__heshe">...</span> <select name="schonell_list_3" id="" selected="{{value.17}}">
-              <option value="could be"> could be</option>
-              <option value="could not be">could not be</option>
+          <li><span class="input__heshe">...</span> <select name="schonell_list_3" >
+              <option value="could be" {% if value.17 == 'could be' %} selected {% endif %}> could be</option>
+              <option value="could not be" {% if value.17 == 'could not be' %} selected {% endif %}>could not be</option>
             </select> syllabicate long and multisyllable words.
           </li>
-          <li><span class="input__heshe">...</span> has <select name="schonell_list_4" id="" selected="{{value.18}}">
-              <option value="appropriate">appropriate</option>
-              <option value="inappropriate">inappropriate</option>
+          <li><span class="input__heshe">...</span> has <select name="schonell_list_4" >
+              <option value="appropriate" {% if value.18 == 'appropriate' %} selected {% endif %}>appropriate</option>
+              <option value="inappropriate"{% if value.18 == 'inappropriate' %} selected {% endif %}>inappropriate</option>
             </select> understanding of silent ‘e’
             sounds.</li>
-          <li><span class="input__heshe">...</span> <select name="schonell_list_5" id="" selected="{{value.19}}">
-              <option value="could">could</option>
-              <option value="could not">could not</option>
+          <li><span class="input__heshe">...</span> <select name="schonell_list_5">
+              <option value="could" {% if value.19 == 'could' %} selected {% endif %}>could</option>
+              <option value="could not" {% if value.19 == 'could not' %} selected {% endif %}>could not</option>
             </select> read words and short sentences, <span contenteditable data-name="schonell_list_7">{{value.34}}
               for reading</span>.</li>
         </ul>
@@ -554,9 +551,9 @@
         <strong>Auditory Sequential Memory Test</strong>
         <p>His auditory sequential memory is found to be at <span contenteditable
             data-name="auditory_age">{{value.35}}</span> level, showing significantly
-          <select name="auditory_res" id="" selected="{{value.20}}">
-            <option value="inappropriate">inappropriate</option>
-            <option value="appropriate">appropriate</option>
+          <select name="auditory_res">
+            <option value="inappropriate" {% if value.20 == 'inappropriate' %} selected {% endif %}>inappropriate</option>
+            <option value="appropriate" {% if value.20 == 'appropriate' %} selected {% endif %}>appropriate</option>
           </select> ability in sequential memory skills with<span class="input__hisher">...</span>age level.
         </p>
       </div>
