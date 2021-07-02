@@ -39,9 +39,9 @@ function getGrade(num) {
   return "Profound";
 }
 
-function digit_vocab(age) {
+function digit_vocab() {
   const opts = $("#digit_vocab").querySelectorAll("div");
-  if (age >= 11) {
+  if (this.value == 0) {
     opts[0].classList.remove("hidden");
     opts[1].classList.add("hidden");
   } else {
@@ -49,8 +49,10 @@ function digit_vocab(age) {
     opts[1].classList.remove("hidden");
   }
   $$(".digit").forEach((ele) => {
-    ele.textContent = age >= 11 ? "Digit Span" : "Vocabulary";
+    ele.textContent = this.value == 0 ? "Digit Span" : "Vocabulary";
   });
+
+  update_data('digit_vocab', this.value)
 }
 
 function get_data(key) {
@@ -147,7 +149,6 @@ window.addEventListener("DOMContentLoaded", () => {
     update_data("month", month);
 
     raven(year);
-    digit_vocab(year);
   });
 
   $$("table[data-name]").forEach((table) => {
@@ -262,6 +263,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  $('#digit').addEventListener('change', digit_vocab);
   $("#gender").addEventListener("change", () => {
     const newgender = $("#gender").value;
     if (newgender == "Female") {
@@ -318,4 +320,5 @@ window.addEventListener("DOMContentLoaded", () => {
       });
   });
   $("[name=dob]").dispatchEvent(new Event("change"));
+  $('#digit').dispatchEvent(new Event('change'))
 });
