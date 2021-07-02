@@ -145,9 +145,8 @@ class get_report(View):
         global data
         data = json.loads(request.body)
         print(data)
-        k=['name', 'gender', 'dot', 'dob', 'age', 'informant', 'class', '2_age_observation', '2_attention', 'appropriateness', 'inappropriate ', 'inappropriateness ', 'schonell_list_0', 'schonell_list_1', 'schonell_list_2', 'schonell_list_3', 'schonell_list_4', 'schonell_list_5', 'auditory_res', 'csrfmiddlewaretoken', '', '2_referral', 'school', 'complaints', 'languages', '2_qualities', '2_response', 'final_review', 'final_percentile', 'final_intelligence', 'schonell_reading_handwriting', 'schonell_reading_age', 'schonell_spelling_age', 'schonell_summary', 'schonell_list_7', 'auditory_age', 'auditory_summary', 'auditory_report', 'final_summary', 'tests', 'sattler_table', 'year', 'month', 'ravens_test', 'verbal_tests_average', 'verbal_tests', 'full_score', 'performance_tests_average', 'performance_tests','recommendations','recommendations_input']
+        k=['name', 'gender', 'dot', 'dob', 'age', 'informant', 'class', '2_age_observation', '2_attention', 'appropriateness', 'inappropriate ', 'inappropriateness ', 'schonell_list_0', 'schonell_list_1', 'schonell_list_2', 'schonell_list_3', 'schonell_list_4', 'schonell_list_5', 'auditory_res', 'csrfmiddlewaretoken', '', '2_referral', 'school', 'complaints', 'languages', '2_qualities', '2_response', 'final_review', 'final_percentile', 'final_intelligence', 'schonell_reading_handwriting', 'schonell_reading_age', 'schonell_spelling_age', 'schonell_summary', 'schonell_list_7', 'auditory_age', 'auditory_summary', 'auditory_report', 'final_summary', 'tests', 'sattler_table', 'year', 'month', 'ravens_test', 'verbal_tests_average', 'verbal_tests', 'full_score', 'performance_tests_average', 'performance_tests','recommendations','recommendations_input','digit_vocab']
         a=list(data.keys())
-        print(a)
         for i in k:
             if i not in a:
                 data[i]=None
@@ -159,11 +158,10 @@ class get_report(View):
             data['verbal_tests'] = [0,0,0,0,0]
         
         if(data['update_record']!='0'):
-            # print(data)
+            
             x=data['update_record']
-            #print(x)
+            
             new_object=Report_Patient.objects.get(patient_id=int(x))
-            print(new_object.ijkname)
             new_object.ijkname=data['name']
             new_object.save()
             new_object=Report_Patient.objects.get(patient_id=int(x))
@@ -322,6 +320,9 @@ class get_report(View):
             new_object=Report_Patient.objects.get(patient_id=int(x))
             new_object.ijkrecommendations_input=data['recommendations_input']
             new_object.save()
+            new_object = Report_Patient.objects.get(patient_id=int(x))
+            new_object.ijkdigit_vocab=data['digit_vocab']
+            new_object.save()
         else:
             new_object=Report_Patient.objects.create(ijkname=data['name'],
                                             ijkgender=data['gender'],
@@ -376,7 +377,8 @@ class get_report(View):
                                             ijkschonell_reading_handwriting_2=data['schonell_reading_handwriting_2'],
                                             ijkschonell_reading_handwriting_3=data['schonell_reading_handwriting_3'],
                                             ijkrecommendations=data['recommendations'],
-                                            ijkrecommendations_input=data['recommendations_input']
+                                            ijkrecommendations_input=data['recommendations_input'],
+                                            ijkdigit_vocab=data['digit_vocab']
                                             )
             new_object.save()
         return JsonResponse({'status':201,"msg":"Working Correctly"})
@@ -434,7 +436,7 @@ def edit(request):
                                 obj_values[i][j][k]=''
                 
                     # print(obj_values[i])                   
-    print(obj_values)
+   
     return render(request, 'report/report_edit.html', {'key':obj_keys, 'value': obj_values})
     
 def Search_report(request) : 

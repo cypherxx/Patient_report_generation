@@ -52,7 +52,7 @@ function digit_vocab() {
     ele.textContent = this.value == 0 ? "Digit Span" : "Vocabulary";
   });
 
-  update_data('digit_vocab', this.value)
+  update_data("digit_vocab", this.value);
 }
 
 function get_data(key) {
@@ -68,7 +68,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const inputs = $$("main [name]");
   const data_inputs = $$("main [contenteditable]");
   const choices = $$(".test_choice");
-  const recommended = $$('.recomendate')
+  const recommended = $$(".recomendate");
   const test_sections = $$(".has_tests>.test");
   // Sattler Checkoboxes
   const checkboxes = $$("#sattler_table input[type=checkbox]");
@@ -209,17 +209,17 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const recommended_initial = get_data('recommendations') || Array.from({length: 10}, () => false)
-  update_data('recommendations', recommended_initial)
+  const recommended_initial =
+    get_data("recommendations") || Array.from({ length: 10 }, () => false);
+  update_data("recommendations", recommended_initial);
   recommended.forEach((item, i) => {
     item.checked = recommended_initial[i];
-    item.addEventListener('change', function(){
-      const re = get_data('recommendations')
-      re[i] = item.checked
-      update_data('recommendations', re)
-    })
+    item.addEventListener("change", function () {
+      const re = get_data("recommendations");
+      re[i] = item.checked;
+      update_data("recommendations", re);
+    });
   });
-
 
   // 7 rows, 5 columns
   const data = Array.from({ length: 7 }, () =>
@@ -263,7 +263,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  $('#digit').addEventListener('change', digit_vocab);
+  $("#digit").addEventListener("change", digit_vocab);
   $("#gender").addEventListener("change", () => {
     const newgender = $("#gender").value;
     if (newgender == "Female") {
@@ -320,5 +320,5 @@ window.addEventListener("DOMContentLoaded", () => {
       });
   });
   $("[name=dob]").dispatchEvent(new Event("change"));
-  $('#digit').dispatchEvent(new Event('change'))
+  $("#digit").dispatchEvent(new Event("change"));
 });

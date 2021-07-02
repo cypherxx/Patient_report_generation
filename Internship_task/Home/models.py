@@ -73,6 +73,7 @@ class Report_Patient(models.Model):
     ijkschonell_reading_handwriting_3=models.CharField(max_length=100,null=True)
     ijkrecommendations=models.CharField(max_length=100,null=True) 
     ijkrecommendations_input=models.CharField(max_length=100,null=True) 
+    ijkdigit_vocab = models.IntegerField()
     class Meta:
         ordering = ('-patient_id',)
 
