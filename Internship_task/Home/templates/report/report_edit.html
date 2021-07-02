@@ -143,7 +143,7 @@
           <td><input type="number" min="0" max="100" value="{{value.45.3}}"></td>
         </tr>
         <tr>
-          <td> <select id="digit" selected="{{value.58}}">
+          <td> <select id="digit" onload="this.value={{value.58}}">
             <option value="0">Digit Span</option>
             <option value="1">Vocabulary</option>
           </select> </td>
@@ -582,16 +582,16 @@
 
       </p>
       <div class="rc-initial">
-        <ul>
+        <ul style="list-style-type: none">
           <li><input type="checkbox" class="recomendate" {{value.56.0}}>Parental counseling regarding the understanding of child’s
             diagnosis and results of the tests, so as to
             accept the child and help him in a more appropriate way.</li>
           <li><input type="checkbox" class="recomendate" {{value.56.1}}>Individual counseling to learn how to cope up with academic and
             other stressful situations and build
             confidence.</li>
-          <li><input type="checkbox" class="recomendate" {{value.56.2}}>Cognitive Training to improve 
+          <li><input type="checkbox" class="recomendate" {{value.56.2}}>Cognitive Training to improve
             <span class="input__heshe">...</span> deficient cognitive skills.</li>
-          <li><input type="checkbox" class="recomendate" {{value.56.3}}>Training on study skills to improve 
+          <li><input type="checkbox" class="recomendate" {{value.56.3}}>Training on study skills to improve
             <span class="input__heshe">...</span> overall academic performance.</li>
           <li><input type="checkbox" class="recomendate" {{value.56.4}}>Remedial training to enhance <span
               class="input__heshe">...</span> attentional skills, education skills like reading, writing, spelling,

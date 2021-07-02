@@ -132,6 +132,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   $("[name=dob]").addEventListener("change", function () {
+    if(!this.valueAsDate) return;
     const today = new Date();
     let year = today.getFullYear() - this.valueAsDate.getFullYear();
     let month = today.getMonth() - this.valueAsDate.getMonth();
