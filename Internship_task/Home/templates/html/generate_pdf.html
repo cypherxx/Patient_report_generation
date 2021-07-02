@@ -176,7 +176,7 @@
                 <td>{{verbal_tests.3}}</td>
             </tr>
             <tr>
-                {% if age >= 11 %}
+                {% if digit_vocab == 0 %}
                 <td>Digit Span</td>
                 {% else %}
                 <td>Vocabulary</td>
@@ -246,11 +246,11 @@
             Similarities subtest.
             <u>{{name}} has scored {{verbal_tests.3 | Convert}} level on this subtest.</u>
         </p>
-        <p><b>{% if age >= 11 %} Digit Span - Short-term auditory memory;
+        <p><b>{% if digit_vocab == 0 %} Digit Span - Short-term auditory memory;
                 concentration and attention {% else %} Vocabulary: language development, word knowledge, verbal fluency
                 {% endif %}
             </b></p>
-        <p>{% if age >= 11 %}
+        <p>{% if digit_vocab == 0 %}
             It is included in an assessment of the factor known as Freedom from Distractibility. High
             Digit Span
             scores
@@ -650,36 +650,36 @@
         <p>From the assessments, it is recommended that {{name}} could benefit from
 
         </p>
-        <ul>
-            <li>Parental counseling regarding the understanding of child’s diagnosis and results of the tests, so as to
+        <ul style="list-style: none;">
+            <li>{% if recommendations.0 %} ✔ {% else %} ✖ {% endif %} Parental counseling regarding the understanding of child’s diagnosis and results of the tests, so as to
                 accept the child and help him in a more appropriate way.</li>
-            <li>Individual counseling to learn how to cope up with academic and other stressful situations and build
+            <li>{% if recommendations.1 %} ✔ {% else %} ✖ {% endif %} Individual counseling to learn how to cope up with academic and other stressful situations and build
                 confidence.</li>
-            <li>Cognitive Training to improve {% if gender == 'Male' %}
+            <li>{% if recommendations.2 %} ✔ {% else %} ✖ {% endif %} Cognitive Training to improve {% if gender == 'Male' %}
                 his
                 {% else %}
                 her
                 {% endif %} deficient cognitive skills.</li>
-            <li>Training on study skills to improve {% if gender == 'Male' %}
+            <li>{% if recommendations.3 %} ✔ {% else %} ✖ {% endif %} Training on study skills to improve {% if gender == 'Male' %}
                 his
                 {% else %}
                 her
                 {% endif %} overall academic performance.</li>
-            <li>Remedial training to enhance {% if gender == 'Male' %}
+            <li>{% if recommendations.4 %} ✔ {% else %} ✖ {% endif %} Remedial training to enhance {% if gender == 'Male' %}
                 his
                 {% else %}
                 her
                 {% endif %} attentional skills, education skills like reading, writing, spelling,
                 arithmetic skills and facilitate rate of expression</li>
-            <li>Academic planning based on assessment results.</li>
-            <li>Demeaning comments about {% if gender == 'Male' %}
+            <li>{% if recommendations.5 %} ✔ {% else %} ✖ {% endif %} Academic planning based on assessment results.</li>
+            <li>{% if recommendations.6 %} ✔ {% else %} ✖ {% endif %} Demeaning comments about {% if gender == 'Male' %}
                 his
                 {% else %}
                 her
                 {% endif %} performance should be altered with productive feedback.</li>
-            <li>Periodic review of intervention program with adequate modifications to be made from time to time and to
+            <li>{% if recommendations.7 %} ✔ {% else %} ✖ {% endif %} Periodic review of intervention program with adequate modifications to be made from time to time and to
                 work on appropriate transfer of learning</li>
-            <li>An orientation to teachers about the results of assessment to provide suitable accommodations and
+            <li>{% if recommendations.8 %} ✔ {% else %} ✖ {% endif %} An orientation to teachers about the results of assessment to provide suitable accommodations and
                 appropriate classroom modifications like,<p>
                 <ul>
                     <li>extra t ime to complete {% if gender == 'Male' %}
@@ -699,7 +699,7 @@
                 </ul>
                 </p>
             </li>
-            <li>
+            <li>{% if recommendations.9 %} ✔ {% else %} ✖ {% endif %} 
                 {% if gender == 'Male' %}
                 He
                 {% else %}
@@ -723,6 +723,7 @@
                 </ul>
                 </p>
             </li>
+            <li>{{recommendations_input}}</li>
         </ul>
 
 

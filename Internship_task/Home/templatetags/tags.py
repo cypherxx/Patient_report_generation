@@ -9,4 +9,12 @@ def Average(grade_list):
 @register.filter
 def Convert(string):
     convert = int(string)
-    return ('borderline' if convert < 90 else 'average')
+    if (convert >= 130) :  return "Very Superior";
+    elif (convert >= 120 ) :  return "Superior";
+    elif (convert >= 110 ) :  return "Above average";
+    elif (convert >= 85 ) :  return "Average";
+    elif (convert >= 70 ) :  return "Borderline";
+    elif (convert >= 50 ) :  return "Mild Intellectual Disability";
+    elif (convert >= 35 ) :  return "Moderate";
+    elif (convert >= 20 ) :  return "Severe";
+    return "Profound"
