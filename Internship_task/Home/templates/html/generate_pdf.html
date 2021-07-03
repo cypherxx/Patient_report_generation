@@ -176,7 +176,7 @@
                 <td>{{verbal_tests.3}}</td>
             </tr>
             <tr>
-                {% if digit_vocab == 0 %}
+                {% if digit_vocab == '0' %}
                 <td>Digit Span</td>
                 {% else %}
                 <td>Vocabulary</td>
@@ -246,11 +246,11 @@
             Similarities subtest.
             <u>{{name}} has scored {{verbal_tests.3 | Convert}} level on this subtest.</u>
         </p>
-        <p><b>{% if digit_vocab == 0 %} Digit Span - Short-term auditory memory;
+        <p><b>{% if digit_vocab == '0' %} Digit Span - Short-term auditory memory;
                 concentration and attention {% else %} Vocabulary: language development, word knowledge, verbal fluency
                 {% endif %}
             </b></p>
-        <p>{% if digit_vocab == 0 %}
+        <p>{% if digit_vocab == '0' %}
             It is included in an assessment of the factor known as Freedom from Distractibility. High
             Digit Span
             scores
