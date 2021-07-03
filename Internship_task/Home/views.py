@@ -431,7 +431,7 @@ def edit(request):
                             obj_values[i][j]=''
                     # print(obj_values[i])
                 elif(flag==2):
-                    print(obj_values[i])
+                    #print(obj_values[i])
                     for j in range(0,len(obj_values[i])):
                         for k in range(0,5):
                             if obj_values[i][j][k]==True:
@@ -439,15 +439,16 @@ def edit(request):
                             else:
                                 obj_values[i][j][k]=''
                 
-                    # print(obj_values[i])
+                    print(obj_values[i])
     zz=0
     for kk in obj_keys:
         
-        print(zz," ",kk,"\n")
+        #print(zz," ",kk,"\n")
         zz+=1
 
     return render(request, 'report/report_edit.html', {'key':obj_keys, 'value': obj_values})
     
+
 def Search_report(request) : 
     if request.method == 'GET':
         if 'term' in request.GET:
@@ -469,6 +470,7 @@ def Search_report(request) :
         Url = f"{request.scheme}://{request.get_host()}/media/"
         return render(request, 'html/index.html',{'p':l,'u':Url})
         
+
 def delete_report(request,pk):
 
     report = Report_Patient.objects.get(pk=pk)
