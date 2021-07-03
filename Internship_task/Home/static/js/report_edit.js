@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const recommended = $$(".recomendate");
   const test_sections = $$(".has_tests>.test");
   // Sattler Checkoboxes
-  
+
   const checkboxes = $$("#sattler_table input[type=checkbox]");
   function finish(back = false) {
     const handler = back ? backButton : nextButton;
@@ -134,7 +134,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   $("[name=dob]").addEventListener("change", function () {
-    if(!this.valueAsDate) return;
+    if (!this.valueAsDate) return;
     const today = new Date();
     let year = today.getFullYear() - this.valueAsDate.getFullYear();
     let month = today.getMonth() - this.valueAsDate.getMonth();
@@ -211,11 +211,10 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const recommended_initial =
-    Array.from({ length: 10 }, () => false);
+  const recommended_initial = Array.from({ length: 10 }, () => false);
   //update_data("recommendations", recommended_initial);
   recommended.forEach((item, i) => {
-    recommended_initial[i]=item.checked;
+    recommended_initial[i] = item.checked;
     item.addEventListener("change", function () {
       //const re = get_data("recommendations");
       recommended_initial[i] = item.checked;
@@ -223,8 +222,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
-  update_data("recommendations", recommended_initial)
+  update_data("recommendations", recommended_initial);
   // 7 rows, 5 columns
   const data = Array.from({ length: 7 }, () =>
     Array.from({ length: 5 }, () => false)
