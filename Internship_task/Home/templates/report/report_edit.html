@@ -142,9 +142,9 @@
           <td><input type="number" min="0" max="100" value="{{value.45.3}}"></td>
         </tr>
         <tr>
-          <td> <select id="digit">
-            <option value="0" {% if value.58 == '0' %} selected {% endif %}>Digit Span</option>
-            <option value="1" {% if value.58 == '1' %} selected {% endif %}>Vocabulary</option>
+          <td> <select id="digit" onload="this.value={{value.58}};this.dispatchEvent(new Event('click'))">
+            <option value="0">Digit Span</option>
+            <option value="1">Vocabulary</option>
           </select> </td>
           <td><input type="number" min="0" max="100" value="{{value.45.4}}"></td>
         </tr>
