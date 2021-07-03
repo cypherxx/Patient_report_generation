@@ -652,7 +652,11 @@
         </p>
         <ul style="list-style-type: none;">
             <li>{% if recommendations.0 %} ✔ {% else %} ✖ {% endif %} Parental counseling regarding the understanding of child’s diagnosis and results of the tests, so as to
-                accept the child and help him in a more appropriate way.</li>
+                accept the child and help {% if gender == 'Male' %}
+                him
+                {% else %}
+                her
+                {% endif %} in a more appropriate way.</li>
             <li>{% if recommendations.1 %} ✔ {% else %} ✖ {% endif %} Individual counseling to learn how to cope up with academic and other stressful situations and build
                 confidence.</li>
             <li>{% if recommendations.2 %} ✔ {% else %} ✖ {% endif %} Cognitive Training to improve {% if gender == 'Male' %}
@@ -713,7 +717,15 @@
                         {% else %}
                         her
                         {% endif %} examinations</li>
-                    <li>to read out questions to him as and when required by him</li>
+                    <li>to read out questions to {% if gender == 'Male' %}
+                him
+                {% else %}
+                her
+                {% endif %} as and when required by {% if gender == 'Male' %}
+                him
+                {% else %}
+                her
+                {% endif %}</li>
                     <li>spelling errors to be overlooked for content</li>
                     <li>provide distraction free environment to write {% if gender == 'Male' %}
                         his

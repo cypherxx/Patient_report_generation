@@ -143,8 +143,13 @@
         </tr>
         <tr>
           <td> <select id="digit">
+<<<<<<< Updated upstream
             <option value="0" {% if value.58 == 0 %} selected {% endif %}>Digit Span</option>
             <option value="1" {% if value.58 == 1 %} selected {% endif %}>Vocabulary</option>
+=======
+            <option value=0 {% if value.58 == 0 %} selected {% endif %}>Digit Span</option>
+            <option value=1 {% if value.58 == 1 %} selected {% endif %}>Vocabulary</option>
+>>>>>>> Stashed changes
           </select> </td>
           <td><input type="number" min="0" max="100" value="{{value.45.4}}"></td>
         </tr>
@@ -470,7 +475,7 @@
         <strong textalign="left">
           <li>Schonell’s Graded Word reading Test </li>
         </strong>
-        <p>His reading age as found on this test is <span contenteditable data-name="schonell_reading_age">{{value.31}}
+        <p><span class="input__hisher">...</span>reading age as found on this test is <span contenteditable data-name="schonell_reading_age">{{value.31}}
           </span> , which is below<span class="input__hisher">...</span>chronological age (<span
             class="input__year">{{value.41}}</span> years <span class="input__month">{{value.42}}</span> months). This
           score shows
@@ -548,7 +553,7 @@
 
       <div class="test hidden">
         <strong>Auditory Sequential Memory Test</strong>
-        <p>His auditory sequential memory is found to be at <span contenteditable
+        <p><span class="input__hisher">...</span> auditory sequential memory is found to be at <span contenteditable
             data-name="auditory_age">{{value.35}}</span> level, showing significantly
           <select name="auditory_res">
             <option value="inappropriate" {% if value.19 == 'inappropriate' %} selected {% endif %}>inappropriate</option>
@@ -585,7 +590,7 @@
         <ul style="list-style-type: none">
           <li><input type="checkbox" class="recomendate" {{value.56.0}}>Parental counseling regarding the understanding of child’s
             diagnosis and results of the tests, so as to
-            accept the child and help him in a more appropriate way.</li>
+            accept the child and help <span class="input__himher">...</span> in a more appropriate way.</li>
           <li><input type="checkbox" class="recomendate" {{value.56.1}}>Individual counseling to learn how to cope up with academic and
             other stressful situations and build
             confidence.</li>
@@ -621,7 +626,7 @@
             <p>
             <ul>
               <li>extra time to write all <span class="input__hisher">...</span> examinations</li>
-              <li>to read out questions to him as and when required by him</li>
+              <li>to read out questions to <span class="input__himher">...</span> as and when required by <span class="input__himher">...</span></li>
               <li>spelling errors to be overlooked for content</li>
               <li>provide distraction free environment to write <span class="input__hisher">...</span> exams</li>
             </ul>
