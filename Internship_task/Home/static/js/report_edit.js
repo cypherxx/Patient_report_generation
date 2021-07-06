@@ -211,7 +211,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const recommended_initial = Array.from({ length: 10 }, () => false);
+  const recommended_initial = Array.from({ length: 12 }, () => false);
   //update_data("recommendations", recommended_initial);
   recommended.forEach((item, i) => {
     recommended_initial[i] = item.checked;

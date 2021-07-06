@@ -56,7 +56,7 @@
 
         <div class="column"
             style="flex: 50%; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 16px">
-            
+
             <p><b>Gender: <b id="gender">{{gender}}</b></b></p>
             <p><b>Age: {{age}}</b></p>
             <p><b>Informant: {{informant}}</b></p>
@@ -651,39 +651,43 @@
 
         </p>
         <ul style="list-style-type: none;">
-            <li>{% if recommendations.0 %} ✔ {% else %} ✖ {% endif %} Parental counseling regarding the understanding of child’s diagnosis and results of the tests, so as to
+            <li>{% if recommendations.0 %} Parental counseling regarding the understanding of child’s diagnosis and
+                results of the tests, so as to
                 accept the child and help {% if gender == 'Male' %}
                 him
                 {% else %}
                 her
-                {% endif %} in a more appropriate way.</li>
-            <li>{% if recommendations.1 %} ✔ {% else %} ✖ {% endif %} Individual counseling to learn how to cope up with academic and other stressful situations and build
-                confidence.</li>
-            <li>{% if recommendations.2 %} ✔ {% else %} ✖ {% endif %} Cognitive Training to improve {% if gender == 'Male' %}
+                {% endif %} in a more appropriate way.{% endif %}</li>
+            <li>{% if recommendations.1 %} Individual counseling to learn how to cope up with academic and other
+                stressful situations and build
+                confidence. {% endif %} </li>
+            <li>{% if recommendations.2 %} Cognitive Training to improve {% if gender == 'Male' %}
                 his
                 {% else %}
                 her
-                {% endif %} deficient cognitive skills.</li>
-            <li>{% if recommendations.3 %} ✔ {% else %} ✖ {% endif %} Training on study skills to improve {% if gender == 'Male' %}
+                {% endif %} deficient cognitive skills. {% endif %}</li>
+            <li>{% if recommendations.3 %}Training on study skills to improve {% if gender == 'Male' %}
                 his
                 {% else %}
                 her
-                {% endif %} overall academic performance.</li>
-            <li>{% if recommendations.4 %} ✔ {% else %} ✖ {% endif %} Remedial training to enhance {% if gender == 'Male' %}
+                {% endif %} overall academic performance. {% endif %} </li>
+            <li>{% if recommendations.4 %}Remedial training to enhance {% if gender == 'Male' %}
                 his
                 {% else %}
                 her
                 {% endif %} attentional skills, education skills like reading, writing, spelling,
-                arithmetic skills and facilitate rate of expression</li>
-            <li>{% if recommendations.5 %} ✔ {% else %} ✖ {% endif %} Academic planning based on assessment results.</li>
-            <li>{% if recommendations.6 %} ✔ {% else %} ✖ {% endif %} Demeaning comments about {% if gender == 'Male' %}
+                arithmetic skills and facilitate rate of expression {% endif %} </li>
+            <li>{% if recommendations.5 %} Academic planning based on assessment results. {% endif %}</li>
+            <li>{% if recommendations.6 %} Demeaning comments about {% if gender == 'Male' %}
                 his
                 {% else %}
                 her
-                {% endif %} performance should be altered with productive feedback.</li>
-            <li>{% if recommendations.7 %} ✔ {% else %} ✖ {% endif %} Periodic review of intervention program with adequate modifications to be made from time to time and to
-                work on appropriate transfer of learning</li>
-            <li>{% if recommendations.8 %} ✔ {% else %} ✖ {% endif %} An orientation to teachers about the results of assessment to provide suitable accommodations and
+                {% endif %} performance should be altered with productive feedback.{% endif %}</li>
+            <li>{% if recommendations.7 %} Periodic review of intervention program with adequate modifications to be
+                made from time to time and to
+                work on appropriate transfer of learning {% endif %}</li>
+            <li>{% if recommendations.8 %} An orientation to teachers about the results of assessment to provide
+                suitable accommodations and
                 appropriate classroom modifications like,<p>
                 <ul>
                     <li>extra t ime to complete {% if gender == 'Male' %}
@@ -701,10 +705,9 @@
                         functioning.
                     </li>
                 </ul>
-                </p>
+                </p> {% endif %}
             </li>
-            <li>{% if recommendations.9 %} ✔ {% else %} ✖ {% endif %} 
-                {% if gender == 'Male' %}
+            <li>{% if recommendations.9 %} {% if gender == 'Male' %}
                 He
                 {% else %}
                 She
@@ -718,14 +721,14 @@
                         her
                         {% endif %} examinations</li>
                     <li>to read out questions to {% if gender == 'Male' %}
-                him
-                {% else %}
-                her
-                {% endif %} as and when required by {% if gender == 'Male' %}
-                him
-                {% else %}
-                her
-                {% endif %}</li>
+                        him
+                        {% else %}
+                        her
+                        {% endif %} as and when required by {% if gender == 'Male' %}
+                        him
+                        {% else %}
+                        her
+                        {% endif %}</li>
                     <li>spelling errors to be overlooked for content</li>
                     <li>provide distraction free environment to write {% if gender == 'Male' %}
                         his
@@ -733,7 +736,27 @@
                         her
                         {% endif %} exams</li>
                 </ul>
-                </p>
+                </p> {% endif %}
+            </li>
+            <li>{% if recommendations.10 %}
+                It is also suggested to exempt {% if gender == 'Male' %}
+                him
+                {% else %}
+                her
+                {% endif %}
+                from studying difficult subjects for {% if gender == 'Male' %}
+                him
+                {% else %}
+                her
+                {% endif %} and study other alternate subjects of
+                choice provided by CBSE.
+                {% endif %}
+            </li>
+            <li>{% if recommendations.11 %}
+                These suggestions may ease the academic load and provide an
+                opportunity
+                for {{name}} to show his optimal performance.
+                {% endif %}
             </li>
             <li>{{recommendations_input}}</li>
         </ul>
@@ -742,32 +765,32 @@
 
     </div>
     <script>
-  const $ = document.querySelector.bind(document)
+        const $ = document.querySelector.bind(document)
 
-  const newgender = $("#gender").value;
-  
-  if(newgender == "Male"){
-      $(".input__heshe").innerHTML=" he ";
-      $(".input__hisher").innerHTML=" his ";
-      $(".input__boygirl").innerHTML=" boy ";
-  }else{
-    $(".input__heshe").innerHTML=" she ";
-      $(".input__hisher").innerHTML=" her ";
-      $(".input__boygirl").innerHTML=" girl ";
-  }
+        const newgender = $("#gender").value;
 
-  $('#gender').addEventListener('change', () => {
-    var newgender = $("#gender").value;
-    if(newgender == "Female"){
-      $(".input__heshe").innerHTML=" she ";
-      $(".input__hisher").innerHTML=" her ";
-      $(".input__boygirl").innerHTML=" girl ";
-    }else{
-        $(".input__heshe").innerHTML=" he ";
-      $(".input__hisher").innerHTML=" his ";
-      $(".input__boygirl").innerHTML=" boy ";
-    }
-  })
+        if (newgender == "Male") {
+            $(".input__heshe").innerHTML = " he ";
+            $(".input__hisher").innerHTML = " his ";
+            $(".input__boygirl").innerHTML = " boy ";
+        } else {
+            $(".input__heshe").innerHTML = " she ";
+            $(".input__hisher").innerHTML = " her ";
+            $(".input__boygirl").innerHTML = " girl ";
+        }
+
+        $('#gender').addEventListener('change', () => {
+            var newgender = $("#gender").value;
+            if (newgender == "Female") {
+                $(".input__heshe").innerHTML = " she ";
+                $(".input__hisher").innerHTML = " her ";
+                $(".input__boygirl").innerHTML = " girl ";
+            } else {
+                $(".input__heshe").innerHTML = " he ";
+                $(".input__hisher").innerHTML = " his ";
+                $(".input__boygirl").innerHTML = " boy ";
+            }
+        })
     </script>
 
 </body>

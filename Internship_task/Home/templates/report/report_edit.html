@@ -37,7 +37,7 @@
       <div>
         <label>Name <input type="text" name='name' value="{{value.1}}" class="editable"></label>
         <label>Gender <select name="gender" id="gender">
-            <option value="Male" {% if value.2 == 'Male' %} selected {% endif %}>Male</option>
+            <option value="Male" {% if value.2  ==  'Male' %} selected {% endif %}>Male</option>
             <option value="Female" {% if value.2 == 'Female' %} selected {% endif %}>Female</option>
           </select></label>
         <label>Date of testing <input type="date" name="dot" value="{{value.3}}"></label>
@@ -56,7 +56,7 @@
         assessment by<span class="input__hisher">...</span><span class="input__informant">{{value.6}}</span> with
         referral from <span contenteditable="" data-name="2_referral"
           class="input__2_referral">{{value.21}}</span>.<span class="input__heshe">...</span>is a student of class
-        <select name="class" >
+        <select name="class">
           <option value="I" {% if value.7 == 'I' %} selected {% endif %}>I</option>
           <option value="II" {% if value.7 == 'II' %} selected {% endif %}>II</option>
           <option value="III" {% if value.7 == 'III' %} selected {% endif %}>III</option>
@@ -143,9 +143,9 @@
         </tr>
         <tr>
           <td> <select id="digit">
-            <option value=0 {% if value.58 == 0 %} selected {% endif %}>Digit Span</option>
-            <option value=1 {% if value.58 == 1 %} selected {% endif %}>Vocabulary</option>
-          </select> </td>
+              <option value=0 {% if value.58 == 0 %} selected {% endif %}>Digit Span</option>
+              <option value=1 {% if value.58 == 1 %} selected {% endif %}>Vocabulary</option>
+            </select> </td>
           <td><input type="number" min="0" max="100" value="{{value.45.4}}"></td>
         </tr>
       </table>
@@ -344,7 +344,7 @@
       <strong>Mazes- Mental Planning Skills</strong>
       <p>Mazes show the ability of mental planning, insight and attention to instructions of the child. It is a good
         measure of visuo-motor coordination with accuracy and speed. Here also<span class="input__heshe">...</span>has
-        scored at borderline level.
+        scored at <span class="input__performance_tests_4"></span> level.
       </p>
       <p>Overall,<span class="input__name">{{value.1}}</span>’s Full-Scale Intelligence Quotient is <span
           class="full_score">...</span> which indicate low average intellectual functioning. His
@@ -446,17 +446,20 @@
         <p>(Penmanship Score 1- illegible to 5- Beautiful)</p>
         <p><span class="input__name"> </span> 's <span contenteditable
             data-name="schonell_reading_handwriting_1">{{value.53}}</span>
-          <select name="appropriateness" >
-            <option value="appropriateness" {% if value.10 == 'appropriateness' %} selected {% endif %}>appropriateness</option>
-            <option value="inappropriateness" {% if value.10 == 'inappropriateness' %} selected {% endif %}>inappropriateness</option>
-            <option value="mild level of inadequacy" {% if value.10 == 'mild level of inadequacy' %} selected {% endif %}>mild level of inadequacy</option>
+          <select name="appropriateness">
+            <option value="appropriateness" {% if value.10 == 'appropriateness' %} selected {% endif %}>appropriateness
+            </option>
+            <option value="inappropriateness" {% if value.10 == 'inappropriateness' %} selected {% endif %}>
+              inappropriateness</option>
+            <option value="mild level of inadequacy" {% if value.10 == 'mild level of inadequacy' %} selected {% endif %}>
+              mild level of inadequacy</option>
             <option value="moderate level of inadequacy" {% if value.10 == 'moderate level of inadequacy' %} selected {% endif %}>moderate level of inadequacy</option>
             <option value="severe level of inadequacy" {% if value.10 == 'severe level of inadequacy' %} selected {% endif %}>severe level of inadequacy</option>
             <option value="profound level of inadequacy" {% if value.10 == 'profound level of inadequacy' %} selected {% endif %}>profound level of inadequacy</option>
           </select>
 
           <span contenteditable data-name="schonell_reading_handwriting_2">{{value.54}}</span>
-          <select name="appropriate" >
+          <select name="appropriate">
             <option value="appropriate " {% if value.51 == 'appropriate' %} selected {% endif %}>appropriate </option>
             <option value="inappropriate" {% if value.51 == 'inappropriate' %} selected {% endif %}>inappropriate</option>
             <option value="adequate" {% if value.51 == 'adequate' %} selected {% endif %}>adequate</option>
@@ -470,14 +473,18 @@
         <strong textalign="left">
           <li>Schonell’s Graded Word reading Test </li>
         </strong>
-        <p><span class="input__hisher">...</span>reading age as found on this test is <span contenteditable data-name="schonell_reading_age">{{value.31}}
+        <p><span class="input__hisher">...</span>reading age as found on this test is <span contenteditable
+            data-name="schonell_reading_age">{{value.31}}
           </span> , which is below<span class="input__hisher">...</span>chronological age (<span
             class="input__year">{{value.41}}</span> years <span class="input__month">{{value.42}}</span> months). This
           score shows
-          <select name="inappropriateness " >
-            <option value="appropriateness" {% if value.12 == 'appropriateness' %} selected {% endif %}>appropriateness</option>
-            <option value="inappropriateness" {% if value.12 == 'inappropriateness' %} selected {% endif %}>inappropriateness</option>
-            <option value="mild level of inadequacy" {% if value.12 == 'mild level of inadequacy' %} selected {% endif %}>mild level of inadequacy</option>
+          <select name="inappropriateness ">
+            <option value="appropriateness" {% if value.12 == 'appropriateness' %} selected {% endif %}>appropriateness
+            </option>
+            <option value="inappropriateness" {% if value.12 == 'inappropriateness' %} selected {% endif %}>
+              inappropriateness</option>
+            <option value="mild level of inadequacy" {% if value.12 == 'mild level of inadequacy' %} selected {% endif %}>
+              mild level of inadequacy</option>
             <option value="moderate level of inadequacy" {% if value.12 == 'moderate level of inadequacy' %} selected {% endif %}>moderate level of inadequacy</option>
             <option value="severe level of inadequacy" {% if value.12 == 'severe level of inadequacy' %} selected {% endif %}>severe level of inadequacy</option>
             <option value="profound level of inadequacy" {% if value.12 == 'profound level of inadequacy' %} selected {% endif %}>profound level of inadequacy</option>
@@ -496,11 +503,16 @@
           years <span class="input__month">{{value.42}}</span> months). This score shows
           <select name="severe_level_of_inadequacy">
             <option value="severe level of inadequacy" {% if value.52 == 'severe level of inadequacy' %} selected {% endif %}>severe level of inadequacy</option>
-            <option value="inappropriateness " {% if value.52 == 'inappropriateness' %} selected {% endif %}>inappropriateness </option>
-            <option value="inappropriate " {% if value.52 == 'inappropriate' %} selected {% endif %}>inappropriate </option>
-            <option value="appropriateness" {% if value.52 == 'appropriateness' %} selected {% endif %}>appropriateness</option>
-            <option value="inappropriateness" {% if value.52 == 'inappropriateness' %} selected {% endif %}>inappropriateness</option>
-            <option value="mild level of inadequacy" {% if value.52 == 'mild level of inadequacy' %} selected {% endif %}>mild level of inadequacy</option>
+            <option value="inappropriateness " {% if value.52 == 'inappropriateness' %} selected {% endif %}>
+              inappropriateness </option>
+            <option value="inappropriate " {% if value.52 == 'inappropriate' %} selected {% endif %}>inappropriate
+            </option>
+            <option value="appropriateness" {% if value.52 == 'appropriateness' %} selected {% endif %}>appropriateness
+            </option>
+            <option value="inappropriateness" {% if value.52 == 'inappropriateness' %} selected {% endif %}>
+              inappropriateness</option>
+            <option value="mild level of inadequacy" {% if value.52 == 'mild level of inadequacy' %} selected {% endif %}>
+              mild level of inadequacy</option>
             <option value="moderate level of inadequacy" {% if value.52 == 'moderate level of inadequacy' %} selected {% endif %}>moderate level of inadequacy</option>
 
             <option value="profound level of inadequacy" {% if value.52 == 'profound level of inadequacy' %} selected {% endif %}>profound level of inadequacy</option>
@@ -527,14 +539,15 @@
               <option value="inadequate" {% if value.15 == 'inadequate' %} selected {% endif %}>inadequate</option>
             </select> understanding of vowel sounds.
           </li>
-          <li><span class="input__heshe">...</span> <select name="schonell_list_3" >
+          <li><span class="input__heshe">...</span> <select name="schonell_list_3">
               <option value="could be" {% if value.16 == 'could be' %} selected {% endif %}> could be</option>
               <option value="could not be" {% if value.16 == 'could not be' %} selected {% endif %}>could not be</option>
             </select> syllabicate long and multisyllable words.
           </li>
-          <li><span class="input__heshe">...</span> has <select name="schonell_list_4" >
+          <li><span class="input__heshe">...</span> has <select name="schonell_list_4">
               <option value="appropriate" {% if value.17 == 'appropriate' %} selected {% endif %}>appropriate</option>
-              <option value="inappropriate"{% if value.17 == 'inappropriate' %} selected {% endif %}>inappropriate</option>
+              <option value="inappropriate" {% if value.17 == 'inappropriate' %} selected {% endif %}>inappropriate
+              </option>
             </select> understanding of silent ‘e’
             sounds.</li>
           <li><span class="input__heshe">...</span> <select name="schonell_list_5">
@@ -560,11 +573,11 @@
       <div class="test hidden">
         <strong>Nimhans SLD Index- Arithmetic test</strong>
         <p><span class="input__name">{{value.1}}</span> has <select name="auditory_summary" id="">
-              <option value="appropriate" {% if value.36 == 'appropriate' %} selected {% endif %}>appropriate</option>
-              <option value="inappropriate" {% if value.36 == 'inappropriate' %} selected {% endif %}>inappropriate</option>
-              <option value="adequate" {% if value.36 == 'adequate' %} selected {% endif %}>adequate</option>
-              <option value="inadequate" {% if value.36 == 'inadequate' %} selected {% endif %}>inadequate</option>
-            </select>
+            <option value="appropriate" {% if value.36 == 'appropriate' %} selected {% endif %}>appropriate</option>
+            <option value="inappropriate" {% if value.36 == 'inappropriate' %} selected {% endif %}>inappropriate</option>
+            <option value="adequate" {% if value.36 == 'adequate' %} selected {% endif %}>adequate</option>
+            <option value="inadequate" {% if value.36 == 'inadequate' %} selected {% endif %}>inadequate</option>
+          </select>
           ability to perform basic operations of addition, subtraction, multiplication and division <span
             contenteditable data-name="auditory_report">{{value.37}}</span>.</p>
       </div>
@@ -578,31 +591,39 @@
     </section>
     <section>
       <p><b><u>Recommendations</u></b></p>
-      <p>From the assessments, it is recommended that {{name}} could benefit from
+      <p>From the assessments, it is recommended that <span class="input__name">{{value.1}}</span> could benefit from
 
       </p>
       <div class="rc-initial">
         <ul style="list-style-type: none">
-          <li><input type="checkbox" class="recomendate" {{value.56.0}}>Parental counseling regarding the understanding of child’s
+          <li><input type="checkbox" class="recomendate" {{value.56.0}}>Parental counseling regarding the understanding
+            of child’s
             diagnosis and results of the tests, so as to
             accept the child and help <span class="input__himher">...</span> in a more appropriate way.</li>
-          <li><input type="checkbox" class="recomendate" {{value.56.1}}>Individual counseling to learn how to cope up with academic and
+          <li><input type="checkbox" class="recomendate" {{value.56.1}}>Individual counseling to learn how to cope up
+            with academic and
             other stressful situations and build
             confidence.</li>
           <li><input type="checkbox" class="recomendate" {{value.56.2}}>Cognitive Training to improve
-            <span class="input__heshe">...</span> deficient cognitive skills.</li>
+            <span class="input__heshe">...</span> deficient cognitive skills.
+          </li>
           <li><input type="checkbox" class="recomendate" {{value.56.3}}>Training on study skills to improve
-            <span class="input__heshe">...</span> overall academic performance.</li>
+            <span class="input__heshe">...</span> overall academic performance.
+          </li>
           <li><input type="checkbox" class="recomendate" {{value.56.4}}>Remedial training to enhance <span
               class="input__heshe">...</span> attentional skills, education skills like reading, writing, spelling,
             arithmetic skills and facilitate rate of expression</li>
-          <li><input type="checkbox" class="recomendate" {{value.56.5}}>Academic planning based on assessment results.</li>
-          <li><input type="checkbox" class="recomendate" {{value.56.6}}>Demeaning comments about <span class="input__heshe">...</span>
+          <li><input type="checkbox" class="recomendate" {{value.56.5}}>Academic planning based on assessment results.
+          </li>
+          <li><input type="checkbox" class="recomendate" {{value.56.6}}>Demeaning comments about <span
+              class="input__heshe">...</span>
             performance should be altered with productive feedback.</li>
-          <li><input type="checkbox" class="recomendate" {{value.56.7}}>Periodic review of intervention program with adequate
+          <li><input type="checkbox" class="recomendate" {{value.56.7}}>Periodic review of intervention program with
+            adequate
             modifications to be made from time to time and to
             work on appropriate transfer of learning</li>
-          <li><input type="checkbox" class="recomendate" {{value.56.8}}>An orientation to teachers about the results of assessment to
+          <li><input type="checkbox" class="recomendate" {{value.56.8}}>An orientation to teachers about the results of
+            assessment to
             provide suitable accommodations and
             appropriate classroom modifications like,<p>
             <ul>
@@ -621,17 +642,29 @@
             <p>
             <ul>
               <li>extra time to write all <span class="input__hisher">...</span> examinations</li>
-              <li>to read out questions to <span class="input__himher">...</span> as and when required by <span class="input__himher">...</span></li>
+              <li>to read out questions to <span class="input__himher">...</span> as and when required by <span
+                  class="input__himher">...</span></li>
               <li>spelling errors to be overlooked for content</li>
               <li>provide distraction free environment to write <span class="input__hisher">...</span> exams</li>
             </ul>
             </p>
           </li>
-
+          <li>
+            <input type="checkbox" class="recomendate" {{value.56.10}}>It is also suggested to exempt <span
+              class="input__himher">...</span> from
+            studying difficult subjects for <span class="input__himher">...</span> and study other alternate subjects of
+            choice
+            provided by CBSE.
+          </li>
+          <li>
+            <input type="checkbox" class="recomendate" {{value.56.11}}>These suggestions may ease the academic load and provide an
+            opportunity for
+            <span class="input__name">{{value.1}}</span> to show his optimal performance.
+          </li>
         </ul>
-        <input type="text" name="recommendations_input" placeholder="Type recommendations" value="{{value.57}}" contenteditable>
+        <input type="text" name="recommendations_input" placeholder="Type recommendations" value="{{value.57}}"
+          contenteditable>
       </div>
-
     </section>
     <section>
       <button id="submit" value={{value.0}}>Submit Report</button>
