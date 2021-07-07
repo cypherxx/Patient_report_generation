@@ -210,7 +210,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   const recommended_initial =
-    get_data("recommendations") || Array.from({ length: 10 }, () => false);
+    get_data("recommendations") || Array.from({ length: 12 }, () => false);
   update_data("recommendations", recommended_initial);
   recommended.forEach((item, i) => {
     item.checked = recommended_initial[i];
@@ -239,6 +239,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const x = $$(".input__heshe");
     const y = $$(".input__hisher");
     const z = $$(".input__boygirl");
+    const p = $$(".input__himher");
     for (var i = 0; i < x.length; i++) {
       x[i].innerHTML = " he ";
     }
@@ -248,10 +249,14 @@ window.addEventListener("DOMContentLoaded", () => {
     for (var i = 0; i < z.length; i++) {
       z[i].innerHTML = " boy ";
     }
+    for (var i = 0; i < p.length; i++) {
+      p[i].innerHTML = " him ";
+    }
   } else {
     const x = $$(".input__heshe");
     const y = $$(".input__hisher");
     const z = $$(".input__boygirl");
+    const p = $$(".input__himher");
     for (var i = 0; i < x.length; i++) {
       x[i].innerHTML = " she ";
     }
@@ -260,6 +265,9 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     for (var i = 0; i < z.length; i++) {
       z[i].innerHTML = " girl ";
+    }
+    for (var i = 0; i < p.length; i++) {
+      p[i].innerHTML = " her ";
     }
   }
 
@@ -270,6 +278,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const x = $$(".input__heshe");
       const y = $$(".input__hisher");
       const z = $$(".input__boygirl");
+      const p = $$(".input__himher");
       for (var i = 0; i < x.length; i++) {
         x[i].innerHTML = " she ";
       }
@@ -279,10 +288,14 @@ window.addEventListener("DOMContentLoaded", () => {
       for (var i = 0; i < z.length; i++) {
         z[i].innerHTML = " girl ";
       }
+      for (var i = 0; i < p.length; i++) {
+        p[i].innerHTML = " her ";
+      }
     } else {
       const x = $$(".input__heshe");
       const y = $$(".input__hisher");
       const z = $$(".input__boygirl");
+      const p = $$(".input__himher");
       for (var i = 0; i < x.length; i++) {
         x[i].innerHTML = " he ";
       }
@@ -291,6 +304,9 @@ window.addEventListener("DOMContentLoaded", () => {
       }
       for (var i = 0; i < z.length; i++) {
         z[i].innerHTML = " boy ";
+      }
+      for (var i = 0; i < p.length; i++) {
+        p[i].innerHTML = " him ";
       }
     }
   });
